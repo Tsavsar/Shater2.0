@@ -7,7 +7,7 @@ export const mena = localFont({
 })
 
 export const p22 = localFont({
-  src: './fonts/Fontspring-DEMO-P22Mackinac-Medium.woff2',
+  src: './fonts/Fontspring-DEMO-P22MackinacProBook.woff2',
   display: 'swap',
   variable: '--font-p22'
 })

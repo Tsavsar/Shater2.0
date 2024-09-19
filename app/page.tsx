@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Navbar from './components/Navbar';
 import Image from 'next/image';
 import Footer from './components/Footer';
+import Projects from './components/Projects';
 
 export default function Home() {
 	return (
@@ -64,7 +65,7 @@ export default function Home() {
 					ideas into intuitive interfaces.as into intuitive interfaces.
 				</p>
 
-				<div className="flex items-center gap-4">
+				<div className="flex pb-10 items-center gap-4">
 					<div className="menu">
 						<Image src="/images/menu.svg" alt="Menu" width={16} height={16} />
 						Menu
@@ -84,7 +85,8 @@ export default function Home() {
 					</div>
 				</div>
 
-        <p className='f-satoshi py-10 text-[#464229]'>A collection of projects I’ve worked on in the process of learning and improving as a designer and to also show my ability to solve issues with design.</p>
+        <Projects/>
+
 			</main>
 		</section>
       <Footer/>
