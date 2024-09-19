@@ -3,23 +3,72 @@
 @tailwind utilities;
 
 :root {
-
+  --border-2: 2px solid #F5F3F0;;
+  --btn-bg: #F0EEE8;
+  --border-radius: 34px;
+  --gap-6: 6px;
 }
-
 
 body {
   font-family: var(--font-mena);
-  /* font-family: Arial, Helvetica, sans-serif; */
+  background-color: #F9F8F6;
 }
 
-.responsive-layout{
+.f-p22{
+  font-family: var(--font-p22);
+}
+.f-satoshi{
+  font-family: var(--font-satoshi);
+}
+
+.identity li{
+  color: #464229;
+}
+
+.divider{
+  height: 18px;
+  width: 1px;
+  background-color: #F0EEE8;
+  border-radius: 24px;
+}
+
+.responsive{
   width: 90%; 
   margin: 0 auto;
 }
 
+.utility-links li a{
+  border: 2px solid #F5F3F0;
+  background-color: #F0EEE8;
+  padding: 6px 16px;
+  border-radius: 34px;
+  display: flex;
+  gap: 6px;
+}
+.menu{
+  border: 2px solid #F5F3F0;
+  background-color: #F0EEE8;
+  padding: 6px 16px;
+  border-radius: 34px;
+  display: flex;
+  gap: 6px;
+  width: max-content;
+}
+
+.slant-divider{
+width: 2px;
+height: 22px;
+background-color: #F0EEE8;
+transform: rotate(30deg);
+}
+
+.dropdown a{
+  color: #333333;
+  font-family: var(--font-p22);
+}
+
 @media screen and (min-width:1280px){
-  .responsive-layout{
-    width: 768px; 
-    margin: 0 auto;
+  .responsive{
+    width: 680px; 
   }
 }
