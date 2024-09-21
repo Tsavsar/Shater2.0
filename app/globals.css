@@ -24,6 +24,9 @@ body {
 .font-p22800{
   font-family: var(--font-p22800);
 }
+.f-satoshi-bold{
+  font-family: var(--font-satoshi-bold);
+}
 
 .name{
   line-height: 52.8px
@@ -54,6 +57,16 @@ body {
   word-break: break-all; /* Break long words when necessary */
 }
 
+@media screen and (min-width:768px){
+  .break-ellipsis {
+    max-width: 680px; 
+  }
+  
+}
+
+.slider img{
+  border-radius: 12px;
+}
 
 .utility-links li a{
   border: 2px solid #F5F3F0;
@@ -89,7 +102,7 @@ transform: rotate(30deg);
   line-height: 23.2px;
 }
 
-@media screen and (min-width:1280px){
+@media screen and (min-width:768px){
   .responsive{
     width: 680px; 
   }

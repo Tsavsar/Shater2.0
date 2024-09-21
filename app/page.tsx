@@ -3,8 +3,6 @@ import Navbar from './components/Navbar';
 import Image from 'next/image';
 import Footer from './components/Footer';
 import Projects from './components/Projects';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 export default function Home() {
 	return (
@@ -19,7 +17,7 @@ export default function Home() {
 					<hr className="divider" />
 					<li className="">Designer Speaker</li>
 				</ul>
-				<h1 className="py-5 text-[#19170E] text-5xl name font-p22800">
+				<h1 className="py-5 text-[#19170E] text-5xl name font-p22800 lg:w-[12ch]">
 					Mchiaga Tsavsar Shater{' '}
 				</h1>
 				{/* links */}
@@ -58,14 +56,15 @@ export default function Home() {
 						</Link>
 					</li>
 				</ul>
-				<p className="min-[375px]:w-[342px] f-satoshi font-normal text-base py-10 text-[#464229]">
+				{/* about */}
+				<p className="min-[375px]:w-[342px] md:w-auto f-satoshi font-normal text-base py-10 text-[#464229]">
 					Shater Tsavsar ( /ˈʃɑː-teɪ/ /ˈtɑːv-sɑː/ ) — product designer by day,
 					Knicks & Arsenal fan by night. Currently building Opentape, my design
 					approach focuses on solving real problems, optimizing user journeys,
 					and making every interaction seamless. I work closely with founders
 					and developers, contributing to both design and overall product
 					strategy, with strengths in user-centered design and turning complex
-					ideas into intuitive interfaces.as into intuitive interfaces.
+					ideas into intuitive interfaces.
 				</p>
 
 				<div className="flex pb-10 items-center gap-4">
@@ -92,7 +91,7 @@ export default function Home() {
 
 			</main>
 		</section>
-      {/* <Footer/> */}
+      <Footer/>
     </>
 	);
 }

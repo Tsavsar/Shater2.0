@@ -23,3 +23,9 @@ export const satoshi = localFont({
   display: 'swap',
   variable: '--font-satoshi' 
 });
+
+export const satoshiBold = localFont({
+  src: './fonts/Satoshi-Bold.woff2',
+  display: 'swap',
+  variable: '--font-satoshi-bold' 
+});
