@@ -21,8 +21,17 @@ body {
   font-family: var(--font-satoshi);
 }
 
+.font-p22800{
+  font-family: var(--font-p22800);
+}
+
+.name{
+  line-height: 52.8px
+}
+
 .identity li{
   color: #464229;
+  line-height: 19.04px
 }
 
 .divider{
@@ -37,6 +46,15 @@ body {
   margin: 0 auto;
 }
 
+.break-ellipsis {
+  max-width: 342px; /* Set your desired max width here */
+  white-space: nowrap; /* Prevent the text from wrapping onto multiple lines */
+  overflow: hidden; /* Hide any overflowed content */
+  text-overflow: ellipsis; /* Add ellipsis (...) when the text overflows */
+  word-break: break-all; /* Break long words when necessary */
+}
+
+
 .utility-links li a{
   border: 2px solid #F5F3F0;
   background-color: #F0EEE8;
@@ -45,7 +63,7 @@ body {
   display: flex;
   gap: 6px;
 }
-.menu{
+.c-menu{
   border: 2px solid #F5F3F0;
   background-color: #F0EEE8;
   padding: 6px 16px;
@@ -53,6 +71,7 @@ body {
   display: flex;
   gap: 6px;
   width: max-content;
+  align-items: center;
 }
 
 .slant-divider{
@@ -65,6 +84,9 @@ transform: rotate(30deg);
 .dropdown a{
   color: #333333;
   font-family: var(--font-p22);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 23.2px;
 }
 
 @media screen and (min-width:1280px){

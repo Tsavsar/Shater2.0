@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { mena, p22, satoshi } from "./fonts";
+import { mena, p22, satoshi, p22800 } from "./fonts";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${mena.variable} ${p22.variable} ${satoshi.variable}  antialiased`}
+        className={`${mena.variable} ${p22.variable} ${satoshi.variable} ${p22800.variable}  antialiased`}
       >
         {children}
       </body>

@@ -3,26 +3,29 @@ import Navbar from './components/Navbar';
 import Image from 'next/image';
 import Footer from './components/Footer';
 import Projects from './components/Projects';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default function Home() {
 	return (
     <>
 		<section className="responsive pt-16">
 			<Navbar />
-			<main className="pt-16">
-				<ul className="identity flex f-p22 gap-1 min-[375px]:gap-4 items-center text-[#464229] font-normal">
+			<main className="pt-24">
+				<ul className="identity f-p22 flex flex-wrap gap-2 min-[375px]:gap-[0.4rem] lg:gap-4 items-center text-[#464229] font-normal">
 					<li className="">Product Designer</li>
 					<hr className="divider" />
 					<li className="">Writer</li>
 					<hr className="divider" />
 					<li className="">Designer Speaker</li>
 				</ul>
-				<h1 className="py-5 text-[#19170E] text-5xl font-extrabold">
+				<h1 className="py-5 text-[#19170E] text-5xl name font-p22800">
 					Mchiaga Tsavsar Shater{' '}
 				</h1>
+				{/* links */}
 				<ul className="flex flex-wrap gap-4 utility-links">
 					<li>
-						<Link href="#">
+						<a href="mailto:shatermt@gmail.com">
 							<Image
 								src="/images/email.svg"
 								alt="Mail Shater"
@@ -30,7 +33,7 @@ export default function Home() {
 								height={18}
 							/>
 							shatermt@gmail.com
-						</Link>
+						</a>
 					</li>
 					<li>
 						<Link href="#">
@@ -55,7 +58,7 @@ export default function Home() {
 						</Link>
 					</li>
 				</ul>
-				<p className="f-satoshi py-10 text-[#464229]">
+				<p className="min-[375px]:w-[342px] f-satoshi font-normal text-base py-10 text-[#464229]">
 					Shater Tsavsar ( /ˈʃɑː-teɪ/ /ˈtɑːv-sɑː/ ) — product designer by day,
 					Knicks & Arsenal fan by night. Currently building Opentape, my design
 					approach focuses on solving real problems, optimizing user journeys,
@@ -66,9 +69,9 @@ export default function Home() {
 				</p>
 
 				<div className="flex pb-10 items-center gap-4">
-					<div className="menu">
-						<Image src="/images/menu.svg" alt="Menu" width={16} height={16} />
-						Menu
+					<div className="c-menu">
+						<Image className='motion-safe:animate-pulse' src="/images/menu.svg" alt="Menu" width={16} height={16} />
+						<span className='font-medium text-sm text-[#19170E]'>Menu</span>
 					</div>
             <hr className='slant-divider'/>
 					<div className="dropdown">

@@ -7,9 +7,15 @@ export const mena = localFont({
 })
 
 export const p22 = localFont({
-  src: './fonts/Fontspring-DEMO-P22MackinacProBook.woff2',
+  src: './fonts/Fontspring-DEMO-P22MackinacProBook.woff',
   display: 'swap',
   variable: '--font-p22'
+})
+
+export const p22800 = localFont({
+  src: './fonts/Mena Grotesk Black.woff2',
+  display: 'swap',
+  variable: '--font-p22800'
 })
 
 export const satoshi = localFont({
