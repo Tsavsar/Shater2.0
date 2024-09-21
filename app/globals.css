@@ -28,6 +28,13 @@ body {
   font-family: var(--font-satoshi-bold);
 }
 
+.gradient-text {
+  background: linear-gradient(90deg, #ED8796 0%, #F5A97F 18.45%, #C6A0F6 41.22%, #91D7E3 74.24%, #A6DA95 100%);
+  -webkit-background-clip: text; /* For WebKit browsers (Chrome, Safari, etc.) */
+  background-clip: text;
+  color: transparent; /* Make the text itself transparent so that only the gradient shows */
+}
+
 .name{
   line-height: 52.8px
 }
