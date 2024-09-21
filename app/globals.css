@@ -64,16 +64,14 @@ body {
   word-break: break-all; /* Break long words when necessary */
 }
 
-@media screen and (min-width:768px){
-  .break-ellipsis {
-    max-width: 680px; 
-  }
-  
-}
-
 .slider img{
   border-radius: 12px;
+  /* width: 342px;
+  /* height: 192px; */
+  /*object-fit: contain; */
 }
+
+
 
 .utility-links li a{
   border: 2px solid #F5F3F0;
@@ -113,4 +111,12 @@ transform: rotate(30deg);
   .responsive{
     width: 680px; 
   }
+
+  .break-ellipsis {
+    max-width: 680px; 
+  }
+
+  /* .slider img{
+    width: 521px;;
+  } */
 }

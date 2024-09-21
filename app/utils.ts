@@ -33,7 +33,7 @@ export const projectsData = [
     date: 'May, 2023',
     about: 'Discover our carefully crafted coffee blends, made with love and passion',
     note: 'Whether you\'re looking for a classic espresso or a specialty latte, we have something for every coffee lover at Brew Time.',
-    images: ['/images/asset.svg'],
+    images: ['/images/asset.svg', '/images/asset.svg'],
     mobile: false,
     laptop: true,
     caseStudy: true,
