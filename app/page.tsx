@@ -89,7 +89,7 @@ export default function Home() {
 
 			</main>
 		</section>
-      <Footer/>
+      {/* <Footer/> */}
     </>
 	);
 }

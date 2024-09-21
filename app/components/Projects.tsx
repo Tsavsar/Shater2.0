@@ -23,7 +23,7 @@ const Projects = () => {
       </div>
       
       <div className="flex items-center gap-4 mt-4">
-        <div className="flex">
+        <div className="hidden">
       <Image src="/images/mobile.svg" alt="Mobile design" width={18} height={18}/>
       <Image src="/images/laptop.svg" alt="Laptop design" width={18} height={18}/>
       <Image src="/images/branding.svg" alt="Branding" width={18} height={18}/>
