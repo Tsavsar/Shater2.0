@@ -6,7 +6,7 @@ const Footer = () => {
 
   return (
     <div className='pt-40'>
-      <div className=" f-satoshi">
+      <div className="c-md-responsive f-satoshi">
       <div className="flex justify-between">
         <a className='text-[#9A9A9A] font-light text-[9px] md:text-xs' href='mailto:shatermt@gmail.com'>shatermt@gmail.com</a>
         <div className='flex gap-2'>

@@ -2,7 +2,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { projectsData } from '../utils';
-import Slider from 'react-slick';
 import SimpleSlider from './Slider';
 
 const Projects = () => {
@@ -61,7 +60,7 @@ const Projects = () => {
 							</Link>
 						</div>
 
-						<div className="pt-5">
+						<div className="hidden pt-5">
 							<SimpleSlider data={item.images} />
 						</div>
 

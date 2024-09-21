@@ -111,6 +111,10 @@ transform: rotate(30deg);
   .responsive{
     width: 680px; 
   }
+  .c-md-responsive{
+    width: 680px; 
+    margin: 0 auto;
+  }
 
   .break-ellipsis {
     max-width: 680px; 

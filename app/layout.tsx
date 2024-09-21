@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
 import { mena, p22, satoshi, p22800, satoshiBold } from "./fonts";
 import "slick-carousel/slick/slick.css";
