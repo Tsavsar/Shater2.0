@@ -111,3 +111,22 @@ export const experienceData = [
     links: ['Volla Pay App', 'vollapay.com']
   },
 ]
+
+export const educationData = [
+  {
+    logo: '/images/uni.svg',
+    title: 'BSc. Computer Science',
+    date: '2019 - 2022',
+    education: 'Baze University',
+    location: 'Abuja, Nigeria.',
+    note: 'I studied computer science at Baze university in Nigeria where I started my journey as a web developer, before I transitioned into design in my final year.',
+  },
+  {
+    logo: '/images/edu.svg',
+    title: 'Legend Internship Programme',
+    date: '2021-2022',
+    education: 'Legend',
+    location: 'Abuja, Nigeria.',
+    note: 'Went through a sensitisation and training on marketing and got to work with the tech department on some in house projects where I trained on how to develop websites from the ground up.',
+  },
+]

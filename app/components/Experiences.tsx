@@ -37,7 +37,7 @@ const Experiences = () => {
 						</div>
             <div className="flex">
               <div className="hidden md:flex justify-center w-[10%] mt-5">
-              <hr className='divider-2'/>
+              <hr className='h-[129px] divider-2'/>
               </div>
               <div>
 						<p className="text-[#464229] md:w-[591px] text-base pt-4">{item.note}</p>

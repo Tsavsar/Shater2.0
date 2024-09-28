@@ -1,9 +1,13 @@
-import React from 'react'
+import React from 'react';
 
 const Recommendations = () => {
-  return (
-    <div>Recommendations</div>
-  )
-}
+	return (
+		<div className="f-satoshi">
+			<p className="font-normal text-base text-[#464229]">
+				Available on request.
+			</p>
+		</div>
+	);
+};
 
-export default Recommendations
+export default Recommendations;
