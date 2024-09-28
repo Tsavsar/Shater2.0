@@ -51,7 +51,7 @@ export default function Home() {
 							</a>
 						</li>
 						<li>
-							<Link href="#">
+							<a target='_blank' href="https://open.spotify.com/playlist/5bopKzHxH3tTAE2vt4GbQa?si=54fc1c9115d342d7">
 								<Image
 									src="/images/playlist.svg"
 									alt="Playlist"
@@ -59,7 +59,7 @@ export default function Home() {
 									height={18}
 								/>
 								Playlist
-							</Link>
+							</a>
 						</li>
 					</ul>
 					{/* about */}

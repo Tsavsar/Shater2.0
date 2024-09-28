@@ -3,8 +3,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { projectsData } from '../utils';
 import SimpleSlider from './Slider';
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 const Projects = () => {
+	const targetRef = useRef(null);
+	const { scrollYProgress } = useScroll({
+		target: targetRef
+	});
+
+	const x = useTransform(scrollYProgress, [0, 1], ['1%', '-95%']);
+
 	return (
 		<div className="f-satoshi">
 			<p className="font-normal text-base text-[#464229]">
@@ -52,19 +61,19 @@ const Projects = () => {
 								</a>
 							</div>
 						</div>
-						<p className="text-[#19170E] f-satoshi-bold text-lg pt-4">Preview</p>
+						<p className="text-[#19170E] f-satoshi-bold text-lg pt-4">
+							Preview
+						</p>
 						<div className="text-[#464229] text-sm">
 							<p className="break-ellipsis">{item.note}</p>
-							<Link className="text-[#0A231D] text-xs font-bold underline" href="#">
+							<Link
+								className="text-[#0A231D] text-xs font-bold underline"
+								href="#">
 								read more
 							</Link>
 						</div>
 
-						<div className="flex gap-4 pt-5 overflow-hidden">
-							{item.images.map((item, index) => (
-								<Card src={item} key={index}/>
-							))}
-						</div>
+						{/* <HorizontalScrollCarousel cards={item.images}/> */}
 
 						<div className="flex items-center gap-2 mt-4">
 							<div className="flex gap-2">
@@ -103,15 +112,79 @@ const Projects = () => {
 	);
 };
 
+
+const HorizontalScrollCarousel = ({cards}:{cards:any}) => {
+  const targetRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+  });
+
+  const x = useTransform(scrollYProgress, [0, 1], ["1%", "-95%"]);
+
+  return ( 
+    <section ref={targetRef} className="relative">
+      <div className="items-center overflow-hidden overflow-x-scroll">
+        <motion.div style={{ x }} className="flex">
+          {cards.map((card:any) => {
+            return <Card src={card} key={card.id} />;
+          })}
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+
 export default Projects;
 
-interface CardProps{
-	src: string
+interface CardProps {
+	src: string;
 }
-export const Card:React.FC<CardProps> = ({src}) => {
-	return (
-		<div className='relative h-[200px] min-w-[324px] flex rounded-md overflow-hidden'>
-			<Image src={src} alt='src' fill style={{objectFit: 'cover'}}/>
-		</div>
-	)
-}
+export const Card: React.FC<CardProps> = ({ src }) => {
+	//console.log(src)
+	return (<>
+	<div className="flex items-center gap-x-2">
+	<div className='relative min-w-[500px] h-[200px]'>
+	
+			<Image className='absolute inset-0 rounded-xl' fill objectFit='contain' src={src} alt={src}   />
+		
+	</div>
+	</div>
+
+  {/* <div className="relative">
+		<div className='w-[450px] h-[400px]'>
+    <Image
+      className="rounded-xl"
+      src={src}
+      alt={src}
+		fill
+			style={{objectFit: 'contain'}}
+    />
+  </div>
+</div> */}
+	</>
+	);
+};
+
+// const Card = ({ src }:{src:any}) => {
+//   return (
+//     <div
+//       key={src}
+//       className="group relative h-[450px] w-[450px] overflow-hidden bg-neutral-200"
+//     >
+//       <div
+//         style={{
+//           backgroundImage: `url(${src})`,
+//           backgroundSize: "cover",
+//           backgroundPosition: "center",
+//         }}
+//         className="absolute inset-0 z-0 transition-transform duration-300 group-hover:scale-110"
+//       ></div>
+//       <div className="absolute inset-0 z-10 grid place-content-center">
+//         <p className="bg-gradient-to-br from-white/20 to-white/0 p-8 text-6xl font-black uppercase text-white backdrop-blur-lg">
+//         src
+//         </p>
+//       </div>
+//     </div>
+//   );
+// };
