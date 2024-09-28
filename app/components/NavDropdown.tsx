@@ -74,7 +74,7 @@ const NavDropdown: React.FC<NavDropdownProps> = (props) => {
     <hr className="slant-divider" />
     {/* mobile */}
     
-    <div  onMouseLeave={props.handleMobileLeave} onMouseEnter={props.handleMobileEnter} className="md:hidden  relative">
+    <div  onMouseLeave={props.handleMobileLeave} onMouseEnter={props.handleMobileEnter} className="md:hidden cursor-pointer  relative">
     <div  className="capitalize dropdown-active flex items-center gap-4">
       {props.activeItem}
       <Image
@@ -96,7 +96,7 @@ const NavDropdown: React.FC<NavDropdownProps> = (props) => {
   </div>
   {/* desktop */}
     <div className="hidden md:flex">
-    <button  onMouseLeave={props.handleDesktopLeave} onMouseEnter={props.handleDesktopEnter}  className="relative capitalize dropdown-active flex items-center gap-4">
+    <div  onMouseLeave={props.handleDesktopLeave} onMouseEnter={props.handleDesktopEnter}  className="relative cursor-pointer capitalize dropdown-active flex items-center gap-4">
     <span>{props.activeItem}</span>
       <Image
         className=''
@@ -113,7 +113,7 @@ const NavDropdown: React.FC<NavDropdownProps> = (props) => {
       {/* <a className='dropdown-link' href="#">Education</a>
       <a className='dropdown-link' href="#">Recommendation</a> */}
       </div>
-    </button>
+    </div>
   </div>
     
   </div>

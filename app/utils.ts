@@ -1,11 +1,11 @@
 export const projectsData = [
   {
-    logo: '/images/fundify/logo.svg',
+    logo: '/images/fundify/logo.png',
     title: 'Fundify',
     date: 'February, 2024',
     about: 'Empower your finances and earn rewards with every smart move.',
     note: 'In the fast-paced world of fintech, user engagement is key. Fundify is a banking app designed for seamless transactions, utility payments, and personalized savings goals—all while enhancing user loyalty through gamification and a robust rewards system.',
-    images: ['/images/asset.svg', '/images/asset.svg'],
+    images: ['/images/fundify/desktop.png', '/images/fundify/mobile-1.png',  '/images/fundify/mobile-2.png',  '/images/fundify/mobile-3.png',  '/images/fundify/mobile-4.png',  '/images/fundify/mobile-5.png'],
     mobile: true,
     laptop:false,
     caseStudy: true,

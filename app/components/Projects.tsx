@@ -60,8 +60,10 @@ const Projects = () => {
 							</Link>
 						</div>
 
-						<div className="hidden pt-5">
-							<SimpleSlider data={item.images} />
+						<div className="flex gap-4 pt-5 overflow-hidden">
+							{item.images.map((item, index) => (
+								<Card src={item} key={index}/>
+							))}
 						</div>
 
 						<div className="flex items-center gap-2 mt-4">
@@ -102,3 +104,14 @@ const Projects = () => {
 };
 
 export default Projects;
+
+interface CardProps{
+	src: string
+}
+export const Card:React.FC<CardProps> = ({src}) => {
+	return (
+		<div className='relative h-[200px] min-w-[324px] flex rounded-md overflow-hidden'>
+			<Image src={src} alt='src' fill style={{objectFit: 'cover'}}/>
+		</div>
+	)
+}
