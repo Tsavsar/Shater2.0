@@ -3,124 +3,156 @@
 @tailwind utilities;
 
 :root {
-  --border-2: 2px solid #F5F3F0;;
-  --btn-bg: #F0EEE8;
-  --border-radius: 34px;
-  --gap-6: 6px;
+	--border-2: 2px solid #f5f3f0;
+	--btn-bg: #f0eee8;
+	--border-radius: 34px;
+	--gap-6: 6px;
 }
 
 body {
-  font-family: var(--font-mena);
-  background-color: #F9F8F6;
+	font-family: var(--font-mena);
+	background-color: #f9f8f6;
 }
 
-.f-p22{
-  font-family: var(--font-p22);
+.f-p22 {
+	font-family: var(--font-p22);
 }
-.f-satoshi{
-  font-family: var(--font-satoshi);
+.f-satoshi {
+	font-family: var(--font-satoshi);
 }
 
-.font-p22800{
-  font-family: var(--font-p22800);
+.font-p22800 {
+	font-family: var(--font-p22800);
 }
-.f-satoshi-bold{
-  font-family: var(--font-satoshi-bold);
+.f-satoshi-bold {
+	font-family: var(--font-satoshi-bold);
+}
+.f-satoshi-medium {
+	font-family: var(--font-satoshi-medium);
 }
 
 .gradient-text {
-  background: linear-gradient(90deg, #ED8796 0%, #F5A97F 18.45%, #C6A0F6 41.22%, #91D7E3 74.24%, #A6DA95 100%);
-  -webkit-background-clip: text; /* For WebKit browsers (Chrome, Safari, etc.) */
-  background-clip: text;
-  color: transparent; /* Make the text itself transparent so that only the gradient shows */
+	background: linear-gradient(
+		90deg,
+		#ed8796 0%,
+		#f5a97f 18.45%,
+		#c6a0f6 41.22%,
+		#91d7e3 74.24%,
+		#a6da95 100%
+	);
+	-webkit-background-clip: text; /* For WebKit browsers (Chrome, Safari, etc.) */
+	background-clip: text;
+	color: transparent; /* Make the text itself transparent so that only the gradient shows */
 }
 
-.name{
-  line-height: 52.8px
+.name {
+	line-height: 52.8px;
 }
 
-.identity li{
-  color: #464229;
-  line-height: 19.04px
+.identity li {
+	color: #464229;
+	line-height: 19.04px;
 }
 
-.divider{
-  height: 18px;
-  width: 1px;
-  background-color: #F0EEE8;
-  border-radius: 24px;
+.divider {
+	height: 18px;
+	width: 1px;
+	background-color: #f0eee8;
+	border-radius: 24px;
 }
 
-.responsive{
-  width: 90%; 
-  margin: 0 auto;
+.responsive {
+	width: 90%;
+	margin: 0 auto;
 }
 
 .break-ellipsis {
-  max-width: 342px; /* Set your desired max width here */
-  white-space: nowrap; /* Prevent the text from wrapping onto multiple lines */
-  overflow: hidden; /* Hide any overflowed content */
-  text-overflow: ellipsis; /* Add ellipsis (...) when the text overflows */
-  word-break: break-all; /* Break long words when necessary */
+	max-width: 342px; /* Set your desired max width here */
+	white-space: nowrap; /* Prevent the text from wrapping onto multiple lines */
+	overflow: hidden; /* Hide any overflowed content */
+	text-overflow: ellipsis; /* Add ellipsis (...) when the text overflows */
+	word-break: break-all; /* Break long words when necessary */
 }
 
-.slider img{
-  border-radius: 12px;
-  /* width: 342px;
+.slider img {
+	border-radius: 12px;
+	/* width: 342px;
   /* height: 192px; */
-  /*object-fit: contain; */
+	/*object-fit: contain; */
 }
 
-
-
-.utility-links li a{
-  border: 2px solid #F5F3F0;
-  background-color: #F0EEE8;
-  padding: 6px 16px;
-  border-radius: 34px;
-  display: flex;
-  gap: 6px;
+.utility-links li a {
+	border: 2px solid #f5f3f0;
+	background-color: #f0eee8;
+	padding: 6px 16px;
+	border-radius: 34px;
+	display: flex;
+	gap: 6px;
 }
-.c-menu{
-  border: 2px solid #F5F3F0;
-  background-color: #F0EEE8;
-  padding: 6px 16px;
-  border-radius: 34px;
-  display: flex;
-  gap: 6px;
-  width: max-content;
-  align-items: center;
+.c-menu {
+	border: 2px solid #f5f3f0;
+	background-color: #f0eee8;
+	padding: 6px 16px;
+	border-radius: 34px;
+	display: flex;
+	gap: 6px;
+	width: max-content;
+	align-items: center;
 }
 
-.slant-divider{
-width: 2px;
-height: 22px;
-background-color: #F0EEE8;
-transform: rotate(30deg);
+.slant-divider {
+	width: 2px;
+	height: 22px;
+	background-color: #f0eee8;
+	transform: rotate(30deg);
 }
 
-.dropdown a{
-  color: #333333;
-  font-family: var(--font-p22);
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 23.2px;
+.dropdown-link {
+	color: #9b9b9b;
+	font-family: var(--font-p22);
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 14.28px;
+}
+.dropdown-mobile button{
+	color: #9b9b9b;
+	font-family: var(--font-p22);
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 19.04px;
+}
+.dropdown-active {
+	color: #333333;
+	font-family: var(--font-p22);
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 23.2px;
 }
 
-@media screen and (min-width:768px){
-  .responsive{
-    width: 680px; 
-  }
-  .c-md-responsive{
-    width: 680px; 
-    margin: 0 auto;
-  }
+.desktop-dropdown {
+	display: none;
+}
 
-  .break-ellipsis {
-    max-width: 680px; 
-  }
+@media screen and (min-width: 768px) {
+	.desktop-dropdown {
+		display: block;
+	}
+	.mobile-dropdown {
+		display: none;
+	}
+	.responsive {
+		width: 680px;
+	}
+	.c-md-responsive {
+		width: 680px;
+		margin: 0 auto;
+	}
 
-  /* .slider img{
+	.break-ellipsis {
+		max-width: 680px;
+	}
+
+	/* .slider img{
     width: 521px;;
   } */
 }

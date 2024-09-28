@@ -70,3 +70,5 @@ export const projectsData = [
     behance: '#'
   },
 ]
+
+export const dropdownList = ["projects", "Experience", "Education", "Recommendation"]
