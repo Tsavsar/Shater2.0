@@ -6,7 +6,7 @@ const Experiences = () => {
 	return (
 		<div className="f-satoshi">
 			<p className="font-normal text-base text-[#464229]">
-				A highlight of the companies and teams I've worked with, solving design
+				A highlight of the companies and teams I&apos;ve worked with, solving design
 				challenges and contributing to meaningful product solutions.
 			</p>
 

@@ -1,12 +1,8 @@
-'use client'
 import React from 'react';
 import Navbar from '../components/Navbar';
 import CTooltip from '../components/CTooltip';
-import Image from 'next/image';
-import dynamic from 'next/dynamic';
+//import Image from 'next/image';
 import PlayName from '../components/PlayName';
-
-//const ReactTooltip = dynamic(() => import('react-tooltip'), { ssr: false });
 
 const page = () => {
 	return (

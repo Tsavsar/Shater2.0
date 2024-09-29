@@ -22,7 +22,7 @@ const CTooltip: React.FC<ICTooltip> = () => {
 						<Image src="/images/info.svg" alt="Info" width={24} height={24} />
 						<p>
 							This section contains little to no Info on my professional life
-							and it's purely personal vibes, enjoy! There's a surprise at the
+							and it&apos;s purely personal vibes, enjoy! There&apos;s a surprise at the
 							end.
 						</p>
 					</div>

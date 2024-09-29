@@ -1,10 +1,10 @@
 'use client';
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image';
 import { dropdownList } from '../utils';
 
 interface INavDropdown{
-  defineActiveItem: (e:any) => void;
+  defineActiveItem: (e:string) => void;
 }
 
 export const NavDropdownContainer:React.FC<INavDropdown> = ({defineActiveItem}) => {
@@ -12,8 +12,8 @@ export const NavDropdownContainer:React.FC<INavDropdown> = ({defineActiveItem}) 
   const [desktop, setDesktop] = useState(false)
   const [activeItem, setActiveItem] = useState('projects')
 
-  const handleTextChange = (e: { target: any; }) => {
-    let text = e.target.innerText.toLowerCase()
+  const handleTextChange = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const text = e.currentTarget.innerText.toLowerCase()
     setActiveItem(text)
     setMobile(false)
     setDesktop(false)
@@ -35,12 +35,12 @@ export const NavDropdownContainer:React.FC<INavDropdown> = ({defineActiveItem}) 
 
   useEffect(() => {
     defineActiveItem(activeItem)
-  }, [activeItem])
+  }, [activeItem, defineActiveItem])
   
   useEffect(() => {
-      defineActiveItem(activeItem)
+      defineActiveItem(dropdownList[0].toLowerCase())
       setActiveItem(dropdownList[0].toLowerCase())
-  }, [dropdownList])
+  }, [defineActiveItem])
 
   return(
     <NavDropdown handleTextChange={handleTextChange} desktop={desktop} activeItem={activeItem} handleDesktopEnter={handleDesktopEnter} handleDesktopLeave={handleDesktopLeave} handleMobileLeave={handleMobileLeave} handleMobileEnter={handleMobileEnter} mobile={mobile}/>
@@ -52,7 +52,7 @@ interface NavDropdownProps {
   handleMobileEnter: () => void;  
   handleDesktopLeave: () => void;  
   handleDesktopEnter: () => void;  
-  handleTextChange: (e:any) => void;  
+  handleTextChange: (e:React.MouseEvent<HTMLButtonElement>) => void;  
   mobile: boolean;              
   desktop: boolean;              
   activeItem: string          
@@ -87,7 +87,7 @@ const NavDropdown: React.FC<NavDropdownProps> = (props) => {
       <div className={`${props.mobile ? 'grid' : 'hidden'} absolute -left-4 `}>
      <div className='rounded-xl grid p-4 dropdown-mobile cursor-pointer mt-[10rem] bg-[#F9F8F6] border-[#F5F3F0] border gap-4'>
      {dropdownList.filter(item => item.toLowerCase() !== props.activeItem).map(item => (
-      <button onClick={props.handleTextChange} className='capitalize text-left hover:opacity-70'>{item}</button>
+      <button key={item} onClick={props.handleTextChange} className='capitalize text-left hover:opacity-70'>{item}</button>
      ))}
      </div>
       </div>
@@ -107,7 +107,7 @@ const NavDropdown: React.FC<NavDropdownProps> = (props) => {
       />
       <div className={`${props.desktop ? 'flex' : 'hidden'} dropdown-children items-center gap-4`}>
       {dropdownList.filter(item => item.toLowerCase() !== props.activeItem).map(item => (
-        <button onClick={props.handleTextChange} className='dropdown-link hover:opacity-70'>{item}</button>
+        <button key={item} onClick={props.handleTextChange} className='dropdown-link hover:opacity-70'>{item}</button>
 
       ))}
       {/* <a className='dropdown-link' href="#">Education</a>

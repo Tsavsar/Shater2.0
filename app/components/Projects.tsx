@@ -2,17 +2,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { projectsData } from '../utils';
-import SimpleSlider from './Slider';
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 const Projects = () => {
-	const targetRef = useRef(null);
-	const { scrollYProgress } = useScroll({
-		target: targetRef
-	});
-
-	const x = useTransform(scrollYProgress, [0, 1], ['1%', '-95%']);
 
 	return (
 		<div className="f-satoshi">
@@ -73,7 +66,7 @@ const Projects = () => {
 							</Link>
 						</div>
 
-						{/* <HorizontalScrollCarousel cards={item.images}/> */}
+						<HorizontalScrollCarousel cards={item.images}/>
 
 						<div className="flex items-center gap-2 mt-4">
 							<div className="flex gap-2">
@@ -112,8 +105,11 @@ const Projects = () => {
 	);
 };
 
+interface IHorizontal{
+	cards: string[]
+}
 
-const HorizontalScrollCarousel = ({cards}:{cards:any}) => {
+const HorizontalScrollCarousel:React.FC<IHorizontal> = ({cards}) => {
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -125,8 +121,8 @@ const HorizontalScrollCarousel = ({cards}:{cards:any}) => {
     <section ref={targetRef} className="relative">
       <div className="items-center overflow-hidden overflow-x-scroll">
         <motion.div style={{ x }} className="flex">
-          {cards.map((card:any) => {
-            return <Card src={card} key={card.id} />;
+          {cards.map((card:string) => {
+            return <Card src={card} key={card} />;
           })}
         </motion.div>
       </div>

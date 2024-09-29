@@ -1,11 +1,6 @@
-import Link from 'next/link';
 import Navbar from './components/Navbar';
 import Image from 'next/image';
 import Footer from './components/Footer';
-import Projects from './components/Projects';
-import Dropdown, { NavDropdownContainer } from './components/NavDropdown';
-import NavDropdown from './components/NavDropdown';
-import { useState } from 'react';
 import MenuComponent from './components/MenuComponent';
 
 export default function Home() {

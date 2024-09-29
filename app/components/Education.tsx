@@ -6,7 +6,7 @@ const Education = () => {
   return (
 		<div className="f-satoshi">
       	<p className="font-normal text-base text-[#464229]">
-				From textbooks to tech, here's where I hit the books and built the foundation for my design career.
+				From textbooks to tech, here&apos;s where I hit the books and built the foundation for my design career.
 			</p>
 
       <>
