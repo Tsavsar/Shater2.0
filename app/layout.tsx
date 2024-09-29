@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { mena, p22, satoshi, p22800, satoshiBold, satoshiMedium } from "./fonts";
+import { mena, p22, satoshi, mena800, satoshiBold, satoshiMedium, p22Italic } from "./fonts";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body
       
-        className={`${mena.variable} ${p22.variable} ${satoshi.variable} ${satoshiBold.variable} ${satoshiMedium.variable} ${p22800.variable}  antialiased`}
+        className={`${mena.variable} ${p22.variable} ${satoshi.variable} ${satoshiBold.variable} ${satoshiMedium.variable} ${mena800.variable} ${p22Italic.variable}  antialiased`}
       >
         {children}
       </body>

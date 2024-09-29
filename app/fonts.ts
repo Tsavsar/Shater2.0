@@ -12,10 +12,16 @@ export const p22 = localFont({
   variable: '--font-p22'
 })
 
-export const p22800 = localFont({
+export const p22Italic = localFont({
+  src: './fonts/Fontspring-DEMO-P22MackinacProBook-Italic.woff',
+  display: 'swap',
+  variable: '--font-p22Italic'
+})
+
+export const mena800 = localFont({
   src: './fonts/Mena Grotesk Black.woff2',
   display: 'swap',
-  variable: '--font-p22800'
+  variable: '--font-mena800'
 })
 
 export const satoshi = localFont({

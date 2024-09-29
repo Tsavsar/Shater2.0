@@ -12,7 +12,7 @@ export default function Home() {
 	return (
 		<>
 			<section className="responsive pt-16">
-				<Navbar />
+				<Navbar nav='About' navItl='me' navLink='/about'/>
 				<main className="pt-24">
 					<ul className="identity f-p22 flex flex-wrap gap-2 min-[375px]:gap-[0.4rem] lg:gap-4 items-center text-[#464229] font-normal">
 						<li className="">Product Designer</li>
@@ -21,7 +21,7 @@ export default function Home() {
 						<hr className="divider" />
 						<li className="">Designer Speaker</li>
 					</ul>
-					<h1 className="py-5 text-[#19170E] text-5xl name font-p22800 lg:w-[12ch]">
+					<h1 className="py-5 text-[#19170E] text-5xl name font-mena800 lg:w-[12ch]">
 						Mchiaga Tsavsar Shater{' '}
 					</h1>
 					{/* links */}
