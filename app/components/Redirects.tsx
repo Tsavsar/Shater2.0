@@ -1,0 +1,17 @@
+import Link from 'next/link'
+import React from 'react'
+import Arrow from './Arrow'
+
+interface IRedirects{
+  href: string
+  text: string
+  alt: string
+}
+
+const Redirects:React.FC<IRedirects> = ({href, text, alt}) => {
+  return (
+    <Link href={href} target='_blank'>{text}<Arrow alt={alt}/></Link>
+  )
+}
+
+export default Redirects

@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 
 :root {
 	--border-2: 2px solid #f5f3f0;
@@ -33,6 +34,13 @@ body {
 .f-satoshi-medium {
 	font-family: var(--font-satoshi-medium);
 }
+
+.comic-neue-regular {
+  font-family: "Comic Neue", cursive;
+  font-weight: 300;
+  font-style: normal;
+}
+
 
 .gradient-text {
 	background: linear-gradient(

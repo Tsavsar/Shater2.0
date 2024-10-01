@@ -130,3 +130,72 @@ export const educationData = [
     note: 'Went through a sensitisation and training on marketing and got to work with the tech department on some in house projects where I trained on how to develop websites from the ground up.',
   },
 ]
+
+export const topAnime = [
+  {
+    title: 'Konosuba',
+    link: 'https://www.crunchyroll.com/series/GYE5K3GQR/konosuba--gods-blessing-on-this-wonderful-world',
+  },
+  {
+    title: 'One Piece',
+    link: 'https://www.crunchyroll.com/series/GYE5K3GQR/konosuba--gods-blessing-on-this-wonderful-world',
+  },
+  {
+    title:  'Vinland Saga',
+    link: 'https://www.crunchyroll.com/series/GEXH3WKK0/vinland-saga',
+  },
+  {
+    title: 'That Time I Got Reincarnated as a Slime',
+    link: 'https://www.crunchyroll.com/series/GYZJ43JMR/that-time-i-got-reincarnated-as-a-slime',
+  },
+  {
+    title:  'Wotakoi: Love Is Hard for Otaku',
+    link: 'https://myanimelist.net/anime/35968/Wotaku_ni_Koi_wa_Muzukashii',
+  },
+  ]
+
+export const musicArtist = [
+  {
+    title: 'Logic',
+    link: 'https://open.spotify.com/artist/4xRYI6VqpkE3UwrDrAZL8L?si=fZHTmJWhQgiGpWgtgPS-CA',
+  },
+  {
+    title: 'Superheaven',
+    link: 'https://open.spotify.com/artist/1IHjrY7ygKbmLVoUV1VcXc?si=VjZA9XsAS7GN9LLfLOPuzg',
+  },
+  {
+    title: 'The Marias',
+    link: 'https://open.spotify.com/artist/2sSGPbdZJkaSE2AbcGOACx?si=GdTfzckFRne1NMzOdiCmcw',
+  },
+  {
+    title: 'Aurae',
+    link: 'https://open.spotify.com/artist/3tZVXVqt6MP5k80gT723pM?si=PSf02kneTeCZ_hnTTU4j7A',
+  },
+  {
+    title: 'TWICE',
+    link: 'https://open.spotify.com/artist/7n2Ycct7Beij7Dj7meI4X0?si=bBGN4NABQKCpQTf-M5khcQ',
+  },
+  ]
+
+export const books = [
+  {
+    title: 'It\'s kind of a funny story',
+    link: 'https://www.goodreads.com/book/show/248704.It_s_Kind_of_a_Funny_Story',
+  },
+  {
+    title: 'Harry Potter and the Prisoner of Azkaban',
+    link: 'https://www.goodreads.com/book/show/5.Harry_Potter_and_the_Prisoner_of_Azkaban?from_search=true&from_srp=true&qid=m5OFOrpWXP&rank=1',
+  },
+  {
+    title: 'Far Far Away',
+    link: 'https://www.goodreads.com/book/show/16030663-far-far-away?from_search=true&from_srp=true&qid=c73Qi3uBP5&rank=1',
+  },
+  {
+    title: '5 Point Someone',
+    link: 'https://www.goodreads.com/book/show/105576.Five_Point_Someone?from_search=true&from_srp=true&qid=1zXYAag1e9&rank=1',
+  },
+  {
+    title: 'Blink',
+    link: 'https://www.goodreads.com/book/show/2142.Blink?from_search=true&from_srp=true&qid=NG7bntndNF&rank=4',
+  },
+  ]
