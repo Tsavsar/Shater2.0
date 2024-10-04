@@ -6,11 +6,12 @@ interface IRedirects{
   href: string
   text: string
   alt: string
+  style?:string
 }
 
-const Redirects:React.FC<IRedirects> = ({href, text, alt}) => {
+const Redirects:React.FC<IRedirects> = ({href, text, alt, style}) => {
   return (
-    <Link href={href} target='_blank'>{text}<Arrow alt={alt}/></Link>
+    <Link className={style} href={href} target='_blank'>{text}<Arrow alt={alt}/></Link>
   )
 }
 

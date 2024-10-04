@@ -1,9 +1,14 @@
+'use client'
 import Navbar from './components/Navbar';
 import Image from 'next/image';
 import Footer from './components/Footer';
 import MenuComponent from './components/MenuComponent';
+import { useEffect, useState } from 'react';
+import Redirects from './components/Redirects';
+
 
 export default function Home() {
+
 	return (
 		<>
 			<section className="responsive pt-16">
@@ -59,7 +64,7 @@ export default function Home() {
 					</ul>
 					{/* about */}
 					<p className="min-[375px]:w-[342px] md:w-auto f-satoshi font-normal text-base pt-10 text-[#464229]">
-						Shater Tsavsar ( /ˈʃɑː-teɪ/ /ˈtɑːv-sɑː/ ) — product designer by day,
+						Shater Tsavsar <span className='text-[#C3C1B8]'>( /ˈʃɑː-teɪ/ /ˈtɑːv-sɑː/ )</span> — product designer by day,
 						Knicks & Arsenal fan by night. Currently building{' '}
 						<span className=".f-satoshi-medium">Opentape</span>
 						<a target="_blank" href="https://www.opentape.io/">
@@ -71,23 +76,16 @@ export default function Home() {
 								style={{ display: 'inline-block' }}
 							/>
 						</a>
-						, my design approach focuses on solving real problems, optimizing
+						, my design approach focuses on solving real problems, <br/>optimizing
 						user journeys, and making every interaction seamless.
 					</p>
 
-					<p className="min-[375px]:w-[342px] md:w-auto f-satoshi font-normal text-base pb-10 pt-4 text-[#464229]">
-						Following my <span className="f-satoshi-medium">X (Twitter)</span>
-						<a target="_blank" href="https://x.com/Tsavsar_/">
-							<Image
-								src="/images/arrow.svg"
-								alt="What I'm currrently building"
-								width={14}
-								height={14}
-								style={{ display: 'inline-block' }}
-							/>
-						</a>{' '}
-						is the fastest way to reach me.
-					</p>
+{/* socials */}
+<div className='flex gap-4 min-[375px]:w-[342px] md:w-auto  pb-10 pt-4 items-center'>
+					<Redirects style='text-[#7C7C7C] f-satoshi text-[15px] leading-[22.5px]' href='https://x.com/Tsavsar_/' text='X(Twitter)' alt="Shater's twitter"/>
+					<Redirects style='text-[#7C7C7C] f-satoshi text-[15px] leading-[22.5px]' href='#' text='Linkedin' alt="Shater's linkedin"/>
+					<Redirects style='text-[#7C7C7C] f-satoshi text-[15px] leading-[22.5px]' href='https://www.behance.net/gallery/194894477/Fundify' text='Behance' alt="Shater's behance"/>
+</div>
 
 					<MenuComponent />
 				</main>

@@ -2,8 +2,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { projectsData } from '../utils';
-import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { useEffect, useRef } from 'react';
+import { motion, useScroll, useTransform, useAnimation, useInView  } from 'framer-motion';
 
 const Projects = () => {
 
@@ -20,7 +20,9 @@ const Projects = () => {
 					<div className="pt-10" key={item.title}>
 						<div className="md:flex md:items-center md:justify-between">
 							<div className="flex items-center gap-4">
-								<Image src={item.logo} alt="Project" width={60} height={60} />
+								<Image   className='rounded-[15px]' src={item.logo} alt="Project"  width={69}
+  height={69}
+  sizes="(max-width: 768px) 60px, 69px"  />
 								<div>
 									<div className="flex items-center gap-2">
 										<h2 className="f-satoshi-bold text-lg text-[#19170E] ">
@@ -36,28 +38,28 @@ const Projects = () => {
 								</div>
 							</div>
 							<div className="hidden md:grid">
-								<a href="">
+								<Link target='_blank' href={item.behance}>
 									<Image
 										src="/images/behance.svg"
 										alt="view on behance"
 										width={135}
 										height={100}
 									/>
-								</a>
-								<a href="">
+								</Link>
+								<Link target='_blank' href={item.figma}>
 									<Image
 										src="/images/figma.svg"
 										alt="view on figma"
-										width={135}
+										width={147}
 										height={100}
 									/>
-								</a>
+								</Link>
 							</div>
 						</div>
-						<p className="text-[#19170E] f-satoshi-bold text-lg pt-4">
+						<p className="text-[#19170E] f-satoshi-bold text-lg md:text-xl pt-4">
 							Preview
 						</p>
-						<div className="text-[#464229] text-sm">
+						<div className="text-[#464229] text-sm md:text-base">
 							<p className="break-ellipsis">{item.note}</p>
 							<Link
 								className="text-[#0A231D] text-xs font-bold underline"
@@ -115,15 +117,36 @@ const HorizontalScrollCarousel:React.FC<IHorizontal> = ({cards}) => {
     target: targetRef,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["1%", "-95%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["-32%", "0%"]);
 
-  return ( 
-    <section ref={targetRef} className="relative">
-      <div className="items-center overflow-hidden overflow-x-scroll">
+	const controls = useAnimation();
+
+  const isInView = useInView(targetRef); 
+
+  useEffect(() => {
+    if (isInView) {
+      controls.start({ x: '-100%', transition: { duration: 10, ease: "linear" } });
+    } else {
+      controls.stop(); 
+    }
+  }, [isInView, controls]);
+	
+	return ( 
+    <section ref={targetRef} className="mt-6 relative">
+      <div className="items-center overflow-hidden">
         <motion.div style={{ x }} className="flex">
-          {cards.map((card:string) => {
-            return <Card src={card} key={card} />;
-          })}
+				{[...cards, ...cards].map((card: string, index: number) => (
+            <Image
+              key={index}
+              src={card}
+              alt={`project preview ${index + 1}`}
+              width={index % cards.length === 0 ? 510 : 165}  // Larger width for the first card
+              height={index % cards.length === 0 ? 260 : 100} // Larger height for the first card
+              // className="rounded-[12px] mr-4"
+							className={`rounded-[12px] mr-4 ${index % cards.length === 0 ? 'w-[342px] md:w-[550px] h-[203px] md:h-[252px]' : 'w-[165px] h-[203px] md:h-[260px]'}`}  // Small width = 365, larger = 510
+
+            />
+          ))}
         </motion.div>
       </div>
     </section>
@@ -132,37 +155,6 @@ const HorizontalScrollCarousel:React.FC<IHorizontal> = ({cards}) => {
 
 
 export default Projects;
-
-interface CardProps {
-	src: string;
-}
-export const Card: React.FC<CardProps> = ({ src }) => {
-	//console.log(src)
-	return (<>
-	<div className="flex items-center gap-x-2">
-	<div className='relative min-w-[500px] h-[200px]'>
-	
-			<Image className='absolute inset-0 rounded-xl' fill objectFit='contain' src={src} alt={src}   />
-		
-	</div>
-	</div>
-
-  {/* <div className="relative">
-		<div className='w-[450px] h-[400px]'>
-    <Image
-      className="rounded-xl"
-      src={src}
-      alt={src}
-		fill
-			style={{objectFit: 'contain'}}
-    />
-  </div>
-</div> */}
-	</>
-	);
-};
-
-// const Card = ({ src }:{src:any}) => {
 //   return (
 //     <div
 //       key={src}
