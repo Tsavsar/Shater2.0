@@ -7,10 +7,10 @@ import CTooltip from './CTooltip';
 import PlayName from './PlayName';
 import Redirects from './Redirects';
 import Socials from './Socials';
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 
 const About = () => {
-	const elementsToBlur = useRef<HTMLDivElement[]>([]);
+	//const elementsToBlur = useRef<HTMLDivElement[]>([]);
 
 	useEffect(() => {
     const elements = document.querySelectorAll('[data-blur]');

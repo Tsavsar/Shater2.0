@@ -3,7 +3,6 @@ import Navbar from './components/Navbar';
 import Image from 'next/image';
 import Footer from './components/Footer';
 import MenuComponent from './components/MenuComponent';
-import { useEffect, useState } from 'react';
 import Redirects from './components/Redirects';
 
 
