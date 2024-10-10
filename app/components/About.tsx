@@ -7,9 +7,11 @@ import CTooltip from './CTooltip';
 import PlayName from './PlayName';
 import Redirects from './Redirects';
 import Socials from './Socials';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 const About = () => {
+	const targetRef = useRef(null);
+
 	//const elementsToBlur = useRef<HTMLDivElement[]>([]);
 
 	useEffect(() => {
@@ -113,6 +115,38 @@ const About = () => {
 						or dont
 					</span>
 				</p>
+				{/* mobile photo */}
+				<section ref={targetRef}  className="relative grid md:hidden gap-2 pt-4">
+				<div className='grid grid-cols-3 gap-2 w-[343px] overflow-hidden'>
+				<Image className='rounded-[16px]  object-contain' src='/images/photo-reel/91AF6D96-E5DB-46C7-B036-0AFBB567D33F.JPG' width={100} height={250} alt="first image"/>
+				<Image className='rounded-[16px]  object-cover' src='/images/photo-reel/DSC_1872-2.JPG' width={100} height={195} alt="first image"/>
+				<Image className='rounded-[16px] object-contain' src='/images/photo-reel/A26ADBC4-2385-4F79-9043-CB5B5CA6E1D5.JPG' width={100} height={250} alt="first image"/>
+				</div>
+				<div className='flex gap-4 '>
+				<Image className='hidden md:block rounded-2xl object-cover' src='/images/photos/6.png' width={160} height={250} alt="first image"/>
+				<Image className='rounded-2xl object-cover' src='/images/photos/7.png' width={160} height={250} alt="first image"/>
+				<Image className='rounded-2xl object-cover' src='/images/photos/8.png' width={160} height={250} alt="first image"/>
+				<Image className='hidden md:block rounded-2xl object-cover' src='/images/photos/9.png' width={160} height={250} alt="first image"/>
+				</div>
+				</section>
+				{/* desktop photo */}
+				<section ref={targetRef}  className="relative hidden md:grid gap-2 pt-4">
+				<div className='grid grid-cols-3 gap-2 w-[343px] overflow-hidden'>
+				<Image className=' object-contain' src='/images/photo-reel/0BCB6CA6-8900-4AD1-A615-B6421C9D9B2F.JPG' width={160} height={250} alt="first image"/>
+				<Image className=' object-contain' src='/images/photo-reel/91AF6D96-E5DB-46C7-B036-0AFBB567D33F.JPG' width={160} height={250} alt="first image"/>
+				<Image className=' object-contain' src='/images/photo-reel/20150818_123923_Original.jpg' width={160} height={250} alt="first image"/>
+				<Image className='object-contain' src='/images/photo-reel/A26ADBC4-2385-4F79-9043-CB5B5CA6E1D5.JPG' width={160} height={250} alt="first image"/>
+				<Image className=' object-contain' src='/images/photo-reel/DSC_1872-2.JPG' width={160} height={250} alt="first image"/>
+				<Image className=' object-contain' src='/images/photo-reel/IMG_5036.PNG' width={160} height={250} alt="first image"/>
+				<Image className=' object-contain' src='/images/photo-reel/IMG_6103.JPG'  width={160} height={250} alt="first image"/>
+				</div>
+				<div className='flex gap-4 '>
+				<Image className='hidden md:block rounded-2xl object-cover' src='/images/photos/6.png' width={160} height={250} alt="first image"/>
+				<Image className='rounded-2xl object-cover' src='/images/photos/7.png' width={160} height={250} alt="first image"/>
+				<Image className='rounded-2xl object-cover' src='/images/photos/8.png' width={160} height={250} alt="first image"/>
+				<Image className='hidden md:block rounded-2xl object-cover' src='/images/photos/9.png' width={160} height={250} alt="first image"/>
+				</div>
+				</section>
 			</div>
 
 			{/* useful facts */}
