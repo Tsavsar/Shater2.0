@@ -7,46 +7,14 @@ import CTooltip from './CTooltip';
 import PlayName from './PlayName';
 import Redirects from './Redirects';
 import Socials from './Socials';
-import { useEffect, useRef } from 'react';
 
 const About = () => {
-	const targetRef = useRef(null);
 
-	//const elementsToBlur = useRef<HTMLDivElement[]>([]);
-
-	useEffect(() => {
-    const elements = document.querySelectorAll('[data-blur]');
-
-		const observer = new IntersectionObserver(
-			(entries) => {
-				entries.forEach((entry) => {
-					const element = entry.target;
-					if (
-						entry.intersectionRatio < 1 &&
-						entry.boundingClientRect.top <= 0
-					) {
-						element.classList.add('blurred');
-					} else {
-						element.classList.remove('blurred');
-					}
-				});
-			},
-			{ threshold: [0, 1], rootMargin: '0px' }
-		);
-
-		elements.forEach((element) => {
-			observer.observe(element);
-		});
-
-		return () => {
-			elements.forEach((element) => {
-				observer.unobserve(element);
-			});
-		};
-	});
 
 	return (
 		<div>
+		<div className="blur-overlay" /> {/* Fixed blur overlay */}
+
 			{/* section - page intro */}
 			<div
 			 data-blur 
@@ -116,7 +84,7 @@ const About = () => {
 					</span>
 				</p>
 				{/* mobile photo */}
-				<section ref={targetRef}  className="relative grid md:hidden gap-2 pt-4">
+				<section className="relative grid md:hidden gap-2 pt-4">
 				<div className='grid grid-cols-3 gap-2 w-[343px] overflow-hidden'>
 				<Image className='rounded-[16px]  object-contain' src='/images/photo-reel/91AF6D96-E5DB-46C7-B036-0AFBB567D33F.JPG' width={100} height={250} alt="first image"/>
 				<Image className='rounded-[16px]  object-cover' src='/images/photo-reel/DSC_1872-2.JPG' width={100} height={195} alt="first image"/>
@@ -130,7 +98,7 @@ const About = () => {
 				</div>
 				</section>
 				{/* desktop photo */}
-				<section ref={targetRef}  className="relative hidden md:grid gap-2 pt-4">
+				<section className="relative hidden md:grid gap-2 pt-4">
 				<div className='grid grid-cols-3 gap-2 w-[343px] overflow-hidden'>
 				<Image className=' object-contain' src='/images/photo-reel/0BCB6CA6-8900-4AD1-A615-B6421C9D9B2F.JPG' width={160} height={250} alt="first image"/>
 				<Image className=' object-contain' src='/images/photo-reel/91AF6D96-E5DB-46C7-B036-0AFBB567D33F.JPG' width={160} height={250} alt="first image"/>

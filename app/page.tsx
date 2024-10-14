@@ -1,4 +1,3 @@
-'use client'
 import Navbar from './components/Navbar';
 import Image from 'next/image';
 import Footer from './components/Footer';
@@ -10,6 +9,7 @@ export default function Home() {
 
 	return (
 		<>
+		  <div className="blur-overlay" /> {/* Fixed blur overlay */}
 			<section className="responsive pt-16">
 				<Navbar nav='About' navItl='me' navLink='/about'/>
 				<main className="pt-24">

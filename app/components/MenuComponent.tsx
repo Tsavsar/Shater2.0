@@ -9,7 +9,6 @@ import Recommendations from "./Recommendations";
 
 const MenuComponent = () => {
   const [activeItem, setActiveItem] = useState('')
-  console.log(activeItem)
 
   return (
     <>

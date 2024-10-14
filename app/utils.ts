@@ -1,3 +1,5 @@
+import { useEffect } from "react"
+
 export const projectsData = [
   {
     logo: '/images/fundify/logo.png',
@@ -201,3 +203,44 @@ export const books = [
   ]
 
   
+
+  // Custom Hook for applying blur effect on scroll
+  export const useBlurOnScroll = (elementSelector:string) => {
+    useEffect(() => {
+      // const blurTrigger = document.querySelector(trigger);
+      const mainContent = document.querySelector(elementSelector);
+      
+      const options = {
+        root: null, 
+        threshold: 0, 
+        rootMargin: "0px 0px 0px 0px",
+      };
+  
+      
+      const observer = new IntersectionObserver((entries) => {
+        console.log(entries)
+        entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          // When the element hits the top, apply the blur effect
+          entry.target.classList.add("blurred");
+        } else {
+          // When the element leaves the top, remove the blur effect
+          entry.target.classList.remove("blurred");
+        }
+        });
+      }, options);
+      
+      if (mainContent) {
+        const elementsToObserve = mainContent.children;
+        for (let i = 0; i < elementsToObserve.length; i++) {
+        observer.observe(elementsToObserve[i]);
+        }
+      
+        return () => {
+        for (let i = 0; i < elementsToObserve.length; i++) {
+          observer.unobserve(elementsToObserve[i]);
+        }
+        };
+      }
+      }, []);
+  };  

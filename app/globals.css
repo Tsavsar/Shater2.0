@@ -209,30 +209,21 @@ background-color: transparent;
   } */
 }
 
-/* Create a blur effect class */
-.blurred {
-  filter: blur(3px); /* You can adjust the amount of blur */
-  transition: filter 0.3s ease; /* Smooth transition when scrolling */
-}
 
-/* Style for the sticky header */
-.sticky-header {
-  position: sticky; /* Make it sticky */
-  top: 0; /* Stick to the top of the viewport */
-  background: rgba(255, 255, 255, 0.8); /* Background with some transparency */
-  backdrop-filter: blur(5px); /* Apply blur to the content behind */
-  z-index: 10; /* Ensure it's above other content */
-  padding: 10px; /* Add some padding */
-  transition: background 0.3s ease; /* Smooth background transition */
-}
 
-/* Content styles */
-.content {
-  padding: 20px; /* Space out content */
-}
+.blur-overlay {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px; 
+  pointer-events: none; 
+  backdrop-filter: blur(2px); 
+  z-index: 10; 
+  background: transparent;
+  /* background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 80%); */
 
-/* Optional: You can style your blurred background effect */
-.sticky-header h1 {
-  margin: 0; /* Remove default margins */
+  /* background: linear-gradient(to bottom, rgba(249, 248, 246, 0) 0%, rgba(249, 248, 246, 1) 80%); */
+
 }
 
