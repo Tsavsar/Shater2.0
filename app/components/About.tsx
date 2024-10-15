@@ -190,7 +190,7 @@ const About = () => {
           </div>
         </section>
         {/* desktop photo */}
-        <section className="relative hidden md:grid gap-2 pt-4">
+        <section className=" hidden md:grid gap-2 pt-4">
           <div className="grid grid-cols-3 gap-2 w-[343px] overflow-hidden">
             <Image
               className=" object-contain"
