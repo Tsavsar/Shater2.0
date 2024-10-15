@@ -6,9 +6,10 @@ const page = () => {
 	
 	return (
 		<>
+		    <div className="blur-overlay" />
 			<section className="responsive pt-16">
 				<Navbar navItl="Home" navLink="/" />
-				<main className={`pt-24`}>
+				<main className={`pt-16`}>
 				<About/>	
 				</main>
 				<Footer/>

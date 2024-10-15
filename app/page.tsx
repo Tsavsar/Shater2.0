@@ -12,7 +12,7 @@ export default function Home() {
 		  <div className="blur-overlay" /> {/* Fixed blur overlay */}
 			<section className="responsive pt-16">
 				<Navbar nav='About' navItl='me' navLink='/about'/>
-				<main className="pt-24">
+				<main className="pt-16">
 					<ul className="identity f-p22 flex flex-wrap gap-2 min-[375px]:gap-[0.4rem] lg:gap-4 items-center text-[#464229] font-normal">
 						<li className="">Product Designer</li>
 						<hr className="divider" />

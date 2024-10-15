@@ -243,4 +243,13 @@ export const books = [
         };
       }
       }, []);
-  };  
+  };
+  
+  export interface ICurrTrack{
+  is_playing: boolean,
+  title: string,
+  artiste: string,
+  image_url: string,
+  preview_url: string,
+  url: string
+}
