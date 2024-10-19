@@ -242,7 +242,7 @@ export const books = [
         }
         };
       }
-      }, []);
+      }, [elementSelector]);
   };
   
   export interface ICurrTrack{

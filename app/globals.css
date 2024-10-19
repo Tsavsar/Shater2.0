@@ -221,9 +221,115 @@ background-color: transparent;
   backdrop-filter: blur(2px); 
   z-index: 10; 
   background: transparent;
+
+
   /* background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 80%); */
 
   /* background: linear-gradient(to bottom, rgba(249, 248, 246, 0) 0%, rgba(249, 248, 246, 1) 80%); */
 
 }
 
+.progress {
+	width: 300px;
+	height: 7px;
+	border-radius: 35.2px;
+	background: #F0F0F0;
+	backdrop-filter: blur(50px); /* Apply a blur effect to the background */
+ /*    background: linear-gradient(90deg, #ED8796 0%, #F5A97F 18.45%, #C6A0F6 41.22%, #91D7E3 74.24%, #A6DA95 100%); Apply your gradient */
+  
+ /*    border: 3.5px solid #F0F0F0; */
+	position: relative;
+ }
+ 
+ .progress::before {
+	content: "";
+	position: absolute;
+ /*    margin: 3.5px; */
+	inset: 0 20% 0 0;
+	border-radius: inherit;
+	background: linear-gradient(90deg, #ED8796 0%, #F5A97F 18.45%, #C6A0F6 41.22%, #91D7E3 74.24%, #A6DA95 100%); 
+   
+	animation: progress-pf82op 2.8s infinite;
+ }
+ 
+ @keyframes progress-pf82op {
+	100% {
+	   inset: 0;
+	}
+ }
+
+ .progress-blur {
+	position: relative;
+	width: 250px;
+	  height: 7px;
+  }
+  .progress-blur::before {
+	content: "";
+	position: absolute;
+	inset: -10px; 
+	z-index: -1; 
+	filter: blur(40px); 
+	background: linear-gradient(90deg, #ED8796 0%, #F5A97F 18.45%, #C6A0F6 41.22%, #91D7E3 74.24%, #A6DA95 100%);
+	transform: translate(10px, -8px);
+  }
+  
+  @media screen (min-width: 375px){
+	.progress-blur {
+		width: 300px;
+	  }
+
+	.progress {
+		width: 350px;
+	  }
+
+  }
+
+  .spinningImg{
+	animation: spinImg 2s linear infinite;
+  }
+
+  @keyframes spinImg{
+	from{
+		transform: rotate(0deg);
+	} 
+	to{
+		transform: rotate(260deg);
+	}
+  }
+
+  @keyframes swing {
+	0% {
+	  transform: rotate(0deg); /* Start from center (no rotation) */
+	}
+	25% {
+	  transform: rotate(15deg); /* Swing 15 degrees clockwise */
+	}
+	50% {
+	  transform: rotate(0deg); /* Return to center */
+	}
+	75% {
+	  transform: rotate(-15deg); /* Swing 15 degrees counterclockwise */
+	}
+	100% {
+	  transform: rotate(0deg); /* Return to center */
+	}
+  }
+
+  .spinning-box {
+	width: 78px;
+	height: 90px;
+	position: relative;
+	right: -1.2rem;
+	overflow: hidden;
+  }
+
+
+  @media screen and (max-width:425px){
+	.break-music {
+		max-width: 150px; /* Set your desired max width here */
+		white-space: nowrap; /* Prevent the text from wrapping onto multiple lines */
+		overflow: hidden; /* Hide any overflowed content */
+		text-overflow: ellipsis; /* Add ellipsis (...) when the text overflows */
+		word-break: break-all; /* Break long words when necessary */
+	}
+  }

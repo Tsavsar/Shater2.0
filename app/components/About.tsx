@@ -9,11 +9,14 @@ import Redirects from "./Redirects";
 import Socials from "./Socials";
 import { ICurrTrack } from "../utils";
 import { useEffect, useState } from "react";
+import Footer from "./Footer";
+import Navbar from "./Navbar";
+import Spinner from "./Spinner";
 
-const About = () => {
+export const About = () => {
   const [currentTrack, setCurrentTrack] = useState<ICurrTrack | null>(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<unknown | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,8 +27,8 @@ const About = () => {
         }
         const data = await response.json();
         setCurrentTrack(data.data);
-      } catch (err: any) {
-        setError(err.message);
+      } catch (err) {
+        setError(err);
       } finally {
         setLoading(false);
       }
@@ -34,16 +37,21 @@ const About = () => {
     fetchData();
   }, []);
 
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
-  console.log(currentTrack);
+  console.log(error);
   return (
-    <section>
-	  <article className="mb-16">
-      <div className="flex justify-between items-center border rounded-md border-[#F0EEE8]">
-        <div className="flex items-center gap-3 md:pl-3">
+    <>
+    {
+      loading 
+      ? 
+      <Spinner/>
+      :
+    <section className="responsive pt-16">
+      	<Navbar navItl="Home" navLink="/" />
+        <main className={`pt-16`}>
+          {currentTrack &&
+	  <article className="mb-16 overflow-hidden relative">
+      <div className="p-[0.6rem] flex justify-between items-center border rounded-md border-[#F0EEE8]">
+        <div className="flex items-center gap-3 ">
             <Image
 			  className="rounded-md"
               src={currentTrack?.image_url || ""}
@@ -52,14 +60,16 @@ const About = () => {
               height={48}
             />
           <div>
-            <p className=" flex gap-1 text-[#181817] text-lg f-satoshi-bold ">{currentTrack?.title}
+            <p className=" flex gap-1 text-[#181817] text-lg f-satoshi-bold ">
+              <span className="break-music">{currentTrack?.title}</span>
 <Redirects href={currentTrack?.url || ''} text={""} alt='Currently playing'/>
 			</p>
-            <p className="text-[#979797] text-sm f-satoshi">{currentTrack?.artiste}</p>
+            <p className="text-[#979797] break-music text-sm f-satoshi">
+             {currentTrack?.artiste}</p>
           </div>
         </div>
-        <div>
-          <Image className="hidden md:block" src="/images/vinyl.svg" alt="now playing" width={70} height={50} />
+        <div className="absolute -right-10">
+          <Image width={80} height={178} objectFit="contain" className=" spinningImg" src="/images/vinyl-2.svg" alt="now playing" />
         </div>
       </div>
 	  <div className="flex items-center gap-2 mt-4">
@@ -67,6 +77,7 @@ const About = () => {
 		<p className="f-satoshi-medium text-[#19170E] text-base">Currently playing</p>
 	  </div>
 	  </article>
+          }
       {/* section - page intro */}
       <div className="flex justify-between items-center">
         <h1 className="text-3xl f-p22 text-[#19170E]">
@@ -134,151 +145,31 @@ const About = () => {
           </span>
         </p>
         {/* mobile photo */}
-        <section className="relative grid md:hidden gap-2 pt-4">
-          <div className="grid grid-cols-3 gap-2 w-[343px] overflow-hidden">
-            <Image
-              className="rounded-[16px]  object-contain"
-              src="/images/photo-reel/91AF6D96-E5DB-46C7-B036-0AFBB567D33F.JPG"
-              width={100}
-              height={250}
-              alt="first image"
-            />
-            <Image
-              className="rounded-[16px]  object-cover"
-              src="/images/photo-reel/DSC_1872-2.JPG"
-              width={100}
-              height={195}
-              alt="first image"
-            />
-            <Image
-              className="rounded-[16px] object-contain"
-              src="/images/photo-reel/A26ADBC4-2385-4F79-9043-CB5B5CA6E1D5.JPG"
-              width={100}
-              height={250}
-              alt="first image"
-            />
-          </div>
-          <div className="flex gap-4 ">
-            <Image
-              className="hidden md:block rounded-2xl object-cover"
-              src="/images/photos/6.png"
-              width={160}
-              height={250}
-              alt="first image"
-            />
-            <Image
-              className="rounded-2xl object-cover"
-              src="/images/photos/7.png"
-              width={160}
-              height={250}
-              alt="first image"
-            />
-            <Image
-              className="rounded-2xl object-cover"
-              src="/images/photos/8.png"
-              width={160}
-              height={250}
-              alt="first image"
-            />
-            <Image
-              className="hidden md:block rounded-2xl object-cover"
-              src="/images/photos/9.png"
-              width={160}
-              height={250}
-              alt="first image"
-            />
-          </div>
-        </section>
-        {/* desktop photo */}
-        <section className=" hidden md:grid gap-2 pt-4">
-          <div className="grid grid-cols-3 gap-2 w-[343px] overflow-hidden">
-            <Image
-              className=" object-contain"
-              src="/images/photo-reel/0BCB6CA6-8900-4AD1-A615-B6421C9D9B2F.JPG"
-              width={160}
-              height={250}
-              alt="first image"
-            />
-            <Image
-              className=" object-contain"
-              src="/images/photo-reel/91AF6D96-E5DB-46C7-B036-0AFBB567D33F.JPG"
-              width={160}
-              height={250}
-              alt="first image"
-            />
-            <Image
-              className=" object-contain"
-              src="/images/photo-reel/20150818_123923_Original.jpg"
-              width={160}
-              height={250}
-              alt="first image"
-            />
-            <Image
-              className="object-contain"
-              src="/images/photo-reel/A26ADBC4-2385-4F79-9043-CB5B5CA6E1D5.JPG"
-              width={160}
-              height={250}
-              alt="first image"
-            />
-            <Image
-              className=" object-contain"
-              src="/images/photo-reel/DSC_1872-2.JPG"
-              width={160}
-              height={250}
-              alt="first image"
-            />
-            <Image
-              className=" object-contain"
-              src="/images/photo-reel/IMG_5036.PNG"
-              width={160}
-              height={250}
-              alt="first image"
-            />
-            <Image
-              className=" object-contain"
-              src="/images/photo-reel/IMG_6103.JPG"
-              width={160}
-              height={250}
-              alt="first image"
-            />
-          </div>
-          <div className="flex gap-4 ">
-            <Image
-              className="hidden md:block rounded-2xl object-cover"
-              src="/images/photos/6.png"
-              width={160}
-              height={250}
-              alt="first image"
-            />
-            <Image
-              className="rounded-2xl object-cover"
-              src="/images/photos/7.png"
-              width={160}
-              height={250}
-              alt="first image"
-            />
-            <Image
-              className="rounded-2xl object-cover"
-              src="/images/photos/8.png"
-              width={160}
-              height={250}
-              alt="first image"
-            />
-            <Image
-              className="hidden md:block rounded-2xl object-cover"
-              src="/images/photos/9.png"
-              width={160}
-              height={250}
-              alt="first image"
-            />
-          </div>
+        <section className="mt-7">
+
+        <div className="flex flex-wrap gap-[10px] w-[343px] md:w-[680px]">
+ 
+  <img className="w-[160px] h-[250px] rounded-tr-[16px] rounded-br-[16px] object-cover md:w-[80px] hidden md:block" src="/images/shater-1.jpeg" alt="Image 1" />
+  <img className="w-[80px] md:w-[160px] h-[250px] rounded-tr-[16px] rounded-br-[16px] md:rounded-[16px] object-cover" src="/images/shater-2.png" alt="Image 2" />
+  <img className="w-[160px] h-[250px] rounded-[16px] object-cover" src="/images/shater-3.png" alt="Image 3" />
+  <img className="w-[70px] md:w-[160px] h-[250px] rounded-tl-[16px] rounded-bl-[16px] md:rounded-[16px] object-cover" src="/images/shater-4.png" alt="Image 4" />
+  <img className="md:w-[70px] w-[160px] h-[250px] rounded-tl-[16px] rounded-bl-[16px] object-cover hidden md:block" src="/images/shater-5.png" alt="Image 5" />
+  
+
+  <img className="hidden md:block w-[160px] h-[250px] rounded-[16px] object-cover" src="/images/shater-6.png" alt="Image 6" />
+  <img className="w-[160px] h-[250px] rounded-[16px] object-cover" src="/images/shater-7.png" alt="Image 7" />
+  <img className="w-[160px] h-[250px] rounded-[16px] object-cover" src="/images/shater-8.png" alt="Image 8" />
+  <img className="hidden md:block w-[160px] h-[250px] rounded-[16px] object-cover" src="/images/shater-9.png" alt="Image 9" />
+</div>
+
+
         </section>
       </div>
       {/* useful facts */}
       <div className="pt-14 ">
         <div className="relative">
           <span className="md:absolute md:-left-[65px] md:top-1 f-p22Italic text-base text-[#B1AFA49C] block">
-            not so*
+            not so<span className="f-satoshi">*</span>
           </span>
           <p className="f-p22 text-[32px] leading-8 text-[#19170E]">
             {" "}
@@ -433,12 +324,18 @@ const About = () => {
             href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
             target="_blank"
           >
-            Click <span className="f-p22Italic">me!</span>
+            Click <span className="f-p22Italic">me<span className="f-satoshi">!</span></span>
           </Link>
         </div>
       </div>
+      </main>
+      <Footer/>
     </section>
+    }
+    </>
   );
 };
+
+
 
 export default About;

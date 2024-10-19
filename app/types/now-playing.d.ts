@@ -2,8 +2,8 @@
 
 declare module '@BolajiOlajide/now-playing' {
     export interface IStorer {
-      get: (key: string) => Promise<any>;
-      set: (key: string, value: any) => Promise<void>;
+      get: (key: string) => Promise<T>;
+      set: (key: string, value: T) => Promise<void>;
     }
   
     // Spotify credentials interface
@@ -28,11 +28,11 @@ declare module '@BolajiOlajide/now-playing' {
   
     // NowPlaying class definition
     export class NowPlaying {
-      fetchCurrentlyPlayingOrLastPlayed(): any {
+      fetchCurrentlyPlayingOrLastPlayed(): T {
           throw new Error('Method not implemented.');
       }
       constructor(provider: Providers, options: NowPlayingOptions);
-      getNowPlaying(): Promise<any>; // You'll need to replace "any" with a proper type if you know the structure of the data.
+      getNowPlaying(): Promise<T>; // You'll need to replace "any" with a proper type if you know the structure of the data.
     }
   }
   
