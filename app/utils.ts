@@ -218,7 +218,6 @@ export const books = [
   
       
       const observer = new IntersectionObserver((entries) => {
-        console.log(entries)
         entries.forEach((entry) => {
         if (!entry.isIntersecting) {
           // When the element hits the top, apply the blur effect

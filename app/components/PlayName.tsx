@@ -7,7 +7,6 @@ const PlayName = () => {
 	const [isPlaying, setIsPlaying] = useState(false)
 
 	const handlePlayAudio = () => {
-    console.log('clicked')
 		if (audioRef.current) {
 			if(!isPlaying){
 				audioRef.current.play();

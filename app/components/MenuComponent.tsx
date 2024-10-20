@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavDropdownContainer } from "./NavDropdown";
 import Projects from "./Projects";
 import Experiences from "./Experiences";
@@ -10,6 +10,38 @@ import Recommendations from "./Recommendations";
 const MenuComponent = () => {
   const [activeItem, setActiveItem] = useState('')
 
+  useEffect(() => {
+		const elements = document.querySelectorAll(".tgt-slide");
+	
+	
+		const observer = new IntersectionObserver(
+		  (entries) =>
+			entries.forEach((entry) => {
+				if(entry.isIntersecting){
+					entry.target.classList.add("slide-in");
+					observer.unobserve(entry.target)
+				} else{
+					entry.target.classList.remove('slide-in')
+				}
+			}),
+		
+		);
+	
+		elements.forEach((el) => {
+		  observer.observe(el);
+		});
+	
+
+	
+	
+		return () => {
+		  elements.forEach((el) => {
+			observer.unobserve(el);
+		  });
+		};
+	  }, [activeItem]);
+	
+
   return (
     <>
     <NavDropdownContainer defineActiveItem={setActiveItem}/>
@@ -18,17 +50,23 @@ const MenuComponent = () => {
     <Projects/>
     }
 
+<div className="tgt-slide">
     {activeItem === 'experience' && 
     <Experiences/>
     }
 
+</div>
+<div className="tgt-slide">
+
     {activeItem === 'education' && 
     <Education/>
     }
-
+</div>
+<div className="tgt-slide">
     {activeItem === 'recommendation' && 
     <Recommendations/>
     }
+</div>
     </>
   )
 }

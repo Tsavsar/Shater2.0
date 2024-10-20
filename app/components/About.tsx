@@ -38,6 +38,61 @@ export const About = () => {
   }, []);
 
   console.log(error);
+
+  useEffect(() => {
+    const imgslide = document.querySelectorAll(".image-slide");
+    const slideTwo = document.querySelectorAll(".slide-two")
+
+    const elObserver = new IntersectionObserver(
+      (entries) =>
+        entries.forEach((entry) => {
+          if(entry.isIntersecting){
+            entry.target.classList.add("slide-in");
+            elObserver.unobserve(entry.target)
+          } else{
+            entry.target.classList.remove("slide-in");
+          }
+        }), {threshold: 1},
+    );
+
+    slideTwo.forEach((el) => {
+      elObserver.observe(el);
+    });
+
+
+    const imageObserver = new IntersectionObserver(
+      (entries) =>
+        entries.forEach((entry, index) => {
+          const target = entry.target as HTMLElement;
+
+          if (entry.isIntersecting) {
+            target.style.animationDelay = `${index * 0.3}s`;
+            target.classList.add("i-animate");
+            imageObserver.unobserve(target);
+          } else {
+            target.classList.remove("i-animate");
+          }
+        }),
+      { threshold: 0.1 }
+    );
+
+    imgslide.forEach((el) => {
+      imageObserver.observe(el);
+    });
+
+   
+
+    return () => {
+      slideTwo.forEach((el) => {
+        elObserver.unobserve(el);
+      });
+      imgslide.forEach((el) => {
+        imageObserver.unobserve(el);
+      });
+  
+    };
+  }, [loading]);
+
   return (
     <>
     {
@@ -48,12 +103,12 @@ export const About = () => {
     <section className="responsive pt-16">
       	<Navbar navItl="Home" navLink="/" />
         <main className={`pt-16`}>
-          {currentTrack &&
+       
 	  <article className="mb-16 overflow-hidden relative">
       <div className="p-[0.6rem] flex justify-between items-center border rounded-md border-[#F0EEE8]">
         <div className="flex items-center gap-3 ">
             <Image
-			  className="rounded-md"
+			  className="rounded-md bg-gray-50"
               src={currentTrack?.image_url || ""}
               alt="Album cover"
               width={48}
@@ -61,11 +116,11 @@ export const About = () => {
             />
           <div>
             <p className=" flex gap-1 text-[#181817] text-lg f-satoshi-bold ">
-              <span className="break-music">{currentTrack?.title}</span>
-<Redirects href={currentTrack?.url || ''} text={""} alt='Currently playing'/>
+              <span className="break-music">{currentTrack?.title || 'Clueless'}</span>
+<Redirects href={currentTrack?.url || 'http://localhost/3000'} text={""} alt='Currently playing'/>
 			</p>
             <p className="text-[#979797] break-music text-sm f-satoshi">
-             {currentTrack?.artiste}</p>
+             {currentTrack?.artiste || 'Black Bones'}</p>
           </div>
         </div>
         <div className="absolute -right-10">
@@ -77,9 +132,9 @@ export const About = () => {
 		<p className="f-satoshi-medium text-[#19170E] text-base">Currently playing</p>
 	  </div>
 	  </article>
-          }
+       
       {/* section - page intro */}
-      <div className="flex justify-between items-center">
+      <div className="slide-two flex justify-between items-center">
         <h1 className="text-3xl f-p22 text-[#19170E]">
           About <span className="f-p22Italic">me.</span>
         </h1>
@@ -87,11 +142,11 @@ export const About = () => {
         <CTooltip />
       </div>
       {/* section - name */}
-      <p className="f-satoshi text-base text-[#464229] pt-5 pb-10">
+      <p className="slide-two f-satoshi text-base text-[#464229] pt-5 pb-10">
         Alright, let’s do this one last time...... My name is Shater D. Tsavsar.
       </p>
       {/* section - name pronun */}
-      <div className="f-satoshi md:flex justify-between items-center">
+      <div className="slide-two f-satoshi md:flex justify-between items-center">
         <p className="text-[#19170E] text-3xl min-[375px]:text-[2.5rem] md:text-[3.35rem] leading-[60px] md:leading-[78px]">
           /ˈʃɑː-teɪ/ /ˈtɑːv-sɑː/{" "}
         </p>
@@ -100,19 +155,19 @@ export const About = () => {
         </div>
       </div>
       {/* section - about  */}
-      <div className=" pt-6 f-satoshi text-[#464229] text-base">
+      <div className="slide-two pt-6 f-satoshi text-[#464229] text-base">
         <p>
-          <span>
+          <span className="">
             {" "}
             And for the last couple of years I&apos;ve been the one and only
             pixel pushing, Jesus loving, sports{" "}
           </span>{" "}
           analysing, anime power scaling, friendly
-          <span> neighbourhood </span>
-          <span className="comic-neue-regular line-through text-[#46422966]">
+          <span className=""> neighbourhood </span>
+          <span className=" comic-neue-regular line-through text-[#46422966]">
             Spider-Man
           </span>{" "}
-          <span>Product Designer.</span>
+          <span className="">Product Designer.</span>
         </p>
         <p className="py-5">
           I designed a bunch of products, worked with startups, crafted design
@@ -131,7 +186,7 @@ export const About = () => {
       </div>
       {/* socials */}
       <div className="pt-14">
-        <p className="f-p22 text-[32px] leading-8 text-[#19170E]">
+        <p className="slide-two f-p22 text-[32px] leading-8 text-[#19170E]">
           I exist on the <span className="f-p22Italic">interwebs...</span>
         </p>
         <Socials />
@@ -140,26 +195,45 @@ export const About = () => {
       <div className="pt-14">
         <p className="f-p22 text-[32px] leading-8 text-[#19170E]">
           Enjoy this show reel of pictures.......
-          <span className="ml-1 f-p22Italic text-base text-[#B1AFA4]">
+          <span className="slide-two ml-1 f-p22Italic text-base text-[#B1AFA4]">
             or dont
           </span>
         </p>
         {/* mobile photo */}
         <section className="mt-7">
 
-        <div className="flex flex-wrap gap-[10px] w-[343px] md:w-[680px]">
+        <div className=" flex flex-wrap gap-[10px] w-[343px] md:w-[680px]">
  
-  <img className="w-[160px] h-[250px] rounded-tr-[16px] rounded-br-[16px] object-cover md:w-[80px] hidden md:block" src="/images/shater-1.jpeg" alt="Image 1" />
-  <img className="w-[80px] md:w-[160px] h-[250px] rounded-tr-[16px] rounded-br-[16px] md:rounded-[16px] object-cover" src="/images/shater-2.png" alt="Image 2" />
-  <img className="w-[160px] h-[250px] rounded-[16px] object-cover" src="/images/shater-3.png" alt="Image 3" />
-  <img className="w-[70px] md:w-[160px] h-[250px] rounded-tl-[16px] rounded-bl-[16px] md:rounded-[16px] object-cover" src="/images/shater-4.png" alt="Image 4" />
-  <img className="md:w-[70px] w-[160px] h-[250px] rounded-tl-[16px] rounded-bl-[16px] object-cover hidden md:block" src="/images/shater-5.png" alt="Image 5" />
+  {/* <img className="w-[160px] h-[250px] rounded-tr-[16px] rounded-br-[16px] object-cover md:w-[80px] hidden md:block" src="/images/shater-1.jpeg" alt="Image 1" /> */}
+  <div  className="image-slide image-view relative w-[160px] h-[250px] rounded-tr-[16px] rounded-br-[16px] object-cover md:w-[80px] hidden md:block">
+  <Image className="rounded-tr-[16px] rounded-br-[16px] md:w-[80px] " objectFit="cover" layout="fill" src="/images/shater-1.jpeg" alt="Image 1" />
+  </div>
+  <div className="image-slide image-view relative w-[80px] md:w-[160px] h-[250px] rounded-tr-[16px] rounded-br-[16px] md:rounded-[16px] object-cover">
+  <Image layout="fill" objectFit="cover" className="rounded-tr-[16px] rounded-br-[16px] md:rounded-[16px]" src="/images/shater-2.png" alt="Image 2" />
+  </div>
+  <div className="image-slide image-view w-[160px] h-[250px] rounded-[16px] object-cover" >
+  <Image layout="fill" className="rounded-[16px] object-cover" src="/images/shater-3.png" alt="Image 3" />
+  </div>
+  <div className="image-slide image-view w-[70px] md:w-[160px] h-[250px] rounded-tl-[16px] rounded-bl-[16px] md:rounded-[16px] object-cover">
+  <Image layout="fill" className="rounded-tl-[16px] rounded-bl-[16px] md:rounded-[16px] object-cover" src="/images/shater-4.png" alt="Image 4" />
+  </div>
+  <div className="image-slide image-view md:w-[70px] w-[160px] h-[250px] rounded-tl-[16px] rounded-bl-[16px] object-cover hidden md:block" >
+  <Image layout="fill" className="rounded-tl-[16px] rounded-bl-[16px] object-cover" src="/images/shater-5.png" alt="Image 5" />
+  </div>
   
+<div className="relative hidden md:block w-[160px] h-[250px] rounded-[16px] object-cover">
+  <Image layout="fill" className="rounded-[16px] object-cover" src="/images/shater-6.png" alt="Image 6" />
+</div>
+<div className="relative w-[160px] h-[250px] rounded-[16px] object-cover">
+  <Image layout="fill" className="rounded-[16px] object-cover" src="/images/shater-7.png" alt="Image 7" />
+</div>
+<div className="image-slide image-view w-[160px] h-[250px] rounded-[16px] object-cover">
+  <Image layout="fill" className="rounded-[16px] object-cover" src="/images/shater-8.png" alt="Image 8" />
+</div>
+<div className="relative hidden md:block w-[160px] h-[250px] rounded-[16px] object-cover">
+  <Image layout="fill" className="rounded-[16px] object-cover" src="/images/shater-9.png" alt="Image 9" />
+</div>
 
-  <img className="hidden md:block w-[160px] h-[250px] rounded-[16px] object-cover" src="/images/shater-6.png" alt="Image 6" />
-  <img className="w-[160px] h-[250px] rounded-[16px] object-cover" src="/images/shater-7.png" alt="Image 7" />
-  <img className="w-[160px] h-[250px] rounded-[16px] object-cover" src="/images/shater-8.png" alt="Image 8" />
-  <img className="hidden md:block w-[160px] h-[250px] rounded-[16px] object-cover" src="/images/shater-9.png" alt="Image 9" />
 </div>
 
 
@@ -171,15 +245,15 @@ export const About = () => {
           <span className="md:absolute md:-left-[65px] md:top-1 f-p22Italic text-base text-[#B1AFA49C] block">
             not so<span className="f-satoshi">*</span>
           </span>
-          <p className="f-p22 text-[32px] leading-8 text-[#19170E]">
+          <p className="slide-two f-p22 text-[32px] leading-8 text-[#19170E]">
             {" "}
             Useful facts about <span className="f-p22Italic">me</span>
           </p>
         </div>
         <div className="pt-5 text-[#232323] f-satoshi-medium text-base">
-          <p className="">Fueled by faith and guided by grace.</p>
+          <p className="slide-two ">Fueled by faith and guided by grace.</p>
           <div className="pt-8 flex flex-col md:flex-row gap-3 md:justify-between">
-            <p className="min-[375px]:w-[329px]">
+            <p className="slide-two min-[375px]:w-[329px]">
               These 3 usually keep me up at night. I also own a lot of jerseys.
             </p>
             <Image
@@ -190,7 +264,7 @@ export const About = () => {
             />
           </div>
           {/* i make great playlist... */}
-          <p className="pt-8 min-[390px]:w-[342px] md:w-auto">
+          <p className="slide-two pt-8 min-[390px]:w-[342px] md:w-auto">
             I make <span className="f-satoshi-bold">AMAZING</span> playlists,
             follow me on{" "}
             <Link
@@ -211,7 +285,7 @@ export const About = () => {
           {/* currently watching... */}
           <div className="flex items-center pt-8">
             <div className="md:w-[464px]">
-              <p>
+              <p className="slide-two ">
                 I&apos;m currently on Episode 700 of One Piece! I also own a
                 number of anime figures.
               </p>
@@ -227,7 +301,7 @@ export const About = () => {
           </div>
 
           {/*  anime list */}
-          <div className="flex flex-wrap gap-3 pt-2">
+          <div className="slide-two flex flex-wrap gap-3 pt-2">
             {topAnime.map((item) => (
               <Link key={item.title} href={item.link}>
                 {item.title}
@@ -236,12 +310,12 @@ export const About = () => {
             ))}
           </div>
           {/* x-box */}
-          <p className="py-8">
+          <p className="slide-two py-8">
             I&apos;ve been using xbox for over 15 years, I currently use a
             series S
           </p>
           {/* fav sports man */}
-          <p className="pb-8">
+          <p className="slide-two pb-8">
             My favourite basketball player is{" "}
             <button>
               Josh Hart <Arrow alt="Josh Hart" />
@@ -257,7 +331,7 @@ export const About = () => {
             <p className="text-[#232323]">
               5 Artists to explain my music taste
             </p>
-            <div className="flex flex-wrap gap-3 pt-2">
+            <div className="slide-two flex flex-wrap gap-3 pt-2">
               {musicArtist.map((item) => (
                 <Link
                   className="text-[#19170E]"
@@ -272,7 +346,7 @@ export const About = () => {
           </div>
 
           {/* chess */}
-          <p className="pb-8 text-[#232323]">
+          <p className="slide-two pb-8 text-[#232323]">
             I play a lot of chess and my favourite opening is the{" "}
             <Redirects
               href="https://www.chess.com/openings/Queens-Pawn-Opening-Chigorin-Variation"
@@ -293,7 +367,7 @@ export const About = () => {
             <p className=" text-[#232323]">
               I read a little and these are my favourite books;
             </p>
-            <div className="flex flex-wrap gap-3 pt-2">
+            <div className="slide-two flex flex-wrap gap-3 pt-2">
               {books.map((item) => (
                 <Link
                   className="text-[#19170E]"
@@ -320,7 +394,7 @@ export const About = () => {
             </p>
           </div>
           <Link
-            className="min-[375px]:w-[28%] md:w-auto text-sm text-[#0A231D] f-p22"
+            className="min-[375px]:w-[28%] md:w-auto text-sm text-[#0A231D] f-p22 motion-safe:animate-bounce "
             href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
             target="_blank"
           >

@@ -1,9 +1,41 @@
+'use client';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useEffect } from 'react';
 
 const Socials = () => {
+	useEffect(() => {
+		const list = document.querySelectorAll(".list-slide");
+	
+		const listObserver = new IntersectionObserver(
+		  (entries) =>
+			entries.forEach((entry, index) => {
+			  const target = entry.target as HTMLElement;
+	
+			  if (entry.isIntersecting) {
+				target.style.animationDelay = `${index * 0.3}s`;
+				target.classList.add("c-animate");
+				listObserver.unobserve(target);
+			  } else {
+				target.classList.remove("c-animate");
+			  }
+			}),
+		  { threshold: 0.1 }
+		);
+	
+		list.forEach((el) => {
+		  listObserver.observe(el);
+		});
+	
+		return () => {
+		  list.forEach((el) => {
+			listObserver.unobserve(el);
+		  })
+		};
+	  }, []);
+
 	return (
-		<ul className="f-satoshi pt-6 flex flex-col md:flex-row md:w-[669px] md:flex-wrap md:gap-2">
+		<ul className="list-slide f-satoshi pt-6 flex flex-col md:flex-row md:w-[669px] md:flex-wrap md:gap-2">
 			<li>
 				<Link
           target='_blank'

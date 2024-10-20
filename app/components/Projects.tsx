@@ -7,9 +7,37 @@ import { motion, useScroll, useTransform, useAnimation, useInView  } from 'frame
 
 const Projects = () => {
 
+	useEffect(() => {
+		const elements = document.querySelectorAll(".tgt-slide");
+	
+		const observer = new IntersectionObserver(
+		  (entries) =>
+			entries.forEach((entry) => {
+				if(entry.isIntersecting){
+					entry.target.classList.add("slide-in");
+					observer.unobserve(entry.target)
+				} else{
+					entry.target.classList.remove('slide-in')
+				}
+			}),
+		
+		);
+	
+		elements.forEach((el) => {
+		  observer.observe(el);
+		});
+		
+		return () => {
+		  elements.forEach((el) => {
+			observer.unobserve(el);
+		  });
+		};
+	  }, []);
+	
+
 	return (
 		<div className="f-satoshi">
-			<p className="font-normal text-base text-[#464229]">
+			<p className="tgt-slide font-normal text-base text-[#464229]">
 				A collection of projects I’ve worked on in the process of learning and
 				improving as a designer and to also show my ability to solve issues with
 				design.
@@ -17,7 +45,7 @@ const Projects = () => {
 
 			<>
 				{projectsData.map((item) => (
-					<div className="pt-10" key={item.title}>
+					<div className="tgt-slide pt-10" key={item.title}>
 						<div className="md:flex md:items-center md:justify-between">
 							<div className="flex items-center gap-4">
 								<Image   className='rounded-[15px]' src={item.logo} alt="Project"  width={69}

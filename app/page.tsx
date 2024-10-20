@@ -13,7 +13,7 @@ export default function Home() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1000); // Simulate a 3-second loading time
+    }, 500); // Simulate a 3-second loading time
     return () => clearTimeout(timer);
   }, []);
 
@@ -25,14 +25,13 @@ export default function Home() {
     const observer = new IntersectionObserver(
       (entries) =>
         entries.forEach((entry) => {
-          console.log(entry.target);
+        
 
           entry.target.classList.toggle("slide-in", entry.isIntersecting);
         }),
       { threshold: 0.5 }
     );
 
-    // console.log(elements)
     elements.forEach((el) => {
       observer.observe(el);
     });
@@ -65,7 +64,6 @@ export default function Home() {
           if (entry.isIntersecting) {
             target.style.animationDelay = `${index * 0.3}s`;
             target.classList.add("title-slideIn");
-            // RowObserver.unobserve(target);
           } else {
             target.classList.remove("title-slideIn");
           }

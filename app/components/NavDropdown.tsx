@@ -59,6 +59,37 @@ interface NavDropdownProps {
 };
 
 const NavDropdown: React.FC<NavDropdownProps> = (props) => {
+  useEffect(() => {
+    const title = document.querySelectorAll(".title-slide");
+
+    const RowObserver = new IntersectionObserver(
+      (entries) =>
+        entries.forEach((entry, index) => {
+          const target = entry.target as HTMLElement;
+
+          if (entry.isIntersecting) {
+            target.style.animationDelay = `${index * 0.3}s`;
+            target.classList.add("title-slideIn");
+            // RowObserver.unobserve(target);
+          } else {
+            target.classList.remove("title-slideIn");
+          }
+        }),
+      { threshold: 0.1 }
+    );
+
+    title.forEach((el) => {
+      RowObserver.observe(el);
+    });
+
+    return () => {
+      title.forEach((el) => {
+        RowObserver.unobserve(el);
+      });
+    };
+  }, []);
+
+
   return (
     <div className="flex pb-10 items-center gap-4">
     <div className="c-menu">
@@ -88,7 +119,7 @@ const NavDropdown: React.FC<NavDropdownProps> = (props) => {
         height={10}
       />
       <div className={`${props.mobile ? 'grid' : 'hidden'} absolute -left-4 `}>
-     <div className='rounded-xl grid p-4 dropdown-mobile cursor-pointer mt-[10rem] bg-[#F9F8F6] border-[#F5F3F0] border gap-4'>
+     <div className='dropdown-slide rounded-xl grid p-4 dropdown-mobile cursor-pointer mt-[10rem] bg-[#F9F8F6] border-[#F5F3F0] border gap-4'>
      {dropdownList.filter(item => item.toLowerCase() !== props.activeItem).map(item => (
       <button key={item} onClick={props.handleTextChange} className='capitalize text-left hover:opacity-70'>{item}</button>
      ))}
@@ -108,7 +139,7 @@ const NavDropdown: React.FC<NavDropdownProps> = (props) => {
         width={props.desktop ? 5 : 10}
         height={props.desktop ? 5 :10}
       />
-      <div className={`${props.desktop ? 'flex' : 'hidden'} dropdown-children items-center gap-4`}>
+      <div className={`${props.desktop ? 'flex' : 'hidden'} title-slide dropdown-children items-center gap-4`}>
       {dropdownList.filter(item => item.toLowerCase() !== props.activeItem).map(item => (
         <button key={item} onClick={props.handleTextChange} className='dropdown-link hover:opacity-70'>{item}</button>
 
