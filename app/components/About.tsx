@@ -109,8 +109,8 @@ export const About = () => {
         <div className="flex items-center gap-3 ">
             <Image
 			  className="rounded-md bg-gray-50"
-              src={currentTrack?.image_url || ""}
-              alt="Album cover"
+              src={currentTrack?.image_url || "/images/shater-2.png"}
+              alt=""
               width={48}
               height={48}
             />
