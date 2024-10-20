@@ -62,13 +62,16 @@ const NavDropdown: React.FC<NavDropdownProps> = (props) => {
   return (
     <div className="flex pb-10 items-center gap-4">
     <div className="c-menu">
-      <Image
-        className="motion-safe:animate-pulse"
-        src="/images/menu.svg"
-        alt="Menu"
-        width={16}
-        height={16}
-      />
+      <>
+      <svg className="svg-area" width="16px" height="16px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(8,8)"> 
+      <circle id="radar" cx="0" cy="0" r="6" /> 
+        <circle id="core" cx="0" cy="0" r="4" />        
+      
+    
+    </g>
+</svg>
+      </>
       <span className="f-satoshi font-medium text-sm text-[#19170E]">Menu</span>
     </div>
     <hr className="slant-divider" />
