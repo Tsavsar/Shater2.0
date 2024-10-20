@@ -1,6 +1,6 @@
 // types/now-playing.d.ts
 
-declare module '@BolajiOlajide/now-playing' {
+declare module '@bolajiolajide/now-playing' {
     export interface IStorer {
       get: (key: string) => Promise<T>;
       set: (key: string, value: T) => Promise<void>;

@@ -1,6 +1,6 @@
 // pages/api/now-playing.ts (API route)
 
-import { NowPlaying, Providers } from '@BolajiOlajide/now-playing';
+import { NowPlaying, Providers } from '@bolajiolajide/now-playing';
 
 export async function GET() {
   const np = new NowPlaying(Providers.SPOTIFY, {
