@@ -15,8 +15,11 @@ export async function GET() {
 
   try {
     const data = await np.fetchCurrentlyPlayingOrLastPlayed();
+    
+    console.log(data)
     return Response.json({ data });
   } catch (error) {
+    console.log(error)
     return Response.json({ error});
   }
 }
