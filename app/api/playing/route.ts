@@ -38,10 +38,10 @@ const getNowPlaying = async () => {
 export async function GET() {
   try {
     const response = await getNowPlaying();
-    console.log(response)
+
     // return an error if the user is currently not playing any song
     const error = { isPlaying: false };
-    if (response.status === 204 || response.status > 400) {
+    if (response.status !== 200) {
       return new Response(JSON.stringify(error), {
         status: 204,
         statusText: "User is offline",
@@ -57,18 +57,19 @@ export async function GET() {
       });
     }
 
-    // const isPlaying = song.is_playing;
-    // const title = song.item.name;
-    // const artist = (song.item.artists as { name: string }[])
-    //   .map((_artist) => _artist.name)
-    //   .join(", ");
-    // const album = song.item.album.name;
-    // const albumArt = song.item.album.images[0]?.url;
+    const isPlaying = song.is_playing;
+    const title = song.item.name;
+    const artist = (song.item.artists as { name: string }[])
+      .map((_artist) => _artist.name)
+      .join(", ");
+    const album = song.item.album.name;
+    const albumArt = song.item.album.images[0]?.url;
 
     return new Response(
-      JSON.stringify(song)
+      JSON.stringify({ isPlaying, title, artist, album, albumArt })
     );
   } catch (error) {
+    console.log(error)
     return new Response(JSON.stringify(error), {
       status: 500,
       statusText: "Error fetching currently playing",

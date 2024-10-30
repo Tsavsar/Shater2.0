@@ -12,12 +12,15 @@ import { useEffect, useState } from "react";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import Spinner from "./Spinner";
+import useNowPlaying from "../hooks/useNowPlaying";
 
 export const About = () => {
   const [currentTrack, setCurrentTrack] = useState<ICurrTrack | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<unknown | null>(null);
+  const { ncurrentTrack } = useNowPlaying();
 
+  console.log({ncurrentTrack})
   useEffect(() => {
     const fetchData = async () => {
       try {

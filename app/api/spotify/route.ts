@@ -4,8 +4,6 @@ import { NowPlaying, Providers } from '@bolajiolajide/now-playing';
 
 export async function GET() {
   const np = new NowPlaying(Providers.SPOTIFY, {
-    useCache: false,
-    cacheDuration: 30000,
     streamerArgs: {
       clientId: process.env.WSPOTIFY_CLIENT_ID || 'FOO',
       clientSecret: process.env.WSPOTIFY_CLIENT_SECRET || 'BAR',
