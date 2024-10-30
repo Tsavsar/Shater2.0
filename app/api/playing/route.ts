@@ -1,78 +1,27 @@
-import querystring from "querystring";
+import { NowPlaying, Providers } from "@bolajiolajide/now-playing";
 
-const NOW_PLAYING_ENDPOINT =
-  "https://api.spotify.com/v1/me/player/currently-playing";
-const TOKEN_ENDPOINT = "https://accounts.spotify.com/api/token";
-const CLIENT_ID = process.env.WSPOTIFY_CLIENT_ID;
-const CLIENT_SECRET = process.env.WSPOTIFY_CLIENT_SECRET;
-const REFRESH_TOKEN = process.env.WSPOTIFY_REFRESH_TOKEN;
+export const dynamic = 'force-dynamic'
 
-const getAccessToken = async () => {
-  const basic = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString("base64");
-
-  const response = await fetch(TOKEN_ENDPOINT, {
-    method: "POST",
-    headers: {
-      Authorization: `Basic ${basic}`,
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    body: querystring.stringify({
-      grant_type: "refresh_token",
-      refresh_token: REFRESH_TOKEN,
-    }),
-  });
-
-  return await response.json();
-};
-
-const getNowPlaying = async () => {
-  const { access_token } = await getAccessToken();
-
-  return fetch(NOW_PLAYING_ENDPOINT, {
-    headers: {
-      Authorization: `Bearer ${access_token}`,
-    },
-  });
-};
-
-export async function GET() {
+export const GET = async () => {
   try {
-    const response = await getNowPlaying();
+    const nowPlaying = new NowPlaying(Providers.SPOTIFY, {
+      streamerArgs: {
+        clientId: process.env.WSPOTIFY_CLIENT_ID!,
+        clientSecret: process.env.WSPOTIFY_CLIENT_SECRET!,
+        refreshToken: process.env.WSPOTIFY_REFRESH_TOKEN!,
+      },
+    });
 
-    // return an error if the user is currently not playing any song
-    const error = { isPlaying: false };
-    if (response.status !== 200) {
-      return new Response(JSON.stringify(error), {
-        status: 204,
-        statusText: "User is offline",
-      });
-    }
+    const playingDetails = await nowPlaying.fetchCurrentlyPlayingOrLastPlayed();
 
-    const song = await response.json();
-    // return an error if spotify doesn't return an item
-    if (!song.item) {
-      return new Response(JSON.stringify(error), {
-        status: 404,
-        statusText: "Unable to find song",
-      });
-    }
-
-    const isPlaying = song.is_playing;
-    const title = song.item.name;
-    const artist = (song.item.artists as { name: string }[])
-      .map((_artist) => _artist.name)
-      .join(", ");
-    const album = song.item.album.name;
-    const albumArt = song.item.album.images[0]?.url;
-
-    return new Response(
-      JSON.stringify({ isPlaying, title, artist, album, albumArt })
-    );
+    return new Response(JSON.stringify(playingDetails), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    });
   } catch (error) {
-    console.log(error)
-    return new Response(JSON.stringify(error), {
+    return new Response(JSON.stringify({ error }), {
       status: 500,
-      statusText: "Error fetching currently playing",
+      headers: { "Content-Type": "application/json" },
     });
   }
-}
+};

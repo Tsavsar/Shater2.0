@@ -12,15 +12,53 @@ import { useEffect, useState } from "react";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import Spinner from "./Spinner";
-import useNowPlaying from "../hooks/useNowPlaying";
+import { SpotifyPlayingDetails } from "../context/useNowPlaying";
 
 export const About = () => {
   const [currentTrack, setCurrentTrack] = useState<ICurrTrack | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<unknown | null>(null);
-  const { ncurrentTrack } = useNowPlaying();
+  const [playingDetails, setPlayingDetails] =  useState<SpotifyPlayingDetails>({
+    url: "",
+    artistName: "",
+    songName: "",
+    previewUrl: "",
+    isPlaying: false,
+    coverImageUrl: "",
+    loading: true
+  });
 
-  console.log({ncurrentTrack})
+
+  useEffect(() => {
+    const fetchPlayingDetails = () => {
+      fetch("/api/playing")
+        .then((res) => res.json())
+        .then((data) => {
+          setPlayingDetails({
+            url: data.url,
+            artistName: data.artiste,
+            songName: data.title,
+            previewUrl: data.preview_url,
+            coverImageUrl: data.image_url,
+            isPlaying: data.is_playing,
+            loading: false,
+          });
+        })
+        .catch((error) => {
+          setPlayingDetails((prev) => ({...prev, loading: false }));
+          console.error("Error fetching playing details:", error);
+        });
+    };
+
+    setPlayingDetails((prev) => ({...prev, loading: true }));
+    fetchPlayingDetails();
+    const intervalId = setInterval(fetchPlayingDetails, 30000);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
+  console.log({playingDetails})
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -38,23 +76,6 @@ export const About = () => {
     };
 
     fetchData();
-
-    const fetchDataTwo = async () => {
-      try {
-        const response = await fetch("/api/playing");
-        if (!response.ok) {
-          throw new Error("Failed to fetch the data");
-        }
-        const data = await response.json();
-        console.log(data)
-      } catch (err) {
-        console.log(err)
-      } finally {
-        // setLoading(false);
-      }
-    };
-
-    fetchDataTwo();
   }, []);
 
   console.log(error)
