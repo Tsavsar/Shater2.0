@@ -118,8 +118,8 @@ const NavDropdown: React.FC<NavDropdownProps> = (props) => {
         width={10}
         height={10}
       />
-      <div className={`${props.mobile ? 'grid' : 'hidden'} absolute -left-4 `}>
-     <div className='dropdown-slide rounded-xl grid p-4 dropdown-mobile cursor-pointer mt-[10rem] bg-[#F9F8F6] border-[#F5F3F0] border gap-4'>
+      <div className={`${props.mobile ? 'grid' : 'hidden'} absolute -left-4 -top-35`}>
+     <div className='z-30 dropdown-slide rounded-xl grid p-4 dropdown-mobile cursor-pointer mt-[10rem] bg-[#F9F8F6] border-[#F5F3F0] border gap-4'>
      {dropdownList.filter(item => item.toLowerCase() !== props.activeItem).map(item => (
       <button key={item} onClick={props.handleTextChange} className='capitalize text-left hover:opacity-70'>{item}</button>
      ))}
@@ -139,9 +139,9 @@ const NavDropdown: React.FC<NavDropdownProps> = (props) => {
         width={props.desktop ? 5 : 10}
         height={props.desktop ? 5 :10}
       />
-      <div className={`${props.desktop ? 'flex' : 'hidden'} title-slide dropdown-children items-center gap-4`}>
+      <div className={`${props.desktop ? 'flex' : 'hidden'} dropdown-children items-center gap-4`}>
       {dropdownList.filter(item => item.toLowerCase() !== props.activeItem).map(item => (
-        <button key={item} onClick={props.handleTextChange} className='dropdown-link hover:opacity-70'>{item}</button>
+        <button key={item} onClick={props.handleTextChange} className='cop-dropdown-link hover:opacity-70'>{item}</button>
 
       ))}
       {/* <a className='dropdown-link' href="#">Education</a>

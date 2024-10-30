@@ -19,7 +19,7 @@ const Projects = () => {
 				} else{
 					entry.target.classList.remove('slide-in')
 				}
-			}),
+			},{threshold: 0.5}),
 		
 		);
 	

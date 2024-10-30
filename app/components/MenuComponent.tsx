@@ -18,10 +18,10 @@ const MenuComponent = () => {
 		  (entries) =>
 			entries.forEach((entry) => {
 				if(entry.isIntersecting){
-					entry.target.classList.add("slide-in");
+					entry.target.classList.add("menu-slide-in");
 					observer.unobserve(entry.target)
 				} else{
-					entry.target.classList.remove('slide-in')
+					entry.target.classList.remove('menu-slide-in')
 				}
 			}),
 		

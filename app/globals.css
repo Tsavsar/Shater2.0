@@ -134,6 +134,13 @@ body {
 	font-size: 12px;
 	line-height: 14.28px;
 }
+.cop-dropdown-link {
+	color: #9b9b9b;
+	font-family: var(--font-p22);
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 14.28px;
+}
 .dropdown-mobile button{
 	color: #9b9b9b;
 	font-family: var(--font-p22);
@@ -219,9 +226,9 @@ background-color: transparent;
   right: 0;
   height: 50px; 
   pointer-events: none; 
-  backdrop-filter: blur(6px); 
+  backdrop-filter: blur(5px); 
   z-index: 10; 
-  background: transparent;
+  /* background: transparent; */
 
 
   /* background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 80%); */
@@ -229,6 +236,13 @@ background-color: transparent;
   /* background: linear-gradient(to bottom, rgba(249, 248, 246, 0) 0%, rgba(249, 248, 246, 1) 80%); */
 
 }
+
+ .layer-1 {
+	top: -10px; /* Offset up */
+	left: -10px; /* Offset left */
+	backdrop-filter: blur(10px);
+	opacity: 0.3;
+  }
 
 .progress {
 	width: 300px;
@@ -359,6 +373,9 @@ background-color: transparent;
 
 .slide-in{
 	animation: slideIn 0.5s ease-in forwards;
+}
+.menu-slide-in{
+	animation: slideIn 0.2s ease-in forwards;
 }
 
 .c-animate{

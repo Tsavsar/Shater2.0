@@ -73,7 +73,7 @@ export const projectsData = [
   },
 ]
 
-export const dropdownList = ["projects", "Experience", "Education", "Recommendation"]
+export const dropdownList = ["Projects", "Experience", "Education"]
 
 export const experienceData = [
   {

@@ -102,10 +102,10 @@ export default function Home() {
                 <li className="title-slide">Product Designer</li>
                 <hr className="divider" />
                 <li className="title-slide">Writer</li>
-                <hr className="title-slidedivider" />
+                <hr className="title-slide divider" />
                 <li className="title-slide">Design Speaker</li>
               </ul>
-              <h1 className=" py-5 text-[#19170E] text-5xl name font-mena800 lg:w-[12ch]">
+              <h1 className="py-5 text-[#19170E] text-5xl name font-mena800 lg:w-[12ch]">
                 Mchiaga Tsavsar Shater{" "}
               </h1>
               {/* links */}
@@ -160,8 +160,8 @@ export default function Home() {
                 </span>{" "}
                 — product designer by day, Knicks & Arsenal fan by night.
                 Currently building{" "}
-                <span className=".f-satoshi-medium">Opentape</span>
                 <a target="_blank" href="https://www.opentape.io/">
+                <span className=".f-satoshi-medium">Opentape</span>
                   <Image
                     src="/images/arrow.svg"
                     alt="What I'm currrently building"
