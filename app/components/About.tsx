@@ -35,9 +35,26 @@ export const About = () => {
     };
 
     fetchData();
+
+    const fetchDataTwo = async () => {
+      try {
+        const response = await fetch("/api/playing");
+        if (!response.ok) {
+          throw new Error("Failed to fetch the data");
+        }
+        const data = await response.json();
+        console.log(data)
+      } catch (err) {
+        console.log(err)
+      } finally {
+        // setLoading(false);
+      }
+    };
+
+    fetchDataTwo();
   }, []);
 
-  console.log(error);
+  console.log(error)
 
   useEffect(() => {
     const imgslide = document.querySelectorAll(".image-slide");
