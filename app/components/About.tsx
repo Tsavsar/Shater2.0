@@ -11,7 +11,7 @@ import { ICurrTrack } from "../utils";
 import { useEffect, useState } from "react";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
-import Spinner from "./Spinner";
+import SpinnerAbout from "./SpinnerAbout";
 
 export const About = () => {
   const [currentTrack, setCurrentTrack] = useState<ICurrTrack | null>(null);
@@ -52,7 +52,7 @@ export const About = () => {
           } else{
             entry.target.classList.remove("slide-in");
           }
-        }), {threshold: 1},
+        }), {threshold: 0.5},
     );
 
     slideTwo.forEach((el) => {
@@ -98,7 +98,7 @@ export const About = () => {
     {
       loading 
       ? 
-      <Spinner/>
+      <SpinnerAbout/>
       :
     <section className="responsive pt-16">
       	<Navbar navItl="Home" navLink="/" />
@@ -123,7 +123,7 @@ export const About = () => {
              {currentTrack?.artiste || 'Black Bones'}</p>
           </div>
         </div>
-        <div className="absolute -right-10">
+        <div className="absolute -right-10 -top-3">
           <Image width={80} height={178} objectFit="contain" className=" spinningImg" src="/images/vinyl-2.svg" alt="now playing" />
         </div>
       </div>
