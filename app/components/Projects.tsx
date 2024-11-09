@@ -101,7 +101,7 @@ const Projects = () => {
                     src="/images/figma.svg"
                     alt="view on figma"
                     width={147}
-                    height={100}
+                    height={31}
                   />
                 </Link>
               </div>
@@ -110,9 +110,9 @@ const Projects = () => {
               Preview
             </p>
             <div className="text-[#464229] text-sm md:text-base">
-              <p className={isEllipsisActive === item.title.toLowerCase()  ? '' : 'break-ellipsis'}>{item.note}</p>
+              <p className={isEllipsisActive === item.title.toLowerCase()  ? 'expanded' : ' break-ellipsis'}>{item.note}</p>
               <button
-                className="text-[#0A231D] text-xs font-bold underline"
+                className="text-[#0A231D] text-xs font-bold underline dropdown-slide"
                 onClick={() => toggleEllipsis(item.title)}
               >
                 {isEllipsisActive === item.title.toLowerCase() ? 'read less' : 'read more'}
@@ -156,6 +156,26 @@ const Projects = () => {
               </div>
               <p className="text-xs text-[#C3C1B8]">{item.platform}</p>
             </div>
+
+			<div className="flex mt-4 items-center justify-between md:hidden">
+			<Link target="_blank" href={item.figma}>
+                  <Image
+                    src="/images/view-in-figma-mobile.svg"
+                    alt="view on figma"
+                    width={121}
+                    height={34}
+                  />
+                </Link>
+                <Link target="_blank" href={item.behance}>
+                  <Image
+                    src="/images/behance-mobile.svg"
+                    alt="view on behance"
+                    width={135}
+                    height={34}
+                  />
+                </Link>
+               
+              </div>
             <hr className="bg-[#F0EEE8] w-[100%] h-[1px] mt-8 rounded-[24px]" />
           </div>
         ))}
@@ -177,12 +197,23 @@ const HorizontalScrollCarousel: React.FC<IHorizontal> = ({ cards, title, logo, b
   const [isModalOpen, setModalOpen] = useState(false);
   const [activeImageIndex, setActiveImageIndex] = useState<number>(0);
 
+
   const openModal = (index: number) => {
-    setActiveImageIndex(index); // Set the clicked image as the active one
+	console.log({index})
+	console.log({cards})
+	if(index >= cards.length){
+		setActiveImageIndex(index % cards.length)
+	} else{
+		setActiveImageIndex(index); 
+	}
     setModalOpen(true);
+	console.log({activeImageIndex})
   };
 
-  const closeModal = () => setModalOpen(false);
+  const closeModal = () => {
+	document.body.classList.remove('no-scroll');
+	setModalOpen(false);
+  }
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -221,7 +252,7 @@ const HorizontalScrollCarousel: React.FC<IHorizontal> = ({ cards, title, logo, b
     <>
 	{/* IMAGE SLIDER */}
       <section ref={targetRef} className="mt-6 relative">
-        <div className="items-center overflow-x-auto">
+        <div className="items-center overflow-x-auto hide-scrollbar">
           <motion.div style={{ x }} className="flex space-x-4 whitespace-nowrap">
             {[...cards, ...cards].map((card: string, index: number) => (
               <Image
@@ -270,7 +301,7 @@ const HorizontalScrollCarousel: React.FC<IHorizontal> = ({ cards, title, logo, b
             <Image
               key={activeImageIndex}
               src={cards[activeImageIndex]}
-              alt={`Selected project preview`}
+              alt={title}
               width={activeImageIndex === 0 ? 842 : 710} // Larger width for the first card
               height={activeImageIndex === 0 ? 260 : 260}
               className="object-contain h-[50vh] md:h-[70vh]"
@@ -305,7 +336,7 @@ const HorizontalScrollCarousel: React.FC<IHorizontal> = ({ cards, title, logo, b
             </button>
           </div>
 		 
-		 <section>
+		 <section className="mt-6">
 		 <div className="md:flex md:items-center md:justify-between">
               <div className="flex items-center gap-4">
                 <Image

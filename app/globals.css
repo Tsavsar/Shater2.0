@@ -88,11 +88,8 @@ body {
 	overflow: hidden; /* Hide any overflowed content */
 	text-overflow: ellipsis; /* Add ellipsis (...) when the text overflows */
 	word-break: break-all; /* Break long words when necessary */
-	transition: transform 0.3s ease; /* Add transition for smooth expansion */
-	transform-origin: top; /* Ensure the expansion is from the top */
   }
   
-
 .slider img {
 	border-radius: 12px;
 	/* width: 342px;
@@ -492,3 +489,41 @@ background-color: transparent;
 	margin: 0 auto;   /* Center the image in the container */
 	background-color: #020202;
   }
+
+  /* Hide scrollbar for larger screens */
+@media (min-width: 768px) {
+	.hide-scrollbar {
+	  -ms-overflow-style: none; /* Internet Explorer 10+ */
+	  scrollbar-width: none; /* Firefox */
+	}
+	.hide-scrollbar::-webkit-scrollbar {
+	  display: none; /* Chrome, Safari, Opera */
+	}
+  }
+  
+
+ 
+  
+  .expanded {
+	max-width: auto; 
+	animation: TslideIn 0.8s ease-out forwards;
+  }
+
+  @keyframes TslideIn{
+	0% {
+		/* filter: blur(2px); */
+		/* transform: translateY(2px); */
+		opacity: 0;
+	  } 
+	  100% {
+		/* filter: blur(0px); */
+		/* transform: translateY(0px); */
+		opacity: 1; 
+	  }
+}
+
+/* Prevent body from scrolling */
+.no-scroll {
+	overflow: hidden;
+  }
+  
