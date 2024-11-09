@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import { mena, p22, satoshi, mena800, satoshiBold, satoshiMedium, p22Italic } from "./fonts";
 import "slick-carousel/slick/slick.css";
@@ -21,6 +22,7 @@ export default function RootLayout({
         className={`${mena.variable} ${p22.variable} ${satoshi.variable} ${satoshiBold.variable} ${satoshiMedium.variable} ${mena800.variable} ${p22Italic.variable}  antialiased`}
       >
         {children}
+        <Analytics/>
       </body>
     </html>
   );
