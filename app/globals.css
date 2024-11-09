@@ -88,7 +88,10 @@ body {
 	overflow: hidden; /* Hide any overflowed content */
 	text-overflow: ellipsis; /* Add ellipsis (...) when the text overflows */
 	word-break: break-all; /* Break long words when necessary */
-}
+	transition: transform 0.3s ease; /* Add transition for smooth expansion */
+	transform-origin: top; /* Ensure the expansion is from the top */
+  }
+  
 
 .slider img {
 	border-radius: 12px;
@@ -346,6 +349,7 @@ background-color: transparent;
 		overflow: hidden; /* Hide any overflowed content */
 		text-overflow: ellipsis; /* Add ellipsis (...) when the text overflows */
 		word-break: break-all; /* Break long words when necessary */
+		transition: opacity 0.3s ease-out;
 	}
   }
 
@@ -482,3 +486,9 @@ background-color: transparent;
 .dropdown-slide{
 	animation: slideIn 0.5s ease-in forwards;
 }
+
+.modal-image-container {
+	max-width: 842px; /* Adjust as needed */
+	margin: 0 auto;   /* Center the image in the container */
+	background-color: #020202;
+  }
