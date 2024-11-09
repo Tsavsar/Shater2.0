@@ -72,6 +72,9 @@ const Projects = () => {
                   width={69}
                   height={69}
                   sizes="(max-width: 768px) 60px, 69px"
+				  placeholder="blur"
+				  blurDataURL={item.base}
+			   
                 />
                 <div>
                   <div className="flex items-center gap-2">
@@ -199,15 +202,12 @@ const HorizontalScrollCarousel: React.FC<IHorizontal> = ({ cards, title, logo, b
 
 
   const openModal = (index: number) => {
-	console.log({index})
-	console.log({cards})
 	if(index >= cards.length){
 		setActiveImageIndex(index % cards.length)
 	} else{
 		setActiveImageIndex(index); 
 	}
     setModalOpen(true);
-	console.log({activeImageIndex})
   };
 
   const closeModal = () => {

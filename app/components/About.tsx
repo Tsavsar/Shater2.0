@@ -128,8 +128,19 @@ export const About = () => {
         </div>
       </div>
 	  <div className="flex items-center gap-2 mt-4">
-		<Image src='/images/greendot.svg' alt='currently playing' width={12} height={12}/>
-		<p className="f-satoshi-medium text-[#19170E] text-base">Currently playing</p>
+      {currentTrack?.is_playing ?
+      <>
+      	<Image src='/images/greendot.svg' alt='currently playing' width={12} height={12}/>
+        <p className="f-satoshi-medium text-[#19170E] text-base">Currently playing</p>
+      </>
+    :
+    <>
+    	<Image src='/images/greydot.svg' alt='currently playing' width={12} height={12}/>
+      <p className="f-satoshi-medium text-[#B4B4B4] text-base">Last played</p>
+    </>
+    }
+   
+	
 	  </div>
 	  </article>
        
