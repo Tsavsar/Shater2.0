@@ -484,7 +484,7 @@ background-color: transparent;
 }
 
 .dropdown-slide{
-	animation: slideIn 0.5s ease-in forwards;
+	animation: slideIn 0.3s ease-in forwards;
 }
 
 .modal-image-container {

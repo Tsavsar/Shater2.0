@@ -32,6 +32,9 @@ export const NavDropdownContainer:React.FC<INavDropdown> = ({defineActiveItem}) 
   const handleDesktopEnter = () => {
     setDesktop(true)
   }
+  const handleMobile = () => {
+    setMobile(!mobile)
+  }
 
   useEffect(() => {
     defineActiveItem(activeItem)
@@ -43,7 +46,7 @@ export const NavDropdownContainer:React.FC<INavDropdown> = ({defineActiveItem}) 
   }, [defineActiveItem])
 
   return(
-    <NavDropdown handleTextChange={handleTextChange} desktop={desktop} activeItem={activeItem} handleDesktopEnter={handleDesktopEnter} handleDesktopLeave={handleDesktopLeave} handleMobileLeave={handleMobileLeave} handleMobileEnter={handleMobileEnter} mobile={mobile}/>
+    <NavDropdown handleMobile={handleMobile} handleTextChange={handleTextChange} desktop={desktop} activeItem={activeItem} handleDesktopEnter={handleDesktopEnter} handleDesktopLeave={handleDesktopLeave} handleMobileLeave={handleMobileLeave} handleMobileEnter={handleMobileEnter} mobile={mobile}/>
   )
 }
 
@@ -52,6 +55,7 @@ interface NavDropdownProps {
   handleMobileEnter: () => void;  
   handleDesktopLeave: () => void;  
   handleDesktopEnter: () => void;  
+  handleMobile: () => void;  
   handleTextChange: (e:React.MouseEvent<HTMLButtonElement>) => void;  
   mobile: boolean;              
   desktop: boolean;              
@@ -106,9 +110,9 @@ const NavDropdown: React.FC<NavDropdownProps> = (props) => {
       <span className="f-satoshi font-medium text-sm text-[#19170E]">Menu</span>
     </div>
     <hr className="slant-divider" />
-    {/* mobile */}
+    {/* mobile -onMouseLeave={props.handleMobileLeave} onMouseEnter={props.handleMobileEnter} */}
     
-    <div  onMouseLeave={props.handleMobileLeave} onMouseEnter={props.handleMobileEnter} className="md:hidden cursor-pointer  relative">
+    <div onClick={props.handleMobile}   className="md:hidden cursor-pointer  relative">
     <div  className="capitalize dropdown-active flex items-center gap-4">
       {props.activeItem}
       <Image
@@ -118,10 +122,10 @@ const NavDropdown: React.FC<NavDropdownProps> = (props) => {
         width={10}
         height={10}
       />
-      <div className={`${props.mobile ? 'grid' : 'hidden'} absolute -left-4 -top-35`}>
-     <div className='z-30 dropdown-slide rounded-xl grid p-4 dropdown-mobile cursor-pointer mt-[10rem] bg-[#F9F8F6] border-[#F5F3F0] border gap-4'>
+      <div className={`${props.mobile ? 'grid' : 'hidden'} absolute -left-8 -top-24`}>
+     <div className='z-30 dropdown-slide rounded-xl grid p-4 px-8 dropdown-mobile cursor-pointer mt-[8rem] bg-[#F9F8F6] border-[#F5F3F0] border gap-4'>
      {dropdownList.filter(item => item.toLowerCase() !== props.activeItem).map(item => (
-      <button key={item} onClick={props.handleTextChange} className='capitalize text-left hover:opacity-70'>{item}</button>
+      <button key={item} onClick={props.handleTextChange} className='capitalize py-1 text-left hover:opacity-70'>{item}</button>
      ))}
      </div>
       </div>
