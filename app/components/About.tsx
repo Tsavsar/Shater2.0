@@ -13,6 +13,21 @@ import Footer from "./Footer";
 import Navbar from "./Navbar";
 import SpinnerAbout from "./SpinnerAbout";
 
+const images = [
+  "/images/shater-1.jpeg",
+  "/images/shater-2.png",
+  "/images/shater-3.png",
+  "/images/shater-4.png",
+  "/images/shater-5.png",
+];
+
+const imagestwo = [
+  "/images/shater-6.png",
+  "/images/shater-7.png",
+  "/images/shater-8.png",
+  "/images/shater-9.png",
+];
+
 export const About = () => {
   const [currentTrack, setCurrentTrack] = useState<ICurrTrack | null>(null);
   const [loading, setLoading] = useState(true);
@@ -104,7 +119,7 @@ export const About = () => {
           <Navbar navItl="Home" navLink="/" />
           <main className={`pt-16`}>
             <article className="mb-16 overflow-hidden relative">
-              <div className="p-[0.6rem] flex justify-between items-center border rounded-md border-[#F0EEE8]">
+              <div className="overflow-hidden relative bg-[#F0EEE84D] p-[0.6rem] flex justify-between items-center border rounded-2xl border-[#F0EEE8]">
                 <div className="flex items-center gap-3 ">
                   <Image
                     className="rounded-md bg-gray-50"
@@ -119,7 +134,7 @@ export const About = () => {
                         {currentTrack?.title || "Clueless"}
                       </span>
                       <Redirects
-                        href={currentTrack?.url || "http://localhost/3000"}
+                        href={currentTrack?.url || "#"}
                         text={""}
                         alt="Currently playing"
                       />
@@ -129,9 +144,9 @@ export const About = () => {
                     </p>
                   </div>
                 </div>
-                <div className="absolute -right-10 -top-3">
+                <div className="absolute -right-[3.5rem] -top-[1.3rem]">
                   <Image
-                    width={80}
+                    width={100}
                     height={178}
                     objectFit="contain"
                     className=" spinningImg"
@@ -191,10 +206,10 @@ export const About = () => {
               </p>
               {isHovered && (
                 <Image
-                  src="/images/luffy.svg" 
+                  src="/images/luffy.svg"
                   alt="hater D. Tsavsar"
-                  width={190} 
-                  height={108} 
+                  width={190}
+                  height={108}
                   className="dropdown-slide absolute left-[50%] -top-24 z-10"
                 />
               )}
@@ -269,84 +284,92 @@ export const About = () => {
               </p>
               {/* mobile photo */}
               <section className="mt-7">
-                <div className=" flex flex-wrap gap-[10px] w-[343px] md:w-[680px]">
+                {/* flex flex-wrap gap-[10px] w-[343px] md:w-[680px] */}
+                <div className="hidden w-[610px] overflow-hidden">
                   {/* <img className="w-[160px] h-[250px] rounded-tr-[16px] rounded-br-[16px] object-cover md:w-[80px] hidden md:block" src="/images/shater-1.jpeg" alt="Image 1" /> */}
-                  <div className="image-slide image-view relative w-[160px] h-[250px] rounded-tr-[16px] rounded-br-[16px] object-cover md:w-[80px] hidden md:block">
-                    <Image
-                      className="rounded-tr-[16px] rounded-br-[16px] md:w-[80px] "
-                      objectFit="cover"
-                      layout="fill"
-                      src="/images/shater-1.jpeg"
-                      alt="Image 1"
-                    />
+                  <div className=" flex gap-[10px] w-[680px] whitespace-nowrap">
+                    {images.map((src, index) => (
+                      <div
+                        key={index}
+                        className={`relative w-[160px] h-[250px] ${
+                          index === 0 ? "w-[100px]" : ""
+                        }`}
+                      >
+                        <Image
+                          className={`rounded-2xl ${
+                            index === 0 ? "rounded-l-none" : ""
+                          }`}
+                          src={src}
+                          alt={`Image ${index + 1}`}
+                          layout="fill"
+                          objectFit="cover"
+                        />
+                      </div>
+                    ))}
                   </div>
-                  <div className="image-slide image-view relative w-[80px] md:w-[160px] h-[250px] rounded-tr-[16px] rounded-br-[16px] md:rounded-[16px] object-cover">
-                    <Image
-                      layout="fill"
-                      objectFit="cover"
-                      className="rounded-tr-[16px] rounded-br-[16px] md:rounded-[16px]"
-                      src="/images/shater-2.png"
-                      alt="Image 2"
-                    />
-                  </div>
-                  <div className="image-slide image-view w-[160px] h-[250px] rounded-[16px] object-cover">
-                    <Image
-                      layout="fill"
-                      className="rounded-[16px] object-cover"
-                      src="/images/shater-3.png"
-                      alt="Image 3"
-                    />
-                  </div>
-                  <div className="image-slide image-view w-[70px] md:w-[160px] h-[250px] rounded-tl-[16px] rounded-bl-[16px] md:rounded-[16px] object-cover">
-                    <Image
-                      layout="fill"
-                      className="rounded-tl-[16px] rounded-bl-[16px] md:rounded-[16px] object-cover"
-                      src="/images/shater-4.png"
-                      alt="Image 4"
-                    />
-                  </div>
-                  <div className="image-slide image-view md:w-[70px] w-[160px] h-[250px] rounded-tl-[16px] rounded-bl-[16px] object-cover hidden md:block">
-                    <Image
-                      layout="fill"
-                      className="rounded-tl-[16px] rounded-bl-[16px] object-cover"
-                      src="/images/shater-5.png"
-                      alt="Image 5"
-                    />
-                  </div>
-
-                  <div className="relative hidden md:block w-[160px] h-[250px] rounded-[16px] object-cover">
-                    <Image
-                      layout="fill"
-                      className="rounded-[16px] object-cover"
-                      src="/images/shater-6.png"
-                      alt="Image 6"
-                    />
-                  </div>
-                  <div className="relative w-[160px] h-[250px] rounded-[16px] object-cover">
-                    <Image
-                      layout="fill"
-                      className="rounded-[16px] object-cover"
-                      src="/images/shater-7.png"
-                      alt="Image 7"
-                    />
-                  </div>
-                  <div className="image-slide image-view w-[160px] h-[250px] rounded-[16px] object-cover">
-                    <Image
-                      layout="fill"
-                      className="rounded-[16px] object-cover"
-                      src="/images/shater-8.png"
-                      alt="Image 8"
-                    />
-                  </div>
-                  <div className="relative hidden md:block w-[160px] h-[250px] rounded-[16px] object-cover">
-                    <Image
-                      layout="fill"
-                      className="rounded-[16px] object-cover"
-                      src="/images/shater-9.png"
-                      alt="Image 9"
-                    />
+                  <div className="mt-2 flex gap-[10px] overflow-x-scroll whitespace-nowrap">
+                    {imagestwo.map((src, index) => (
+                      <div
+                        key={index}
+                        className={`relative w-[160px] h-[250px] ${
+                          index === 0 ? "w-[100px]" : ""
+                        }`}
+                      >
+                        <Image
+                          className={`rounded-2xl`}
+                          src={src}
+                          alt={`Image ${index + 1}`}
+                          layout="fill"
+                          objectFit="cover"
+                        />
+                      </div>
+                    ))}
                   </div>
                 </div>
+
+        
+    <div className="relative overflow-hidden w-full h-[250px]">
+      {/* Scrolling content */}
+      <div className="flex gap-[10px] animate-scroll">
+        {[...images, ...images, ...images, ...images].map((src, index) => (
+          <div
+            key={index}
+            className="relative w-[160px] h-[250px] flex-shrink-0"
+          >
+            <Image
+              className="rounded-2xl"
+              src={src}
+              alt={`Image ${index + 1}`}
+              layout="fill"
+              objectFit="cover"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div className="mt-3 relative overflow-hidden w-full h-[250px]">
+      {/* Scrolling content */}
+      <div className="flex gap-[10px] animate-scroll-two">
+        {[...imagestwo, ...imagestwo].map((src, index) => (
+          <div
+            key={index}
+            className="relative w-[160px] h-[250px] flex-shrink-0"
+          >
+            <Image
+              className="rounded-2xl"
+              src={src}
+              alt={`Image ${index + 1}`}
+              layout="fill"
+              objectFit="cover"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  
+
+
               </section>
             </div>
             {/* useful facts */}
@@ -434,11 +457,11 @@ export const About = () => {
                     onMouseEnter={() => setHoverSkull(true)}
                     onMouseLeave={() => setHoverSkull(false)}
                     style={{
-                      transform: hoverSkull ? 'scale(1.02)' : 'scale(1)',
-                      transition: 'opacity 0.5s ease, transform 0.5s ease',
+                      transform: hoverSkull ? "scale(1.02)" : "scale(1)",
+                      transition: "opacity 0.5s ease, transform 0.5s ease",
                     }}
                   />
-                        {/* <div
+                  {/* <div
       className="inline-block"
       onMouseEnter={() => setHoverSkull(true)}
       onMouseLeave={() => setHoverSkull(false)}

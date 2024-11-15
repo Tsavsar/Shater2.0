@@ -527,3 +527,69 @@ background-color: transparent;
 	overflow: hidden;
   }
   
+
+
+  
+  @keyframes scroll {
+	0% {
+	  transform: translateX(0);
+	}
+	100% {
+	  transform: translateX(-50%); /* Adjust based on the width of your image set */
+	}
+  }
+  
+
+  @keyframes scroll {
+	0% {
+	  transform: translateX(0);
+	}
+	100% {
+	  transform: translateX(-calc(170px * 5)); /* Width of one image + gap, multiplied by number of images */
+	}
+  }
+  
+  .animate-scroll {
+	display: flex;
+	animation: scroll 10s linear infinite;
+	will-change: transform;
+  }
+  
+  @keyframes scroll {
+	0% {
+	  transform: translateX(0);
+	}
+	100% {
+	  transform: translateX(-50%); /* Adjust based on the width of your image set */
+	}
+  }
+  
+
+  @keyframes scroll-two {
+	0% {
+	  transform: translateX(0);
+	}
+	100% {
+	  transform: translateX(-calc(170px * 5)); /* Width of one image + gap, multiplied by number of images */
+	}
+
+	0% {
+		transform: translateX(0);
+	  }
+	  100% {
+		transform: translateX(-calc(170px * 5)); /* Width of one image + gap, multiplied by number of images */
+	  }
+	  0% {
+		transform: translateX(0);
+	  }
+	  100% {
+		transform: translateX(calc(170px * 5)); /* Positive value for right-to-left scroll */
+	  }
+  }
+  
+  .animate-scroll-two {
+	display: flex;
+	animation: scroll 10s linear infinite reverse;
+	will-change: transform;
+  }
+  
