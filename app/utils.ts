@@ -257,3 +257,23 @@ export const books = [
   preview_url: string,
   url: string
 }
+
+export function formatDateTime(utcDate:string) {
+  const date = new Date(utcDate);
+
+  const options:Intl.DateTimeFormatOptions  = {
+    timeZone: "America/New_York",
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true 
+  };
+
+  // Format the date
+  const formatter = new Intl.DateTimeFormat("en-US", options);
+  console.log(formatter.format(date))
+  return formatter.format(date);
+}
+
