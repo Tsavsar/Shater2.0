@@ -5,9 +5,9 @@ const NOW_PLAYING_ENDPOINT =
 const RECENTTLY_PLAYED_ENDPOINT='https://api.spotify.com/v1/me/player/recently-played'
 const TOKEN_ENDPOINT = "https://accounts.spotify.com/api/token";
 
-const CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
-const CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
-const REFRESH_TOKEN = process.env.SPOTIFY_REFRESH_TOKEN;
+const CLIENT_ID = process.env.WSPOTIFY_CLIENT_ID;
+const CLIENT_SECRET = process.env.WSPOTIFY_CLIENT_SECRET;
+const REFRESH_TOKEN = process.env.WSPOTIFY_REFRESH_TOKEN;
 
 
 const getAccessToken = async () => {
