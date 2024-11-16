@@ -1,17 +1,17 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { topAnime, musicArtist, books } from "../utils";
+import { topAnime, musicArtist, books, formatDateTime } from "../utils";
 import Arrow from "./Arrow";
 import CTooltip from "./CTooltip";
 import PlayName from "./PlayName";
 import Redirects from "./Redirects";
 import Socials from "./Socials";
-import { ICurrTrack } from "../utils";
 import { useEffect, useState } from "react";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import SpinnerAbout from "./SpinnerAbout";
+import useNowPlaying from "../hooks/useNowPlaying";
 
 const images = [
   "/images/shater-1.jpeg",
@@ -29,35 +29,12 @@ const imagestwo = [
 ];
 
 export const About = () => {
-  const [currentTrack, setCurrentTrack] = useState<ICurrTrack | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<unknown | null>(null);
   const [isHovered, setIsHovered] = useState(false);
   const [spiderMan, setSpiderMan] = useState(false);
   const [hoverSkull, setHoverSkull] = useState(false);
   const [hoverMartin, setHoverMartin] = useState(false);
   const [hoverJosh, setHoverJosh] = useState(false);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("/api/spotify");
-        if (!response.ok) {
-          throw new Error("Failed to fetch the data");
-        }
-        const data = await response.json();
-        setCurrentTrack(data.data);
-      } catch (err) {
-        setError(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  console.log(error);
+  const {currentTrack, loading} = useNowPlaying()
 
   useEffect(() => {
     const imgslide = document.querySelectorAll(".image-slide");
@@ -148,7 +125,7 @@ export const About = () => {
                   <Image
                     width={100}
                     height={178}
-                    objectFit="contain"
+                    style={{objectFit: 'contain'}}
                     className=" spinningImg"
                     src="/images/vinyl-2.svg"
                     alt="now playing"
@@ -167,6 +144,7 @@ export const About = () => {
                     <p className="f-satoshi-medium text-[#19170E] text-base">
                       Currently playing
                     </p>
+                    
                   </>
                 ) : (
                   <>
@@ -178,6 +156,11 @@ export const About = () => {
                     />
                     <p className="f-satoshi-medium text-[#B4B4B4] text-base">
                       Last played
+                      {currentTrack?.playedAt &&
+                      <span>
+                      {" "} on {formatDateTime(currentTrack?.playedAt)}
+                      </span>
+                      }
                     </p>
                   </>
                 )}
@@ -302,7 +285,8 @@ export const About = () => {
                           src={src}
                           alt={`Image ${index + 1}`}
                           layout="fill"
-                          objectFit="cover"
+                          style={{objectFit: 'cover'}}
+                          // objectFit="cover"
                         />
                       </div>
                     ))}
@@ -320,7 +304,8 @@ export const About = () => {
                           src={src}
                           alt={`Image ${index + 1}`}
                           layout="fill"
-                          objectFit="cover"
+                          style={{objectFit: 'cover'}}
+                          // objectFit="cover"
                         />
                       </div>
                     ))}
@@ -341,7 +326,8 @@ export const About = () => {
               src={src}
               alt={`Image ${index + 1}`}
               layout="fill"
-              objectFit="cover"
+              style={{objectFit: 'cover'}}
+              // objectFit="cover"
             />
           </div>
         ))}
@@ -361,7 +347,8 @@ export const About = () => {
               src={src}
               alt={`Image ${index + 1}`}
               layout="fill"
-              objectFit="cover"
+              style={{objectFit: 'cover'}}
+              // objectFit="cover"
             />
           </div>
         ))}

@@ -1,4 +1,6 @@
 import { useEffect } from "react"
+import { DateTime } from "luxon";
+
 
 export const projectsData = [
   {
@@ -255,5 +257,43 @@ export const books = [
   artiste: string,
   image_url: string,
   preview_url: string,
-  url: string
+  url: string,
+  playedAt: string | null
 }
+
+export function formatDateTime(utcDate:string) {
+  const date = new Date(utcDate);
+
+
+  const options:Intl.DateTimeFormatOptions  = {
+    timeZone: "America/New_York",
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true 
+  };
+
+  // Format the date
+  const formatter = new Intl.DateTimeFormat("en-US", options).format(date);;
+
+  const timeZoneAbbreviation = date
+    .toLocaleTimeString("en-US", {
+      timeZone: "America/New_York",
+      timeZoneName: "short",
+    })
+    .split(" ")
+    .pop();
+
+  return `${formatter} ${timeZoneAbbreviation}`;
+}
+
+export function formatDateTimeWithTimeZone(utcDate: string): string {
+  const dateTime = DateTime.fromISO(utcDate, { zone: "America/New_York" });
+
+  // Format to "Nov 15, 12:00 PM EDT"
+  return dateTime.toFormat("MMM d, hh:mm a z");
+}
+
+
+
