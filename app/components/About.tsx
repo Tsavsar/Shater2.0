@@ -7,8 +7,7 @@ import CTooltip from "./CTooltip";
 import PlayName from "./PlayName";
 import Redirects from "./Redirects";
 import Socials from "./Socials";
-import { ICurrTrack } from "../utils";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import SpinnerAbout from "./SpinnerAbout";
@@ -30,29 +29,12 @@ const imagestwo = [
 ];
 
 export const About = () => {
-  //const [currentTrack, setCurrentTrack] = useState<ICurrTrack | null>(null);
-  //const [loading, setLoading] = useState(true);
-  //const [error, setError] = useState<unknown | null>(null);
   const [isHovered, setIsHovered] = useState(false);
   const [spiderMan, setSpiderMan] = useState(false);
   const [hoverSkull, setHoverSkull] = useState(false);
   const [hoverMartin, setHoverMartin] = useState(false);
   const [hoverJosh, setHoverJosh] = useState(false);
-  const interval = useRef<ReturnType<typeof setInterval> | null>(null);
-
-  const TIME_TO_REFRESH = 10 * 1000;
-
   const {currentTrack, loading} = useNowPlaying()
-
-  console.log(currentTrack)
-  console.log(currentTrack.playedAt)
-
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setLoading(false);
-  //   }, 500); //
-  //   return () => clearTimeout(timer);
-  // }, []);
 
   useEffect(() => {
     const imgslide = document.querySelectorAll(".image-slide");
@@ -143,7 +125,7 @@ export const About = () => {
                   <Image
                     width={100}
                     height={178}
-                    objectFit="contain"
+                    style={{objectFit: 'contain'}}
                     className=" spinningImg"
                     src="/images/vinyl-2.svg"
                     alt="now playing"
@@ -161,14 +143,8 @@ export const About = () => {
                     />
                     <p className="f-satoshi-medium text-[#19170E] text-base">
                       Currently playing
-                      <span>{formatDateTime(currentTrack?.playedAt)}</span>
-                      <span>{currentTrack?.playedAt}</span>
-                      {currentTrack?.playedAt &&
-                      <span>
-                        on {formatDateTime(currentTrack?.playedAt)}
-                      </span>
-                      }
                     </p>
+                    
                   </>
                 ) : (
                   <>
@@ -180,6 +156,11 @@ export const About = () => {
                     />
                     <p className="f-satoshi-medium text-[#B4B4B4] text-base">
                       Last played
+                      {currentTrack?.playedAt &&
+                      <span>
+                      {" "} on {formatDateTime(currentTrack?.playedAt)}
+                      </span>
+                      }
                     </p>
                   </>
                 )}
@@ -304,7 +285,8 @@ export const About = () => {
                           src={src}
                           alt={`Image ${index + 1}`}
                           layout="fill"
-                          objectFit="cover"
+                          style={{objectFit: 'cover'}}
+                          // objectFit="cover"
                         />
                       </div>
                     ))}
@@ -322,7 +304,8 @@ export const About = () => {
                           src={src}
                           alt={`Image ${index + 1}`}
                           layout="fill"
-                          objectFit="cover"
+                          style={{objectFit: 'cover'}}
+                          // objectFit="cover"
                         />
                       </div>
                     ))}
@@ -343,7 +326,8 @@ export const About = () => {
               src={src}
               alt={`Image ${index + 1}`}
               layout="fill"
-              objectFit="cover"
+              style={{objectFit: 'cover'}}
+              // objectFit="cover"
             />
           </div>
         ))}
@@ -363,7 +347,8 @@ export const About = () => {
               src={src}
               alt={`Image ${index + 1}`}
               layout="fill"
-              objectFit="cover"
+              style={{objectFit: 'cover'}}
+              // objectFit="cover"
             />
           </div>
         ))}

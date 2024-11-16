@@ -5,9 +5,9 @@ const NOW_PLAYING_ENDPOINT =
 const RECENTTLY_PLAYED_ENDPOINT='https://api.spotify.com/v1/me/player/recently-played'
 const TOKEN_ENDPOINT = "https://accounts.spotify.com/api/token";
 
-const CLIENT_ID = process.env.WSPOTIFY_CLIENT_ID;
-const CLIENT_SECRET = process.env.WSPOTIFY_CLIENT_SECRET;
-const REFRESH_TOKEN = process.env.WSPOTIFY_REFRESH_TOKEN;
+const CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
+const CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
+const REFRESH_TOKEN = process.env.SPOTIFY_REFRESH_TOKEN;
 
 
 const getAccessToken = async () => {
@@ -58,7 +58,6 @@ export async function GET() {
       const lastPlayedData = await lastPlayed.json();
       const lastPlayedSong = lastPlayedData.items[0]
 
-      console.log({lastPlayedSong})
       const title = lastPlayedSong.track.name;
       const artiste = (lastPlayedSong.track.artists as { name: string }[])
         .map((_artist) => _artist.name)
@@ -67,7 +66,7 @@ export async function GET() {
       const image_url = lastPlayedSong.track.album.images[0]?.url;
       const url = lastPlayedSong.track.context?.external_urls?.spotify;
       const playedAt = lastPlayedSong.played_at;
-  
+
       return new Response(
         JSON.stringify({title, artiste, album,  image_url, url, playedAt })
       );
@@ -75,10 +74,20 @@ export async function GET() {
 
     const song = await response.json();
     if (!song.item) {
-      return new Response(
-        JSON.stringify({ error: "Unable to find song" }),
-        { status: 404 }
-      );
+        const lastPlayedData = await lastPlayed.json();
+        const lastPlayedSong = lastPlayedData.items[0]
+  
+        const title = lastPlayedSong.track.name;
+        const artiste = (lastPlayedSong.track.artists as { name: string }[])
+          .map((_artist) => _artist.name)
+          .join(", ");
+        const album = lastPlayedSong.track.album.name;
+        const image_url = lastPlayedSong.track.album.images[0]?.url;
+        const url = lastPlayedSong.track.context?.external_urls?.spotify;
+        const playedAt = lastPlayedSong.played_at;
+        return new Response(
+          JSON.stringify({title, artiste, album,  image_url, url, playedAt })
+        );
   
     }
 
@@ -95,7 +104,7 @@ export async function GET() {
       JSON.stringify({ is_playing, title, artiste, album, image_url, url })
     );
   } catch (error) {
-    console.log({error})
+    console.error({error})
     return new Response(JSON.stringify(error), {
       status: 500,
       statusText: "Error fetching currently playing",
