@@ -260,13 +260,23 @@ const HorizontalScrollCarousel: React.FC<IHorizontal> = ({ cards, title, logo, b
                 key={index}
                 src={card}
                 alt={`project preview ${index + 1}`}
-                width={index % cards.length === 0 ? 510 : 165} // Larger width for the first card
-                height={index % cards.length === 0 ? 260 : 100} // Larger height for the first card
+                width={title.toLowerCase() === "fundify"
+                  ? 510
+                  : index % cards.length === 0
+                  ? 510
+                  : 165} // Larger width for the first card
+                height={ title.toLowerCase() === "fundify"
+                  ? 552
+                  : index % cards.length === 0
+                  ? 260
+                  : 100} // Larger height for the first card
                 // className="rounded-[12px] mr-4"
                 className={`cursor-pointer rounded-[12px] mr-4 ${
-                  index % cards.length === 0
-                    ? "w-[342px] md:w-[550px] h-[203px] md:h-[252px]"
-                    : "w-[165px] h-[203px] md:h-[260px]"
+                  title.toLowerCase() === "fundify"
+                  ? "w-[342px] md:w-[1024px] h-[203px] md:h-auto"
+                  : index % cards.length === 0
+                  ? "w-[342px] md:w-[550px] h-[203px] md:h-[252px]"
+                  : "w-[165px] h-[203px] md:h-[260px]"
                 }`} // Small width = 365, larger = 510
               />
             ))}
@@ -302,8 +312,8 @@ const HorizontalScrollCarousel: React.FC<IHorizontal> = ({ cards, title, logo, b
               key={activeImageIndex}
               src={cards[activeImageIndex]}
               alt={title}
-              width={activeImageIndex === 0 ? 842 : 710} // Larger width for the first card
-              height={activeImageIndex === 0 ? 260 : 260}
+              width={title.toLowerCase() === "fundify" ? 842 : activeImageIndex === 0 ? 842 : 710} // Larger width for the first card
+              height={260}
               className="object-contain h-[50vh] md:h-[70vh]"
               //className={`h-[50vh] ${activeImageIndex === 0 ? 'object-fill' : 'object-contain'}}`}
               //className={`rounded-lg object-contain ${activeImageIndex === 0 ? 'w-[842px] md:w-[842px] h-[203px] md:h-[290px]' : 'w-[842px] h-[203px] md:h-[290px]'}`}  // Small width = 365, larger = 510

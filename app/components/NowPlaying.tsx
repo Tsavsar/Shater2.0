@@ -2,12 +2,21 @@
 import Image from "next/image";
 
 import React, { useEffect } from "react";
-import useNowPlaying from "../hooks/useNowPlaying";
+// import useNowPlaying from "../hooks/useNowPlaying";
 import Redirects from "./Redirects";
 import { formatDateTime } from "../utils";
 
+interface ITrackObj{
+  title: string,
+  artiste: string,
+  url: string,
+  image_url: string,
+  is_playing: string,
+  playedAt: string,
+}
+
 const NowPlaying = () => {
-  const [currentTrack, setCurrentTrack] = React.useState(null);
+  const [currentTrack, setCurrentTrack] = React.useState<ITrackObj | null>(null);
   // const {currentTrack} = useNowPlaying()
 
   useEffect(() => {
@@ -28,7 +37,7 @@ const NowPlaying = () => {
           playedAt: data.items[0].played_at,
         });
       } catch (error) {
-        console.error("Error fetching track:", error.message);
+        console.error("Error fetching track:", error);
       }
     };
 

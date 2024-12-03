@@ -93,6 +93,7 @@ export const About = () => {
       {loading ? (
         <SpinnerAbout />
       ) : (
+        <>
         <section className="responsive pt-16">
           <Navbar navItl="Home" navLink="/" />
           <main className={`pt-16`}>
@@ -534,8 +535,9 @@ export const About = () => {
               </div>
             </div>
           </main>
-          <Footer />
         </section>
+          <Footer />
+        </>
       )}
     </>
   );

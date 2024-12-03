@@ -80,7 +80,7 @@ const Socials = () => {
 					href="https://www.pinterest.com/Tsavsar_/">
 					<span className="f-satoshi-medium">Pinterest</span>{' '}
 					<span className="text-sm text-[#B1AFA4]">
-						picture of my car and the sky
+						for pictures of my car and the sky
 					</span>
 					<Image
 						src="/images/arrow.svg"
