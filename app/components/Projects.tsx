@@ -190,6 +190,8 @@ const HorizontalScrollCarousel: React.FC<IHorizontal> = ({ cards, title, logo, b
     setActiveImageIndex(prevIndex => (prevIndex - 1 + cards.length) % cards.length);
   };
 
+  const isHorizontal = ["fundify", "weave finance"].includes(title.toLowerCase());
+
   return (
     <>
       {/* IMAGE SLIDER */}
@@ -202,11 +204,11 @@ const HorizontalScrollCarousel: React.FC<IHorizontal> = ({ cards, title, logo, b
                 key={index}
                 src={card}
                 alt={`project preview ${index + 1}`}
-                width={title.toLowerCase() === "fundify" ? 510 : index % cards.length === 0 ? 510 : 165} // Larger width for the first card
-                height={title.toLowerCase() === "fundify" ? 552 : index % cards.length === 0 ? 260 : 100} // Larger height for the first card
+                width={isHorizontal ? 510 : index % cards.length === 0 ? 510 : 165} // Larger width for the first card
+                height={isHorizontal ? 552 : index % cards.length === 0 ? 260 : 100} // Larger height for the first card
                 // className="rounded-[12px] mr-4"
                 className={`cursor-pointer rounded-[12px] mr-4 ${
-                  title.toLowerCase() === "fundify"
+                  isHorizontal
                     ? "w-[342px] md:w-[1024px] h-[203px] md:h-auto"
                     : index % cards.length === 0
                     ? "w-[342px] md:w-[550px] h-[203px] md:h-[252px]"

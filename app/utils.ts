@@ -36,7 +36,7 @@ export const projectsData = [
     date: "December, 2024",
     about: "Coming soon...",
     note: "Weave is a banking solution designed by me, with the focal point being easy and quick internal payments with virtual cards that let you automate payments, track payment plans and more.",
-    images: ["/images/weave/desktop.png", "/images/weave/mock.png", "/images/weave/weave-3.png"],
+    images: Array.from({ length: 19 }, (_, idx) => `/images/weave/${idx + 1}.png`),
     mobile: true,
     laptop: true,
     caseStudy: true,
