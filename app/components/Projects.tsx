@@ -198,7 +198,7 @@ const HorizontalScrollCarousel: React.FC<IHorizontal> = ({ cards, title, logo, b
       <section ref={targetRef} className="mt-6 relative">
         <div className="items-center overflow-x-auto hide-scrollbar">
           <motion.div style={{ x }} className="flex space-x-4 whitespace-nowrap">
-            {[...cards, ...cards].map((card: string, index: number) => (
+            {cards.map((card: string, index: number) => (
               <Image
                 onClick={() => openModal(index)}
                 key={index}
