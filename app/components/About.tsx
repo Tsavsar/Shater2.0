@@ -11,8 +11,8 @@ import { useEffect, useState } from "react";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import SpinnerAbout from "./SpinnerAbout";
-import useNowPlaying from "../hooks/useNowPlaying";
-import NowPlaying from "./NowPlaying";
+// import useNowPlaying from "../hooks/useNowPlaying";
+// import NowPlaying from "./NowPlaying";
 
 const images = [
   "/images/shater-1.jpeg",
@@ -26,7 +26,7 @@ const imagestwo = ["/images/shater-6.png", "/images/shater-7.png", "/images/shat
 
 export const About = () => {
   const [isHovered, setIsHovered] = useState(false);
-  const [spiderMan, setSpiderMan] = useState(false);
+  // const [spiderMan, setSpiderMan] = useState(false);
   const [hoverSkull, setHoverSkull] = useState(false);
   const [hoverMartin, setHoverMartin] = useState(false);
   const [hoverJosh, setHoverJosh] = useState(false);
