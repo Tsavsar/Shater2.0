@@ -223,12 +223,12 @@ const HorizontalScrollCarousel: React.FC<IHorizontal> = ({ cards, title, logo, b
       {/* SLIDESHOW */}
       <Modal isOpen={isModalOpen} onClose={closeModal} title="Modal Title">
         <div
-          className="relative rounded-lg w-[342px] md:w-[768px]"
+          className="relative rounded-lg  md:w-[768px]"
           onClick={e => e.stopPropagation()}
           role="dialog"
           aria-modal="true"
         >
-          <div className="flex justify-end mb-4">
+          <div className="flex justify-end mb-4 relative z-[2]">
             <button
               onClick={closeModal}
               className="flex justify-center items-center py-[6px] px-[16px] bg-[#F0EEE8] border-2 border-[#E9E5DC3D] w-[56px] rounded-2xl"
@@ -237,7 +237,7 @@ const HorizontalScrollCarousel: React.FC<IHorizontal> = ({ cards, title, logo, b
             </button>
           </div>
           <div
-            className={`w-[342px] mx-auto md:w-[768px]  ${
+            className={`relative z-1 w-full  ${
               title.toLowerCase() === "fundify"
                 ? "bg-[#141414]"
                 : title.toLowerCase() == "weave finance"
@@ -254,14 +254,14 @@ const HorizontalScrollCarousel: React.FC<IHorizontal> = ({ cards, title, logo, b
               key={activeImageIndex}
               src={cards[activeImageIndex]}
               alt={title}
-              width={title.toLowerCase() === "fundify" ? 842 : activeImageIndex === 0 ? 842 : 710} // Larger width for the first card
+              width={isHorizontal ? 842 : activeImageIndex === 0 ? 842 : 710} // Larger width for the first card
               height={260}
-              className="object-contain h-[50vh] md:h-[70vh]"
+              className="object-contain h-[50vh] scale-[1.4] md:h-[70vh] md:scale-150"
               //className={`h-[50vh] ${activeImageIndex === 0 ? 'object-fill' : 'object-contain'}}`}
               //className={`rounded-lg object-contain ${activeImageIndex === 0 ? 'w-[842px] md:w-[842px] h-[203px] md:h-[290px]' : 'w-[842px] h-[203px] md:h-[290px]'}`}  // Small width = 365, larger = 510
             />
           </div>
-          <div className=" flex justify-end gap-2 mt-4">
+          <div className="relative z-[2] flex justify-end gap-2 mt-4">
             <button
               onClick={prevImage}
               className="py-[6px] px-[16px] bg-[#F0EEE8] border-2 border-[#E9E5DC3D] w-[56px] rounded-2xl flex justify-center items-center"
