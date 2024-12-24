@@ -30,7 +30,16 @@ export const About = () => {
   const [hoverSkull, setHoverSkull] = useState(false);
   const [hoverMartin, setHoverMartin] = useState(false);
   const [hoverJosh, setHoverJosh] = useState(false);
-  const { loading } = useNowPlaying();
+  // const { loading } = useNowPlaying();
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 500); // Simulate a 3-second loading time
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const imgslide = document.querySelectorAll(".image-slide");
@@ -85,14 +94,14 @@ export const About = () => {
 
   return (
     <>
-      {false ? (
+      {loading ? (
         <SpinnerAbout />
       ) : (
         <>
           <section className="responsive pt-16">
             <Navbar navItl="Home" navLink="/" />
             <main className={`pt-16`}>
-              <NowPlaying />
+              {/* <NowPlaying /> */}
 
               {/* section - page intro */}
               <div className="slide-two flex justify-between items-center">
@@ -116,6 +125,7 @@ export const About = () => {
                   , a Designer and Galactic Entrepreneur.
                 </p>
 
+                {/* section - about  */}
                 <p className="font-bold slide-two">EPISODE X: THE DESIGNER AWAKENS</p>
 
                 <p className="text-[#464229] f-satoshi text-base mt-6 mb-6 slide-two">
@@ -157,44 +167,6 @@ export const About = () => {
                 <div>
                   <PlayName />
                 </div>
-              </div>
-              {/* section - about  */}
-              <div className="slide-two pt-6 f-satoshi text-[#464229] text-base">
-                <p className="relative">
-                  <span className="">
-                    {" "}
-                    And for the last couple of years I&apos;ve been the one and only pixel pushing, Jesus loving, sports{" "}
-                  </span>{" "}
-                  analysing, anime power scaling, friendly
-                  <span className=""> neighbourhood </span>
-                  <span
-                    onMouseEnter={() => setSpiderMan(true)}
-                    onMouseLeave={() => setSpiderMan(false)}
-                    className="cursor-pointer relative comic-neue-regular line-through text-[#46422966]"
-                  >
-                    Spider-Man
-                  </span>{" "}
-                  {spiderMan && (
-                    <Image
-                      src="/images/spiderman.svg"
-                      alt="Spider man"
-                      width={122}
-                      height={180}
-                      className="dropdown-slide absolute -top-[25px] right-[28px] z-10"
-                    />
-                  )}
-                  <span className="">Product Designer.</span>
-                </p>
-                <p className="py-5">
-                  I designed a bunch of products, worked with startups, crafted design systems, and then I designed
-                  again... and again and again and again. But after everything, I still love being a product designer. I
-                  mean, who wouldn&apos;t?
-                </p>
-                <p>
-                  So no matter how many challenges I face, I always find a way to come back. Because the only thing
-                  standing between bad design and the users is me. There&apos;s only one product designer like me.{" "}
-                  <span className="uppercase f-satoshi-medium">And you&apos;re looking at him.</span>
-                </p>
               </div>
               {/* socials */}
               <div className="pt-14">
