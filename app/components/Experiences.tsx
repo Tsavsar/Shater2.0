@@ -86,7 +86,7 @@ const Experiences = () => {
 				<a
         className='border-2 border-[#f5f3f0] bg-[#f0eee8] px-4 py-[6px] rounded-[34px] flex gap-1.5'
 					target="_blank"
-					href="https://drive.google.com/file/d/19aVwNnWcFTDrvArQ5fKqwSutcZRnnSbp/view?usp=drive_link">
+					href="https://drive.google.com/file/d/133Vazpy3ag29W0Z_FEn-xGS1fEIvQAIK/view">
 					<Image
 						src="/images/download.svg"
 						alt="Download CV"

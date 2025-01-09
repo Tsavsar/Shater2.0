@@ -126,7 +126,7 @@ export default function Home() {
                 <li className="">
                   <a
                     target="_blank"
-                    href="https://drive.google.com/file/d/19aVwNnWcFTDrvArQ5fKqwSutcZRnnSbp/view?usp=drive_link"
+                    href="https://drive.google.com/file/d/133Vazpy3ag29W0Z_FEn-xGS1fEIvQAIK/view"
                   >
                     <Image
                       src="/images/download.svg"
@@ -140,7 +140,7 @@ export default function Home() {
                 <li className="">
                   <a
                     target="_blank"
-                    href="https://open.spotify.com/playlist/5bopKzHxH3tTAE2vt4GbQa?si=54fc1c9115d342d7"
+                    href="https://open.spotify.com/playlist/6OnjKgEFmgmYwH37tSXPaU?si=ea60d7c76e3e4bed"
                   >
                     <Image
                       src="/images/playlist.svg"
