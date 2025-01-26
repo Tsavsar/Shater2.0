@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Loader from "../components/general/Loader";
 import Navbar from "../components/Navbar";
 
-export default function page(){
+export default function Page(){
     const [loading, setLoading] = useState<boolean>(true);
 
     useEffect(() => {

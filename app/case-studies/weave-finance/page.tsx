@@ -6,7 +6,7 @@ import Navbar from "../../components/Navbar";
 import Link from "next/link";
 import Image from "next/image";
 
-export default function page(){
+export default function Page(){
     const [loading, setLoading] = useState<boolean>(true);
 
     useEffect(() => {
