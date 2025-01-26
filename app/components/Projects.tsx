@@ -5,6 +5,7 @@ import { projectsData } from "../utils";
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform, useAnimation, useInView } from "framer-motion";
 import Modal from "./Modal";
+import BlackPillButton from "./buttons/BlackPillButton";
 
 const Projects = () => {
   const [isEllipsisActive, setIsEllipsisActive] = useState("");
@@ -76,14 +77,35 @@ const Projects = () => {
                   <p className="text-sm text-[#7C7C7C] min-[375px]:w-[266px] md:w-[315px] font-normal">{item.about}</p>
                 </div>
               </div>
-              <div className="hidden md:grid">
-                <Link target="_blank" href={item.behance}>
+              <div className="hidden md:flex items-center justify-end">
+                {/* <Link target="_blank" href={item.behance}>
                   <Image src="/images/behance.svg" alt="view on behance" width={135} height={100} />
                 </Link>
                 <Link target="_blank" href={item.figma}>
                   <Image src="/images/figma.svg" alt="view on figma" width={147} height={31} />
-                </Link>
+                </Link> */}
+                {/* <Link target="_blank" href={'/case-studies/' + item.caseStudy}>
+                  <BlackPillButton title="Read case study" />
+                </Link> */}
+                {item.caseStudy && (
+                  <Link href={'/case-studies/' + item.caseStudy}>
+                    <BlackPillButton title="Read case study" />
+                  </Link>
+                )}
               </div>
+            </div>
+            <div className="md:hidden flex items-center justify-end gap-2 pt-4">
+              <Link target="_blank" href={item.behance}>
+                  <Image src="/images/project-behance-rounded.svg" alt="view on behance" width={38} height={38} />
+              </Link>
+              <Link target="_blank" href={item.figma}>
+                <Image src="/images/project-figma-rounded.svg" alt="view on figma" width={38} height={38} />
+              </Link>
+              {item.caseStudy && (
+                <Link href={'/case-studies/' + item.caseStudy}>
+                  <BlackPillButton title="Read case study" />
+                </Link>
+              )}
             </div>
             <p className="text-[#19170E] f-satoshi-bold text-lg md:text-xl pt-4">Preview</p>
             <div className="text-[#464229] text-sm md:text-base">
@@ -107,22 +129,24 @@ const Projects = () => {
               description={item.about}
             />
 
-            <div className="flex items-center gap-2 mt-4">
-              <div className="flex gap-2">
-                {item.mobile && <Image src="/images/mobile.svg" alt="Mobile design" width={18} height={18} />}
-                {item.laptop && <Image src="/images/laptop.svg" alt="Laptop design" width={18} height={18} />}
-                {item.caseStudy && <Image src="/images/branding.svg" alt="Branding" width={18} height={18} />}
+            <div className="flex itemss-center justify-between">
+              <div className="flex items-center gap-2 mt-4">
+                <div className="flex gap-2">
+                  {item.mobile && <Image src="/images/mobile.svg" alt="Mobile design" width={18} height={18} />}
+                  {item.laptop && <Image src="/images/laptop.svg" alt="Laptop design" width={18} height={18} />}
+                  {item.caseStudy && <Image src="/images/branding.svg" alt="Branding" width={18} height={18} />}
+                </div>
+                <p className="text-xs text-[#C3C1B8]">{item.platform}</p>
               </div>
-              <p className="text-xs text-[#C3C1B8]">{item.platform}</p>
-            </div>
 
-            <div className="flex mt-4 items-center justify-between md:hidden">
-              <Link target="_blank" href={item.figma}>
-                <Image src="/images/view-in-figma-mobile.svg" alt="view on figma" width={121} height={34} />
-              </Link>
-              <Link target="_blank" href={item.behance}>
-                <Image src="/images/behance-mobile.svg" alt="view on behance" width={135} height={34} />
-              </Link>
+              <div className="flex mt-4 items-center justify-end gap-2 hidden md:flex">
+                <Link target="_blank" href={item.behance}>
+                  <Image src="/images/project-behance-rounded.svg" alt="view on behance" width={42} height={42} />
+                </Link>
+                <Link target="_blank" href={item.figma}>
+                  <Image src="/images/project-figma-rounded.svg" alt="view on figma" width={42} height={42} />
+                </Link>
+              </div>
             </div>
             <hr className="bg-[#F0EEE8] w-[100%] h-[1px] mt-8 rounded-[24px]" />
           </div>
