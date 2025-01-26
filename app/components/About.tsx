@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import SpinnerAbout from "./SpinnerAbout";
+import Loader from "./general/Loader";
 // import useNowPlaying from "../hooks/useNowPlaying";
 // import NowPlaying from "./NowPlaying";
 
@@ -95,7 +96,8 @@ export const About = () => {
   return (
     <>
       {loading ? (
-        <SpinnerAbout />
+        // <SpinnerAbout />
+        <Loader pageName="About-me" />
       ) : (
         <>
           <section className="responsive pt-16">
