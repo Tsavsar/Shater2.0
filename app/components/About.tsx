@@ -10,7 +10,7 @@ import Socials from "./Socials";
 import { useEffect, useState } from "react";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
-import SpinnerAbout from "./SpinnerAbout";
+// import SpinnerAbout from "./SpinnerAbout";
 import Loader from "./general/Loader";
 // import useNowPlaying from "../hooks/useNowPlaying";
 // import NowPlaying from "./NowPlaying";
