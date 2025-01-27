@@ -27,7 +27,7 @@ const Footer = () => {
             </p>
           </div>
           <p className="text-[#9A9A9A] font-light text-[9px] md:text-xs">
-            © 2024 Shater M. Tsavsar
+            © 2025 Shater M. Tsavsar
           </p>
         </div>
       </div>
