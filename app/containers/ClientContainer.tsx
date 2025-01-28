@@ -6,6 +6,7 @@ import Loader from "../components/general/Loader";
 //aos
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import CookieModal from "../components/modals/CookieModal";
 
 export default function ClientContainer({children, pageName}: Readonly<{children: React.ReactNode, pageName: string}>){
     const [loading, setLoading] = useState<boolean>(true);
@@ -25,6 +26,7 @@ export default function ClientContainer({children, pageName}: Readonly<{children
             <div className="blur-overlay" />
             {children}
             <Footer />
+            <CookieModal />
         </>
     )
 }
