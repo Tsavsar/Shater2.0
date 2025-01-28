@@ -8,10 +8,8 @@ import PlayName from "./PlayName";
 import Redirects from "./Redirects";
 import Socials from "./Socials";
 import { useEffect, useState } from "react";
-import Footer from "./Footer";
 import Navbar from "./Navbar";
 // import SpinnerAbout from "./SpinnerAbout";
-import Loader from "./general/Loader";
 // import useNowPlaying from "../hooks/useNowPlaying";
 // import NowPlaying from "./NowPlaying";
 
@@ -95,11 +93,6 @@ export const About = () => {
 
   return (
     <>
-      {loading ? (
-        // <SpinnerAbout />
-        <Loader pageName="About-me" />
-      ) : (
-        <>
           <section className="responsive pt-16">
             <Navbar navItl="Home" navLink="/" />
             <main className={`pt-16`}>
@@ -473,10 +466,7 @@ export const About = () => {
               </div>
             </main>
           </section>
-          <Footer />
         </>
-      )}
-    </>
   );
 };
 

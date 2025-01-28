@@ -6,6 +6,7 @@ import MenuComponent from "./components/MenuComponent";
 import Redirects from "./components/Redirects";
 import { useEffect, useState } from "react";
 import Spinner from "./components/Spinner";
+import ClientContainer from "./containers/ClientContainer";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -89,12 +90,7 @@ export default function Home() {
   }, [loading]);
 
   return (
-    <>
-      {loading ? (
-        <Spinner />
-      ) : (
-        <>
-          <div className="blur-overlay" /> {/* Fixed blur overlay */}
+    <ClientContainer pageName="">
           <section className="responsive pt-16">
             <Navbar nav="About" navItl="me" navLink="/about" />
             <main className="pt-16">
@@ -195,13 +191,9 @@ export default function Home() {
                   alt="Shater's behance"
                 />
               </div>
-
               <MenuComponent />
             </main>
           </section>
-          <Footer />
-        </>
-      )}
-    </>
+        </ClientContainer>
   );
 }

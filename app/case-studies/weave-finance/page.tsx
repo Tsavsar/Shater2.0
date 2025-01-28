@@ -8,25 +8,12 @@ import Image from "next/image";
 import { FiArrowUpRight } from 'react-icons/fi'
 import Footer from "@/app/components/Footer";
 
-//aos
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import ClientContainer from "@/app/containers/ClientContainer";
 
 export default function Page(){
-    const [loading, setLoading] = useState<boolean>(true);
-
-    useEffect(() => {
-        AOS.init()
-        const timer = setTimeout(() => {
-          setLoading(false);
-        }, 500); // Simulate a 3-second loading time
-        return () => clearTimeout(timer);
-    }, []);
-
-    if(loading) return <Loader pageName="Case-studies / Weave Finance" />
 
     return(
-        <>
+        <ClientContainer pageName="Case-studies / Weave Finance">
         <section className="responsive pt-16">
             <Navbar navItl="Home" navLink="/" />
             <main className={`pt-16 responsive`}>
@@ -380,7 +367,6 @@ export default function Page(){
                 </div>
             </main>
         </section>
-        <Footer />
-        </>
+        </ClientContainer>
     )
 }
