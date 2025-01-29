@@ -1,12 +1,12 @@
 import About from '../components/About';
+import ClientContainer from '../containers/ClientContainer';
 
 const page = () => {
 	
 	return (
-		<>
-		    <div className="blur-overlay" />
+		<ClientContainer pageName='About - me'>
 			<About/>
-		</>
+		</ClientContainer>
 	);
 };
 
