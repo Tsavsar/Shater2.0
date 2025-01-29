@@ -1,11 +1,9 @@
 "use client";
 import Navbar from "./components/Navbar";
 import Image from "next/image";
-import Footer from "./components/Footer";
 import MenuComponent from "./components/MenuComponent";
 import Redirects from "./components/Redirects";
 import { useEffect, useState } from "react";
-import Spinner from "./components/Spinner";
 import ClientContainer from "./containers/ClientContainer";
 
 export default function Home() {

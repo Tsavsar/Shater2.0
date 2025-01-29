@@ -1,12 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Loader from "../../components/general/Loader";
 import Navbar from "../../components/Navbar";
 import Link from "next/link";
 import Image from "next/image";
 import { FiArrowUpRight } from 'react-icons/fi'
-import Footer from "@/app/components/Footer";
 
 import ClientContainer from "@/app/containers/ClientContainer";
 
@@ -203,10 +200,10 @@ export default function Page(){
                     <div className="mt-7 space-y-4" data-aos="fade-up">
                         <h3 className="text-lg font-extrabold text-black f-satoshi">Quick Weave</h3>
                         <p className="f-satoshi text-black-text">
-                            The biggest headache in this project was creating a solution unique to our platform, and I used Privacy as a significant source of inspiration. The challenge was that they handle third-party payments as funding sources, and I wasn't sure if I wanted to make my users do the same.
+                            The biggest headache in this project was creating a solution unique to our platform, and I used Privacy as a significant source of inspiration. The challenge was that they handle third-party payments as funding sources, and I wasn&apos;t sure if I wanted to make my users do the same.
                             <br />
                             <br /> 
-                            I realized that bypassing the fund card section and directly linking the one-time payment card to the user’s personal account balance could significantly simplify the process, enhancing user experience and increasing the security of the product.
+                            I realized that bypassing the fund card section and directly linking the one-time payment card to the user&apos;s personal account balance could significantly simplify the process, enhancing user experience and increasing the security of the product.
                         </p>
                     </div>
                     <div className="mt-5 flex items-center justify-between gap-2 w-full">
@@ -260,7 +257,7 @@ export default function Page(){
                         </div>
                     </div>
                     <div data-aos="fade-up">
-                        <p className="f-satoshi text-black-text mt-5">Another interesting design feature is the ability to see why a transaction failed. For instance, if I buy something on Amazon or a less reputable site, I wouldn't expect to be charged again in the middle of the night. However, when that happens, the system logs it, allowing you to see when a website attempted to charge you. <br /><br />Prototype:</p>
+                        <p className="f-satoshi text-black-text mt-5">Another interesting design feature is the ability to see why a transaction failed. For instance, if I buy something on Amazon or a less reputable site, I wouldn&apos;t expect to be charged again in the middle of the night. However, when that happens, the system logs it, allowing you to see when a website attempted to charge you. <br /><br />Prototype:</p>
                         <div className="relative w-full h-[250px] mt-5 py-10">
                             <Image
                                 src={'/images/weave-sub-prototype-image.png'}
@@ -278,7 +275,7 @@ export default function Page(){
                     <div className="mt-7 space-y-4" data-aos="fade-up">
                         <h3 className="text-lg font-extrabold text-black f-satoshi">Quick Weave</h3>
                         <p className="f-satoshi text-black-text">
-                            One of the challenges that made understanding Weave so difficult was the question of "Why?" For instance, why not just pool funds into one person's account instead of going through all this? It's a great question. 
+                            One of the challenges that made understanding Weave so difficult was the question of &quot;Why&quot;? For instance, why not just pool funds into one person&apos;s account instead of going through all this? It&apos;s a great question. 
                             <br />
                             <br />
                             My answer lies in management. I once worked in an office where multiple contributions were happening simultaneously, and we used an app that facilitated this process. It was a lifesaver for the person managing the funds, as I mentioned earlier.
@@ -353,7 +350,7 @@ export default function Page(){
                     <div className="mt-4 space-y-3">
                         <div className="f-satoshi text-black-text flex gap-2"> 
                             <div className="h-[5px] w-[5px] rounded-full bg-black mt-3" /> 
-                            <p className="flex-1"><span className="font-semibold">Engineers Will Hate Me:</span> While discussing this with several people, the main response was, "And who will code it?" With my background in coding, I completely understood their perspective, but it would certainly be interesting.</p>
+                            <p className="flex-1"><span className="font-semibold">Engineers Will Hate Me:</span> While discussing this with several people, the main response was, &quot;And who will code it?&quot; With my background in coding, I completely understood their perspective, but it would certainly be interesting.</p>
                         </div>
                         <div className="f-satoshi text-black-text flex gap-2"> 
                             <div className="h-[5px] w-[5px] rounded-full bg-black mt-3" /> 
@@ -361,7 +358,7 @@ export default function Page(){
                         </div>
                         <div className="f-satoshi text-black-text flex gap-2"> 
                             <div className="h-[5px] w-[5px] rounded-full bg-black mt-3" /> 
-                            <p className="flex-1"><span className="font-semibold">Functionality Is Key:</span> Throughout this process, there were moments when I thought, "Hey, this looks cool, but it doesn't work." I didn't design any visuals until there was a clear experience and idea in place, and that is truly what drives a product.</p>
+                            <p className="flex-1"><span className="font-semibold">Functionality Is Key:</span> Throughout this process, there were moments when I thought, &quot;Hey, this looks cool, but it doesn&apos;t work.&quot; I didn&apos;t design any visuals until there was a clear experience and idea in place, and that is truly what drives a product.</p>
                         </div>
                     </div>
                 </div>
