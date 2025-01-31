@@ -40,7 +40,7 @@ export const projectsData = [
     ],
     mobile: true,
     laptop: false,
-    // caseStudy: 'fundify',
+    caseStudy: 'fundify',
     platform: "Mobile App and Case Study",
     figma: "https://www.figma.com/community/file/1343872681377831336/fundify-fintech-app",
     behance: "https://www.behance.net/gallery/194894477/Fundify",

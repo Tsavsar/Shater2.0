@@ -88,7 +88,7 @@ const Projects = () => {
                   <BlackPillButton title="Read case study" />
                 </Link> */}
                 {item.caseStudy && (
-                  <Link href={'/case-studies/' + item.caseStudy}>
+                  <Link href={'/' + item.caseStudy}>
                     <BlackPillButton title="Read case study" />
                   </Link>
                 )}
@@ -102,7 +102,7 @@ const Projects = () => {
                 <Image src="/images/project-figma-rounded.svg" alt="view on figma" width={38} height={38} />
               </Link>
               {item.caseStudy && (
-                <Link href={'/case-studies/' + item.caseStudy}>
+                <Link href={'/' + item.caseStudy}>
                   <BlackPillButton title="Read case study" />
                 </Link>
               )}
