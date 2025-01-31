@@ -1,6 +1,6 @@
 "use client";
 
-import Navbar from "../../components/Navbar";
+import Navbar from "../components/Navbar";
 import Link from "next/link";
 import Image from "next/image";
 import { FiArrowUpRight } from 'react-icons/fi'
@@ -10,12 +10,12 @@ import ClientContainer from "@/app/containers/ClientContainer";
 export default function Page(){
 
     return(
-        <ClientContainer pageName="Case-studies / Weave Finance">
+        <ClientContainer pageName="Weave Finance">
         <section className="responsive pt-16">
             <Navbar navItl="Home" navLink="/" />
             <main className={`pt-16 responsive`}>
                 <div className="flex items-center gap-2 f-p22">
-                    <Link href='/'>Home</Link> <span className="f-satoshi">/</span> <Link href='/case-studies/weave-finance'>Weave Finance</Link>
+                    <Link href='/'>Back to home</Link> <span className="f-satoshi">/</span> <Link href='/case-studies/weave-finance'>Weave Finance</Link>
                 </div>
                 <div className="w-full h-[250px] mt-4 relative">
                     <Image
