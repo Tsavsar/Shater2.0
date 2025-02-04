@@ -99,12 +99,12 @@ export default function Home() {
                 <hr className="title-slide divider" />
                 <li className="title-slide">Design Speaker</li>
               </ul>
-              <h1 className="py-5 text-[#19170E] text-5xl name font-mena800 lg:w-[12ch]">
+              <h1 className="py-5 text-[#19170E] text-5xl name font-mena800 lg:w-[12ch]" data-aos="fade-up" data-aos-delay="50">
                 Mchiaga Tsavsar Shater{" "}
               </h1>
               {/* links */}
               <ul className="flex flex-wrap gap-4 utility-links">
-                <li className=" ">
+                <li className=" " data-aos="fade-up" data-aos-delay="150">
                   <a href="mailto:shatermt@gmail.com">
                     <Image
                       src="/images/email.svg"
@@ -117,7 +117,7 @@ export default function Home() {
                     </span>
                   </a>
                 </li>
-                <li className="">
+                <li className="" data-aos="fade-up" data-aos-delay="250">
                   <a
                     target="_blank"
                     href="https://drive.google.com/file/d/133Vazpy3ag29W0Z_FEn-xGS1fEIvQAIK/view"
@@ -131,7 +131,7 @@ export default function Home() {
                     Download CV
                   </a>
                 </li>
-                <li className="">
+                <li className="" data-aos="fade-up" data-aos-delay="350">
                   <a
                     target="_blank"
                     href="https://open.spotify.com/playlist/6OnjKgEFmgmYwH37tSXPaU?si=ea60d7c76e3e4bed"
@@ -147,7 +147,7 @@ export default function Home() {
                 </li>
               </ul>
               {/* about */}
-              <p className="min-[375px]:w-[342px] md:w-auto f-satoshi font-normal text-base pt-10 text-[#464229]">
+              <p className="min-[375px]:w-[342px] md:w-auto f-satoshi font-normal text-base pt-10 text-[#464229]" data-aos="fade-up" data-aos-delay="250">
                 Shater Tsavsar{" "}
                 <span className="text-[#C3C1B8]">
                   ( /ˈʃɑː-teɪ/ /ˈtɑːv-sɑː/ )
@@ -169,7 +169,7 @@ export default function Home() {
               </p>
 
               {/* socials */}
-              <div className="flex gap-4 min-[375px]:w-[342px] md:w-auto  pb-10 pt-4 items-center">
+              <div className="flex gap-4 min-[375px]:w-[342px] md:w-auto  pb-10 pt-4 items-center" data-aos="fade-up" data-aos-delay="250">
                 <Redirects
                   style="text-[#7C7C7C] f-satoshi text-[15px] leading-[22.5px]"
                   href="https://x.com/Tsavsar_/"

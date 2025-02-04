@@ -49,7 +49,7 @@ const Projects = () => {
 
   return (
     <div className="f-satoshi">
-      <p className="tgt-slide font-normal text-base text-[#464229]">
+      <p className="tgt-slide font-normal text-base text-[#464229]" data-aos="fade-up">
         A collection of projects I’ve worked on in the process of learning and improving as a designer and to also show
         my ability to solve issues with design.
       </p>

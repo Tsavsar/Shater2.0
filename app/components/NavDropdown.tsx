@@ -85,7 +85,7 @@ const NavDropdown: React.FC<NavDropdownProps> = props => {
   }, []);
 
   return (
-    <div className="flex pb-10 items-center gap-4">
+    <div className="flex pb-10 items-center gap-4" data-aos="fade-up" data-aos-delay="350">
       <div className="c-menu">
         <>
           <svg className="svg-area" width="16px" height="16px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
