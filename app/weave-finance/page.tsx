@@ -31,9 +31,9 @@ export default function Page(){
                     <div className="flex items-center justify-between gap-2 mt-3">
                         <p className="text-[#1a1a1a] f-satoshi">7 min read <span className="opacity-0"> | </span> December 23rd, 2024</p>
                         <div className="flex items-center gap-2">
-                            <Link href={'/'} className="flex items-center gap-2 hover:gap-3 duration-300 ease-in-out text-[#9E9E9E] f-satoshi group">Behance <FiArrowUpRight size={18} className="group-hover:rotate-45 duration-300 ease-in-out" /> </Link>
-                            <Link href={'/'} className="flex items-center gap-2 hover:gap-3 duration-300 ease-in-out text-[#9E9E9E] f-satoshi group">Figma <FiArrowUpRight size={18} className="group-hover:rotate-45 duration-300 ease-in-out" /> </Link>
-                            <Link href={'/'} className="flex items-center gap-2 hover:gap-3 duration-300 ease-in-out text-[#9E9E9E] f-satoshi group">Download PDF <FiArrowUpRight size={18} className="group-hover:rotate-45 duration-300 ease-in-out" /> </Link>
+                            <Link href={'https://www.behance.net/gallery/215327829/Weave-Finance-A-Fintech-solutions-exploration'} className="flex items-center gap-2 hover:gap-3 duration-300 ease-in-out text-[#9E9E9E] f-satoshi group">Behance <FiArrowUpRight size={18} className="group-hover:rotate-45 duration-300 ease-in-out" /> </Link>
+                            <Link href={'https://www.figma.com/community/file/1453297996898107723/weave-finance'} className="flex items-center gap-2 hover:gap-3 duration-300 ease-in-out text-[#9E9E9E] f-satoshi group">Figma <FiArrowUpRight size={18} className="group-hover:rotate-45 duration-300 ease-in-out" /> </Link>
+                            <Link target="_blank" href={'/'} className="flex items-center gap-2 hover:gap-3 duration-300 ease-in-out text-[#9E9E9E] f-satoshi group">Download PDF <FiArrowUpRight size={18} className="group-hover:rotate-45 duration-300 ease-in-out" /> </Link>
                         </div>
                     </div>
                     <p className="text-base mt-7 f-satoshi text-black-text">Weave is a fintech solution based in Norway, created by me to showcase my real-world problem-solving abilities, as well as my approach to developing a product that is ready for that market.</p>

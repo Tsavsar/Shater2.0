@@ -29,8 +29,8 @@ export default function Page(){
                         <div className="flex items-center justify-between gap-2 mt-3">
                             <p className="text-[#1a1a1a] f-satoshi">7 min read <span className="opacity-0"> | </span> Febuary 5th, 2024</p>
                             <div className="flex items-center gap-2">
-                                <Link href={'/'} className="flex items-center gap-2 hover:gap-3 duration-300 ease-in-out text-[#9E9E9E] f-satoshi group">Behance <FiArrowUpRight size={18} className="group-hover:rotate-45 duration-300 ease-in-out" /> </Link>
-                                <Link href={'/'} className="flex items-center gap-2 hover:gap-3 duration-300 ease-in-out text-[#9E9E9E] f-satoshi group">Figma <FiArrowUpRight size={18} className="group-hover:rotate-45 duration-300 ease-in-out" /> </Link>
+                                <Link href={'https://www.behance.net/gallery/194894477/Fundify'} className="flex items-center gap-2 hover:gap-3 duration-300 ease-in-out text-[#9E9E9E] f-satoshi group">Behance <FiArrowUpRight size={18} className="group-hover:rotate-45 duration-300 ease-in-out" /> </Link>
+                                <Link href={'https://www.figma.com/community/file/1343872681377831336/fundify-fintech-app'} className="flex items-center gap-2 hover:gap-3 duration-300 ease-in-out text-[#9E9E9E] f-satoshi group">Figma <FiArrowUpRight size={18} className="group-hover:rotate-45 duration-300 ease-in-out" /> </Link>
                                 <Link href={'/'} className="flex items-center gap-2 hover:gap-3 duration-300 ease-in-out text-[#9E9E9E] f-satoshi group">Download PDF <FiArrowUpRight size={18} className="group-hover:rotate-45 duration-300 ease-in-out" /> </Link>
                             </div>
                         </div>
