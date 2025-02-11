@@ -6,6 +6,7 @@ import Image from "next/image";
 import { FiArrowUpRight } from 'react-icons/fi'
 
 import ClientContainer from "@/app/containers/ClientContainer";
+import PrototypeVideo from "../components/general/PrototypeVideo";
 
 export default function Page(){
 
@@ -27,13 +28,13 @@ export default function Page(){
                     />
                 </div>
                 <div data-aos="fade-up">
-                    <h1 className="text-3xl font-extrabold md:text-4xl f-satoshi mt-5">Weave Finance</h1>
-                    <div className="flex items-center justify-between gap-2 mt-3">
+                    <h1 className="text-4xl font-extrabold md:text-5xl f-satoshi mt-5">Weave Finance</h1>
+                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mt-3">
                         <p className="text-[#1a1a1a] f-satoshi">7 min read <span className="opacity-0"> | </span> December 23rd, 2024</p>
                         <div className="flex items-center gap-2">
-                            <Link href={'https://www.behance.net/gallery/215327829/Weave-Finance-A-Fintech-solutions-exploration'} className="flex items-center gap-2 hover:gap-3 duration-300 ease-in-out text-[#9E9E9E] f-satoshi group">Behance <FiArrowUpRight size={18} className="group-hover:rotate-45 duration-300 ease-in-out" /> </Link>
-                            <Link href={'https://www.figma.com/community/file/1453297996898107723/weave-finance'} className="flex items-center gap-2 hover:gap-3 duration-300 ease-in-out text-[#9E9E9E] f-satoshi group">Figma <FiArrowUpRight size={18} className="group-hover:rotate-45 duration-300 ease-in-out" /> </Link>
-                            <Link target="_blank" href={'/'} className="flex items-center gap-2 hover:gap-3 duration-300 ease-in-out text-[#9E9E9E] f-satoshi group">Download PDF <FiArrowUpRight size={18} className="group-hover:rotate-45 duration-300 ease-in-out" /> </Link>
+                            <Link target="_blank" href={'https://www.behance.net/gallery/215327829/Weave-Finance-A-Fintech-solutions-exploration'} className="flex items-center gap-2 hover:gap-3 duration-300 ease-in-out text-[#9E9E9E] f-satoshi group">Behance <FiArrowUpRight size={18} className="group-hover:rotate-45 duration-300 ease-in-out" /> </Link>
+                            <Link target="_blank" href={'https://www.figma.com/community/file/1453297996898107723/weave-finance'} className="flex items-center gap-2 hover:gap-3 duration-300 ease-in-out text-[#9E9E9E] f-satoshi group">Figma <FiArrowUpRight size={18} className="group-hover:rotate-45 duration-300 ease-in-out" /> </Link>
+                            <Link target="_blank" href={'/weave-finance.pdf'} className="flex items-center gap-2 hover:gap-3 duration-300 ease-in-out text-[#9E9E9E] f-satoshi group">Download PDF <FiArrowUpRight size={18} className="group-hover:rotate-45 duration-300 ease-in-out" /> </Link>
                         </div>
                     </div>
                     <p className="text-base mt-7 f-satoshi text-black-text">Weave is a fintech solution based in Norway, created by me to showcase my real-world problem-solving abilities, as well as my approach to developing a product that is ready for that market.</p>
@@ -64,13 +65,13 @@ export default function Page(){
                         <h3 className="text-lg font-extrabold text-black f-satoshi">The goal</h3>
                         <p className="text-base mt-5 f-satoshi text-black-text">Weave is a fintech solution based in Norway, created by me to showcase my real-world problem-solving abilities, as well as my approach to developing a product that is ready for that market.</p>
                     </div>
-                    <div className="w-full h-[250px] mt-7 relative">
+                    <div className="w-full h-[350px] mt-7 relative">
                         <Image
                             src={'/images/weave-cards-image.png'}
                             alt=""
                             fill
                             objectFit="cover"
-                            className="rounded-2xl md:rounded-3xl"
+                            className="rounded-2xl"
                         />
                     </div>
                 </div>
@@ -183,15 +184,12 @@ export default function Page(){
                     </div>
                     <div data-aos="fade-up">
                         <p className="f-satoshi text-black-text mt-5">There is also a dedicated page for managing all their subscriptions, allowing users to adjust payment plans, freeze or cancel subscriptions, and add new ones. Additionally, users can view and download receipts for all previous payments made. <br /><br />Prototype:</p>
-                        <div className="relative w-full h-[250px] mt-5 py-10">
-                            <Image
-                                src={'/images/weave-sub-prototype-image.png'}
-                                alt="weave sub prototype"
-                                fill
-                                objectFit="contain"
-                                className="rounded-2xl md:rounded-3xl"
+                        <div className="relative w-full h-[250px] mt-5">
+                            <PrototypeVideo
+                                url="/videos/weave-sub-prototype.mov"
+                                extension="mov"
                             />
-                            <div className="h-full w-full bg-black/10 absolute top-0 left-0 rounded-2xl md:rounded-3x" />
+                            {/* <div className="h-full w-full bg-black/10 absolute top-0 left-0 rounded-2xl md:rounded-3x" /> */}
                         </div>
                     </div>
                 </div>
@@ -258,15 +256,12 @@ export default function Page(){
                     </div>
                     <div data-aos="fade-up">
                         <p className="f-satoshi text-black-text mt-5">Another interesting design feature is the ability to see why a transaction failed. For instance, if I buy something on Amazon or a less reputable site, I wouldn&apos;t expect to be charged again in the middle of the night. However, when that happens, the system logs it, allowing you to see when a website attempted to charge you. <br /><br />Prototype:</p>
-                        <div className="relative w-full h-[250px] mt-5 py-10">
-                            <Image
-                                src={'/images/weave-sub-prototype-image.png'}
-                                alt="weave sub prototype"
-                                fill
-                                objectFit="contain"
-                                className="rounded-2xl md:rounded-3xl"
+                        <div className="relative w-full h-[250px] mt-5">
+                            <PrototypeVideo
+                                url="/videos/quick-weave-prototype.mov"
+                                extension="mov"
                             />
-                            <div className="h-full w-full bg-black/10 absolute top-0 left-0 rounded-2xl md:rounded-3x" />
+                            {/* <div className="h-full w-full bg-black/10 absolute top-0 left-0 rounded-2xl md:rounded-3x" /> */}
                         </div>
                     </div>
                 </div>
@@ -333,15 +328,12 @@ export default function Page(){
                     </div>
                     <div data-aos="fade-up">
                         <p className="f-satoshi text-black-text mt-5">This experience led me to increase the number of cards a user can have on their account, allowing for the creation of multiple cards for various occasions. <br /><br />Prototype:</p>
-                        <div className="relative w-full h-[250px] mt-5 py-10">
-                            <Image
-                                src={'/images/weave-sub-prototype-image.png'}
-                                alt="weave sub prototype"
-                                fill
-                                objectFit="contain"
-                                className="rounded-2xl md:rounded-3xl"
+                        <div className="relative w-full h-[250px] mt-5">
+                            <PrototypeVideo
+                                url="/videos/weave-spend-prototype.mov"
+                                extension="mov"
                             />
-                            <div className="h-full w-full bg-black/10 absolute top-0 left-0 rounded-2xl md:rounded-3x" />
+                            {/* <div className="h-full w-full bg-black/10 absolute top-0 left-0 rounded-2xl md:rounded-3x" /> */}
                         </div>
                     </div>
                 </div>
