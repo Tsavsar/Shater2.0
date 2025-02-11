@@ -171,22 +171,20 @@ export default function Home() {
               {/* socials */}
               <div className="flex gap-4 min-[375px]:w-[342px] md:w-auto  pb-10 pt-4 items-center" data-aos="fade-up" data-aos-delay="250">
                 <Redirects
-                  style="text-[#7C7C7C] f-satoshi text-[15px] leading-[22.5px]"
-                  href="https://x.com/Tsavsar_/"
-                  text="X(Twitter)"
-                  alt="Shater's twitter"
+                  style="text-[#1a1a1a]"
+                  href="https://x.com/Tsavsar_"
+                  text="X (Twitter)"
                 />
                 <Redirects
-                  style="text-[#7C7C7C] f-satoshi text-[15px] leading-[22.5px]"
-                  href="#"
+                  style="text-[#1a1a1a]"
+                  href="https://www.linkedin.com/in/tsavsar/"
                   text="Linkedin"
-                  alt="Shater's linkedin"
+                  // alt="Shater's linkedin"
                 />
                 <Redirects
-                  style="text-[#7C7C7C] f-satoshi text-[15px] leading-[22.5px]"
-                  href="https://www.behance.net/gallery/194894477/Fundify"
-                  text="Behance"
-                  alt="Shater's behance"
+                  style="text-[#1a1a1a]"
+                  href="https://layers.to/tsavsar"
+                  text="Layers"
                 />
               </div>
               <MenuComponent />
