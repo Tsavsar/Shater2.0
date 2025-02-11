@@ -421,12 +421,12 @@ export const About = () => {
                     <Redirects
                       href="https://www.chess.com/openings/Queens-Pawn-Opening-Chigorin-Variation"
                       text="Queen's Pawn: Chigorin Variation"
-                      alt="Queen's Pawn: Chigorin Variation"
+                      // alt="Queen's Pawn: Chigorin Variation"
                     />{" "}
                     with white and the{" "}
                     <Redirects
                       href="https://www.chess.com/openings/Kings-Pawn-Opening"
-                      alt="King's Pawn Opening"
+                      // alt="King's Pawn Opening"
                       text="King's Pawn Opening"
                     />{" "}
                     with black.
