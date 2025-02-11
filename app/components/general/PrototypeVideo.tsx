@@ -1,4 +1,4 @@
-export default function PrototypeVideo({url, extension}:{url: string, extension: string}){
+export default function PrototypeVideo({url}:{url: string}){
     return (
             <div className="h-full w-full">
                 <video

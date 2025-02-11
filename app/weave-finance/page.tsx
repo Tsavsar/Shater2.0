@@ -220,7 +220,6 @@ export default function Page(){
                         <div className="relative w-full h-[250px] mt-5">
                             <PrototypeVideo
                                 url="/videos/weave-sub-prototype.mov"
-                                extension="mov"
                             />
                             {/* <div className="h-full w-full bg-black/10 absolute top-0 left-0 rounded-2xl md:rounded-3x" /> */}
                         </div>
@@ -292,7 +291,6 @@ export default function Page(){
                         <div className="relative w-full h-[250px] mt-5">
                             <PrototypeVideo
                                 url="/videos/quick-weave-prototype.mov"
-                                extension="mov"
                             />
                             {/* <div className="h-full w-full bg-black/10 absolute top-0 left-0 rounded-2xl md:rounded-3x" /> */}
                         </div>
@@ -364,7 +362,6 @@ export default function Page(){
                         <div className="relative w-full h-[250px] mt-5">
                             <PrototypeVideo
                                 url="/videos/weave-spend-prototype.mov"
-                                extension="mov"
                             />
                             {/* <div className="h-full w-full bg-black/10 absolute top-0 left-0 rounded-2xl md:rounded-3x" /> */}
                         </div>

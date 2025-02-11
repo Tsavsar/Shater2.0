@@ -67,7 +67,7 @@ const NowPlaying = () => {
               <Redirects
                 href={currentTrack?.url || "#"}
                 text={""}
-                alt="Currently playing"
+                // alt="Currently playing"
               />
             </p>
             <p className="text-[#979797] break-music text-sm f-satoshi">
