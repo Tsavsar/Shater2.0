@@ -1,5 +1,6 @@
-"use client";
+// "use client";
 
+import { Metadata } from 'next'
 import Navbar from "../components/Navbar";
 import Link from "next/link";
 import Image from "next/image";
@@ -7,6 +8,38 @@ import { FiArrowUpRight } from 'react-icons/fi'
 
 import ClientContainer from "@/app/containers/ClientContainer";
 import PrototypeVideo from "../components/general/PrototypeVideo";
+
+
+const domain = 'shatermt.com'
+
+export const metadata: Metadata = {
+  title: 'Weave Finance Case Study',
+  description: 'Weave is a fintech solution based in Norway, created by me to showcase my real-world problem-solving abilities, as well as my approach to developing a product that is ready for that market.',
+  keywords: ['case study', 'finance'],
+  
+  openGraph: {
+    title: 'Weave Finance Case Study',
+    description: 'Weave is a fintech solution based in Norway, created by me to showcase my real-world problem-solving abilities, as well as my approach to developing a product that is ready for that market.',
+    type: 'website',
+    url: `${domain}/your-page-path`,
+    siteName: 'Your Site Name',
+    images: [
+      {
+        url: `${domain}/images/weave-display-image.png`,
+        width: 1200,
+        height: 630,
+        alt: 'Weave finance case study by Tsavsar Shater',
+      },
+    ],
+  },
+  
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Weave Finance Case Study',
+    description: 'Weave finance case study by Tsavsar Shater',
+    images: `${domain}/images/weave-display-image.png`,
+  }
+}
 
 export default function Page(){
 

@@ -1,10 +1,42 @@
-"use client"
+// "use client"
 
 import ClientContainer from "@/app/containers/ClientContainer";
 import Navbar from "../components/Navbar";
 import Link from "next/link";
 import Image from "next/image";
 import { FiArrowUpRight } from 'react-icons/fi'
+import { Metadata } from "next";
+
+const domain = 'shatermt.com'
+
+export const metadata: Metadata = {
+  title: 'Fundify Case Study',
+  description: 'Fundify was a task given to me by a company, thankfully i passed and eventually got the job. Here’s a break Down of what went into designing this product while hitting all the edges and requirements.',
+  keywords: ['case study', 'finance'],
+  
+  openGraph: {
+    title: 'Fundify Case Study',
+    description: 'Fundify Case Study by Tsavsar Shater',
+    type: 'website',
+    url: `${domain}/your-page-path`,
+    siteName: 'Your Site Name',
+    images: [
+      {
+        url: `${domain}/images/fundify/desktop.png`,
+        width: 1200,
+        height: 630,
+        alt: 'Fundify Case Study by Tsavsar Shater',
+      },
+    ],
+  },
+  
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Fundify Case Study',
+    description: 'Fundify Case Study by Tsavsar Shater',
+    images: `${domain}/images/fundify/desktop.png`,
+  }
+}
 
 export default function Page(){
     return(
