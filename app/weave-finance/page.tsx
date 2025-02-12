@@ -217,7 +217,7 @@ export default function Page(){
                     </div>
                     <div data-aos="fade-up">
                         <p className="f-satoshi text-black-text mt-5">There is also a dedicated page for managing all their subscriptions, allowing users to adjust payment plans, freeze or cancel subscriptions, and add new ones. Additionally, users can view and download receipts for all previous payments made. <br /><br />Prototype:</p>
-                        <div className="relative w-full h-[250px] mt-5">
+                        <div className="relative w-full mt-5">
                             <PrototypeVideo
                                 url="/videos/weave-sub-prototype.mov"
                             />
@@ -288,7 +288,7 @@ export default function Page(){
                     </div>
                     <div data-aos="fade-up">
                         <p className="f-satoshi text-black-text mt-5">Another interesting design feature is the ability to see why a transaction failed. For instance, if I buy something on Amazon or a less reputable site, I wouldn&apos;t expect to be charged again in the middle of the night. However, when that happens, the system logs it, allowing you to see when a website attempted to charge you. <br /><br />Prototype:</p>
-                        <div className="relative w-full h-[250px] mt-5">
+                        <div className="relative w-full mt-5">
                             <PrototypeVideo
                                 url="/videos/quick-weave-prototype.mov"
                             />
@@ -359,7 +359,7 @@ export default function Page(){
                     </div>
                     <div data-aos="fade-up">
                         <p className="f-satoshi text-black-text mt-5">This experience led me to increase the number of cards a user can have on their account, allowing for the creation of multiple cards for various occasions. <br /><br />Prototype:</p>
-                        <div className="relative w-full h-[250px] mt-5">
+                        <div className="relative w-full mt-5">
                             <PrototypeVideo
                                 url="/videos/weave-spend-prototype.mov"
                             />
