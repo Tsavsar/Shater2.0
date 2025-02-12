@@ -99,7 +99,7 @@ export default function Home() {
                 <hr className="title-slide divider" />
                 <li className="title-slide">Design Speaker</li>
               </ul>
-              <h1 className="py-5 text-[#19170E] text-5xl name font-mena800 lg:w-[12ch]" data-aos="fade-up" data-aos-delay="50">
+              <h1 className="py-5 text-[#19170E] text-5xl name f-p22 font-bold lg:w-[12ch]" data-aos="fade-up" data-aos-delay="50">
                 Mchiaga Tsavsar Shater{" "}
               </h1>
               {/* links */}

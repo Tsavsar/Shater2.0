@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { FiArrowUpRight } from 'react-icons/fi'
 import { Metadata } from "next";
+import PrototypeVideo from "../components/general/PrototypeVideo";
 
 const domain = 'shatermt.com'
 
@@ -217,13 +218,9 @@ export default function Page(){
                     </div>
                     <div className="mt-7 space-y-5" data-aos="fade-up" data-aos-offest="100">
                         <h3 className="text-lg font-extrabold text-black f-satoshi">Prototype</h3>
-                        <div className="relative w-full h-[350px] mt-5 py-10 rounded-2xl md:rounded-3xl overflow-hidden">
-                            <Image
-                                src={'/images/fundify-2/Slide10.png'}
-                                alt="fundify prototype"
-                                fill
-                                objectFit="cover"
-                                className="rounded-2xl md:rounded-3xl hover:scale-105 ease-in-out duration-300"
+                        <div className="relative w-full mt-5 rounded-2xl md:rounded-3xl overflow-hidden">
+                            <PrototypeVideo
+                                url="/videos/fundify-prototype.mov"
                             />
                         </div>
                     </div>
