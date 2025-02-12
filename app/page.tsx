@@ -99,7 +99,7 @@ export default function Home() {
                 <hr className="title-slide divider" />
                 <li className="title-slide">Design Speaker</li>
               </ul>
-              <h1 className="py-5 text-[#19170E] text-5xl name f-p22 font-bold lg:w-[12ch]" data-aos="fade-up" data-aos-delay="50">
+              <h1 className="py-5 text-[#19170E] text-5xl md:text-6xl name f-p22 font-bold lg:w-[12ch]" data-aos="fade-up" data-aos-delay="50">
                 Mchiaga Tsavsar Shater{" "}
               </h1>
               {/* links */}
@@ -147,15 +147,15 @@ export default function Home() {
                 </li>
               </ul>
               {/* about */}
-              <p className="min-[375px]:w-[342px] md:w-auto f-satoshi font-normal text-base pt-10 text-[#464229]" data-aos="fade-up" data-aos-delay="250">
+              <p className="min-[375px]:w-[342px] md:w-auto f-satoshi font-normal text-base pt-10 text-[#1a1a1a]" data-aos="fade-up" data-aos-delay="250">
                 Shater Tsavsar{" "}
-                <span className="text-[#C3C1B8]">
+                <span className="text-[#9E9E9E]">
                   ( /ˈʃɑː-teɪ/ /ˈtɑːv-sɑː/ )
                 </span>{" "}
                 — product designer by day, Knicks & Arsenal fan by night.
                 Currently building{" "}
                 <a target="_blank" href="https://www.opentape.io/">
-                <span className=".f-satoshi-medium">Opentape</span>
+                <span className=".f-satoshi-medium font-medium">Opentape</span>
                   <Image
                     src="/images/arrow.svg"
                     alt="What I'm currrently building"
